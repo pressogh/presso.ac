@@ -34,7 +34,7 @@ pipeline {
                         }
                         sh 'docker run -d \
                             --name $JOB_NAME \
-                            -p 3000:3000 \
+                            -p 3001:3000 \
                             --restart unless-stopped \
                             -e "TZ=Asia/Seoul" \
                             --network app_custom_network \
