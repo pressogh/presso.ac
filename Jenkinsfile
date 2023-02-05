@@ -34,15 +34,23 @@ pipeline {
                         }
                         sh 'docker run -d \
                             --name $JOB_NAME \
-                            -p 3001:3000 \
                             --restart unless-stopped \
                             -e "TZ=Asia/Seoul" \
                             --network app_custom_network \
-                            --ip 172.18.0.4 \
+                            --ip 172.19.0.4 \
                             $USERNAME/$JOB_NAME:latest'
                     }
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            slackSend (channel: "#빌드-로그", color: "good", message: "${env.JOB_NAME} Build successful\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
+        }
+        failure {
+            slackSend (channel: "#빌드-로그", color: "#FF0000", message: "${env.JOB_NAME} Build failed\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
         }
     }
 }
