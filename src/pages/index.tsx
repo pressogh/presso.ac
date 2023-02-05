@@ -1,5 +1,14 @@
 import Head from 'next/head'
+import styled from "styled-components";
 
+const Container = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 1000px;
+	@media (max-width: 1000px) {
+		width: 100%;
+	}
+`
 export default function Home() {
 	return (
 		<>
@@ -9,9 +18,9 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div>
+			<Container>
 				Hello World
-			</div>
+			</Container>
 		</>
 	)
 }

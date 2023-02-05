@@ -2,15 +2,16 @@ import type { AppProps } from 'next/app'
 import {ThemeProvider} from "styled-components";
 import {Light} from "@/styles/PressoTheme";
 import GlobalStyle from "@/styles/GlobalStyle";
-import {AppLayout} from "@/layouts/AppLayout";
+import {Reset} from "styled-reset";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<ThemeProvider theme={Light}>
-			<AppLayout>
+		<>
+			<Reset />
+			<ThemeProvider theme={Light}>
 				<GlobalStyle />
 				<Component {...pageProps} />
-			</AppLayout>
-		</ThemeProvider>
+			</ThemeProvider>
+		</>
 	);
 }

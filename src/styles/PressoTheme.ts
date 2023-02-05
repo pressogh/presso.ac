@@ -38,15 +38,7 @@ const GothamNotoMonospaceFontFamily = [
     .join(',')
 
 const White = Color.rgb(255, 255, 255)
-const Black = Color.rgb(11, 27, 56)
-
-const Breakpoints = {
-    xs: 0,
-    sm: 600,
-    md: 960,
-    lg: 1280,
-    xl: 1920,
-}
+const Black = Color.rgb(37, 37, 37)
 
 const Light: PressoTheme = {
     fontFamily: GothamNotoFontFamily,
@@ -77,4 +69,4 @@ const castShadow = (
 }
 
 export type { PressoTheme }
-export { Breakpoints, Light, Dark, castShadow }
+export { Light, Dark, castShadow }
