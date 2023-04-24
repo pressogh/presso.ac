@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
         font-display: swap;
     }
 
-    /* TODO move to ShiftTheme */
     .tabular {
         font-family: "Gotham SSm Tabular A", "Gotham SSm Tabular B", "Noto Sans KR",
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",

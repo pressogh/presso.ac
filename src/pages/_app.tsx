@@ -3,10 +3,16 @@ import {ThemeProvider} from "styled-components";
 import {Light} from "@/styles/PressoTheme";
 import GlobalStyle from "@/styles/GlobalStyle";
 import {Reset} from "styled-reset";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<Head>
+				<title>presso / Kanghyoek Lee</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 			<Reset />
 			<ThemeProvider theme={Light}>
 				<GlobalStyle />
