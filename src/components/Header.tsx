@@ -5,19 +5,19 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 96px;
+    height: 80px;
     background-color: white;
     color: #252525;
     padding: 0 20% 0 20%;
     font-size: 2rem;
-    font-weight: lighter;
+    font-weight: bold;
 `
 
 const Header = () => {
     return (
         <HeaderContainer>
             <div>
-                프레소
+                Who is PRESSO?
             </div>
         </HeaderContainer>
     )

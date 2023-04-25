@@ -1,21 +1,24 @@
-import styled from "styled-components";
 import Header from "@/components/Header";
+import {NotionPage} from "@/components/NotionPage";
+import {rootNotionPageId} from "../../lib/config";
+import notion from "../../lib/notion";
+import {ExtendedRecordMap} from "notion-types";
 
-const Container = styled.div`
-	display: flex;
-	justify-content: center;
-	width: 1000px;
-	@media (max-width: 1000px) {
-		width: 100%;
+export const getStaticProps = async() => {
+	const recordMap = await notion.getPage(rootNotionPageId);
+
+	return {
+		props: {
+			recordMap
+		},
+		revalidate: 10
 	}
-`
-export default function Home() {
+}
+
+export default function Home({ recordMap }: { recordMap: ExtendedRecordMap }) {
 	return (
-		<>
-			<Header />
-			<Container>
-				Hello World
-			</Container>
-		</>
+		<div>
+			<NotionPage recordMap={recordMap} />
+		</div>
 	)
 }

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { PressoTheme } from '@/styles/PressoTheme'
+import { createGlobalStyle } from 'styled-components';
+import { PressoTheme } from '@/styles/PressoTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
     * {
@@ -9,14 +9,14 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
     }
 
     ::selection {
-        color: ${({ theme }) => theme.textColorInverted.toString()};
-        background: ${({ theme }) => theme.textColor.alpha(0.5).toString()};
+        color: ${({theme}) => theme.textColorInverted.toString()};
+        background: ${({theme}) => theme.textColor.alpha(0.5).toString()};
     }
 
     html {
-        font-family: ${({ theme }) => theme.fontFamily};
+        font-family: ${({theme}) => theme.fontFamily};
         font-weight: 400;
-        color: ${({ theme }) => theme.textColor.toString()};
+        color: ${({theme}) => theme.textColor.toString()};
 
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
         width: 100%;
         overflow: hidden;
         line-height: 1.5;
-        background: ${({ theme }) => theme.backgroundColor.toString()};
+        background: ${({theme}) => theme.backgroundColor.toString()};
     }
 
     b {
@@ -51,7 +51,6 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
 
     a:link, a:visited {
         color: inherit;
-        text-decoration: underline dashed 1px;
         transition: background .3s ease;
     }
 
@@ -64,6 +63,12 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
         vertical-align: bottom;
         font-size: 0.6em;
     }
-`
 
-export default GlobalStyle
+    .notion-inline-underscore {
+        text-underline-offset: 5px;
+        text-decoration: underline solid 0.1px;
+        text-decoration-color: #9d9d9d;
+    }
+`;
+
+export default GlobalStyle;
