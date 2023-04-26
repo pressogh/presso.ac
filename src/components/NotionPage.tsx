@@ -13,8 +13,6 @@ import {Modal} from "react-notion-x/build/third-party/modal";
 /*
 TODO(2023.04.26):
 1. Figma 연동
-2. 토글 목록 열기, 닫기 버튼
-3. Notionlytics Background Color 변경 or DataDog 사용
  */
 
 export const NotionPage = ({ recordMap, rootPageId }: {

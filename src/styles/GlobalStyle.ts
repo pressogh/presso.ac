@@ -63,12 +63,6 @@ const GlobalStyle = createGlobalStyle<{ theme: PressoTheme }>`
         vertical-align: bottom;
         font-size: 0.6em;
     }
-
-    .notion-inline-underscore {
-        text-underline-offset: 5px;
-        text-decoration: underline solid 0.1px;
-        text-decoration-color: #9d9d9d;
-    }
 `;
 
 export default GlobalStyle;
