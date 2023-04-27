@@ -150,7 +150,7 @@ index a18bcfd..f3b7c7a 100644
          value: (_E = block.properties) == null ? void 0 : _E.title,
          block
 diff --git a/node_modules/react-notion-x/src/styles.css b/node_modules/react-notion-x/src/styles.css
-index 71b8b4a..ba6df19 100644
+index 71b8b4a..aa207bd 100644
 --- a/node_modules/react-notion-x/src/styles.css
 +++ b/node_modules/react-notion-x/src/styles.css
 @@ -1,7 +1,7 @@
@@ -163,6 +163,15 @@ index 71b8b4a..ba6df19 100644
    --fg-color: rgb(55, 53, 47);
    --fg-color-0: rgba(55, 53, 47, 0.09);
    --fg-color-1: rgba(55, 53, 47, 0.16);
+@@ -77,7 +77,7 @@
+   --fg-color-6: #fff;
+   --fg-color-icon: #fff;
+ 
+-  --bg-color: #2f3437;
++  --bg-color: #191919;
+   --bg-color-0: rgb(71, 76, 80);
+   --bg-color-1: rgb(63, 68, 71);
+   --bg-color-2: rgba(135, 131, 120, 0.15);
 @@ -208,7 +208,7 @@
  }
  
