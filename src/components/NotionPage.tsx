@@ -19,7 +19,13 @@ export const NotionPage = ({ recordMap, rootPageId }: {
     const isDarkMode = useDarkMode();
 
     if (!recordMap) {
-        return null
+        if (isDarkMode) {
+            return <div style={{ width: "100vw", height: "100vh", backgroundColor: "#191919" }}></div>
+        }
+
+        return (
+            <div style={{ width: "100vw", height: "100vh", backgroundColor: "#ffffff" }}></div>
+        );
     }
 
     return (
