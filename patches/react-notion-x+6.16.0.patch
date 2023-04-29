@@ -175,7 +175,7 @@ index 216ef37..3c893bf 100644
      className: "notion-table-view",
      style: tableViewStyle
 diff --git a/node_modules/react-notion-x/src/styles.css b/node_modules/react-notion-x/src/styles.css
-index 71b8b4a..600a125 100644
+index 71b8b4a..66bd901 100644
 --- a/node_modules/react-notion-x/src/styles.css
 +++ b/node_modules/react-notion-x/src/styles.css
 @@ -1,7 +1,7 @@
@@ -273,7 +273,60 @@ index 71b8b4a..600a125 100644
    align-self: center;
    overflow: auto hidden;
  }
-@@ -1700,14 +1701,14 @@ svg.notion-page-icon {
+@@ -1214,8 +1215,9 @@ svg.notion-page-icon {
+ .notion-table-view {
+   position: relative;
+   float: left;
+-  min-width: var(--notion-max-width);
+-  padding-left: 0;
++  width: 100%;
++  padding-left: 0 !important;
++  padding-right: 0 !important;
+   transition: padding 200ms ease-out;
+ }
+ 
+@@ -1225,7 +1227,7 @@ svg.notion-page-icon {
+   z-index: 82;
+   height: 33px;
+   color: var(--fg-color-3);
+-  min-width: var(--notion-max-width);
++  width: 100%;
+ }
+ 
+ .notion-table-header-inner {
+@@ -1294,7 +1296,7 @@ svg.notion-page-icon {
+ 
+ .notion-table-body {
+   position: relative;
+-  min-width: var(--notion-max-width);
++  width: 100%;
+ }
+ 
+ .notion-table-row {
+@@ -1303,8 +1305,10 @@ svg.notion-page-icon {
+ }
+ 
+ .notion-table-cell {
++  display: flex;
++  align-items: center;
+   min-height: 32px;
+-  padding: 5px 8px 6px;
++  padding: 2px 0px 2px 0px;
+   font-size: 14px;
+   line-height: 1;
+   white-space: normal;
+@@ -1339,7 +1343,9 @@ svg.notion-page-icon {
+ 
+ .notion-table-cell-select,
+ .notion-table-cell-multi_select {
+-  padding: 7px 8px 0;
++  display: flex;
++  align-items: center;
++  padding: 0 8px 0;
+ }
+ 
+ .notion-property-select,
+@@ -1700,14 +1706,14 @@ svg.notion-page-icon {
  }
  
  .notion-board-view-size-small
@@ -292,7 +345,7 @@ index 71b8b4a..600a125 100644
    height: 180px;
  }
  
-@@ -2027,8 +2028,8 @@ svg.notion-page-icon {
+@@ -2027,8 +2033,8 @@ svg.notion-page-icon {
  }
  
  .notion-collection-card-property
@@ -303,7 +356,7 @@ index 71b8b4a..600a125 100644
    border-bottom: 1px solid;
  }
  
-@@ -2097,8 +2098,8 @@ svg.notion-page-icon {
+@@ -2097,8 +2103,8 @@ svg.notion-page-icon {
  }
  
  .notion-collection-row-property
@@ -314,7 +367,7 @@ index 71b8b4a..600a125 100644
    border-bottom: 1px solid;
  }
  
-@@ -2191,7 +2192,7 @@ svg.notion-page-icon {
+@@ -2191,7 +2197,7 @@ svg.notion-page-icon {
  
  .lazy-image-real.medium-zoom-image {
    transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
@@ -323,7 +376,7 @@ index 71b8b4a..600a125 100644
    will-change: opacity, transform;
  }
  
-@@ -2374,7 +2375,7 @@ svg.notion-page-icon {
+@@ -2374,7 +2380,7 @@ svg.notion-page-icon {
  
  .notion-search {
    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
@@ -332,7 +385,7 @@ index 71b8b4a..600a125 100644
    border-radius: 3px;
    background: var(--bg-color);
  
-@@ -2734,7 +2735,7 @@ svg.notion-page-icon {
+@@ -2734,7 +2740,7 @@ svg.notion-page-icon {
    border-radius: 6;
    padding: 0;
    box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
@@ -341,7 +394,7 @@ index 71b8b4a..600a125 100644
    animation-duration: 400ms;
    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
    animation-fill-mode: forwards;
-@@ -2801,3 +2802,36 @@ svg.notion-page-icon {
+@@ -2801,3 +2807,36 @@ svg.notion-page-icon {
    text-decoration: underline;
    cursor: pointer;
  }
