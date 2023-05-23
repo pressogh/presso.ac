@@ -1,35 +1,25 @@
 {
   "name": "presso.codes",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "patch-package"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^13.3.1",
-    "color": "^4.2.3",
-    "next": "13.3.1",
-    "notion-client": "^6.16.0",
-    "patch-package": "^7.0.0",
+    "@types/node": "20.2.3",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "next": "13.4.3",
+    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-notion-x": "^6.16.0",
-    "styled-components": "^5.3.10",
-    "styled-reset": "^4.4.6",
+    "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^7.0.0",
-    "@types/color": "^3.0.3",
-    "@types/node": "18.16.1",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
-    "@types/styled-components": "^5.1.26",
-    "eslint": "8.39.0",
-    "eslint-config-next": "13.3.1"
   }
 }
