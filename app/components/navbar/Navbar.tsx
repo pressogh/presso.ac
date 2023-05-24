@@ -5,11 +5,19 @@ import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
 import Image from "next/image";
 import logo from "@/app/components/navbar/logo.svg";
+import Link from "next/link";
+import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
+import {shallow} from "zustand/shallow";
 
 const Navbar = () => {
-	const pathName = usePathname();
+	const { growing, onGrowEnd } = useCardGrowingStore((state: any) => state, shallow);
 	const [scrollY, setScrollY] = useState(0);
 	
+	const pathName = usePathname();
+	
+	/**
+	 * 스크롤 위치를 계산하여 scrollY 상태를 업데이트
+	 */
 	useEffect(() => {
 		const onScroll = () => {
 			const totalScroll = document.documentElement.scrollTop;
@@ -24,15 +32,31 @@ const Navbar = () => {
 	}, []);
 	
 	useEffect(() => {
-		setScrollY(0);
+		onGrowEnd();
 	}, [pathName]);
 	
+	/**
+	 * 페이지 전환 시 스크롤 위치를 0으로 초기화
+	 */
+	useEffect(() => {
+		setScrollY(0);
+	}, [pathName, growing]);
+	
 	return (
-		<div className={`fixed w-full z-10 backdrop-blur-[2px]`}>
+		<div
+			className={`
+				fixed
+				w-full
+				z-10
+				${growing ? "bg-white duration-500" : "backdrop-blur-[2px]"}
+			`}
+		>
 			<div className={`py-4 border-b-[1px]`}>
 				<Container>
 					<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
-						<Image src={logo} width={150} height={100} alt={"logo"} />
+						<Link href={"/portfolio"}>
+							<Image src={logo} width={150} height={100} alt={"logo"} />
+						</Link>
 						<div>3</div>
 					</div>
 				</Container>

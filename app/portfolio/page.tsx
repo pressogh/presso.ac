@@ -3,6 +3,8 @@
 import ProjectCard from "@/app/portfolio/ProjectCard";
 import Container from "@/app/components/Container";
 import {useEffect, useRef, useState} from "react";
+import { useCardGrowingStore } from "@/app/hooks/useCardGrowingStore";
+import {shallow} from "zustand/shallow";
 
 const Page = () => {
 	const [projects, setProjects] = useState([
@@ -39,7 +41,7 @@ const Page = () => {
 			routeName: "wordable"
 		}
 	]);
-	const [growing, setGrowing] = useState(false);
+	const growing = useCardGrowingStore((state: any) => state.growing, shallow);
 	const cardRef = useRef<HTMLDivElement>(null);
 	const cardBorderRef = useRef<HTMLDivElement>(null);
 	const [position, setPosition] = useState({
@@ -71,8 +73,6 @@ const Page = () => {
 									name={item.displayName}
 									routeName={item.routeName}
 									imageSrc={"https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F102ed6b7-bca2-4312-bdec-614b91753b7a%2FiPad_Pro_12.9_.png?table=block&id=00a927eb-fe7b-4a54-8c99-6222d9af715c&cache=v2"}
-									growing={growing}
-									setGrowing={setGrowing}
 									cardRef={cardRef}
 									setPosition={setPosition}
 								/>

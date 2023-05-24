@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import {useRouter} from "next/navigation";
+import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
+import {shallow} from "zustand/shallow";
 
 interface ProjectCard {
 	name: string,
 	routeName: string,
 	imageSrc: string
-	growing: boolean,
-	setGrowing: (growing: boolean) => void,
 	cardRef: React.RefObject<HTMLDivElement>,
 	setPosition: (position: {
 		top: number,
@@ -22,16 +22,15 @@ const ProjectCard: React.FC<ProjectCard> = ({
 	name,
 	routeName,
 	imageSrc,
-	growing,
-	setGrowing,
 	cardRef,
 	setPosition
 }) => {
 	const route = useRouter();
+	const { growing, onGrowStart } = useCardGrowingStore((state: any) => state, shallow);
 	
 	const openCard = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (growing) return;
-		setGrowing(true);
+		onGrowStart();
 		
 		let target = event.currentTarget as HTMLDivElement;
 		let position = target.getBoundingClientRect();
@@ -40,7 +39,6 @@ const ProjectCard: React.FC<ProjectCard> = ({
 		let card = cardRef.current as HTMLDivElement;
 		card.onanimationend = () => {
 			route.push(`/portfolio/${routeName}`);
-			setGrowing(false);
 		}
 	}
 	
