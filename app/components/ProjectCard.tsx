@@ -48,11 +48,9 @@ const ProjectCard: React.FC<ProjectCard> = ({
 				className={`
 					relative
 					bg-white
-					py-2
-					px-3
 					border-[1px]
 					w-full
-					h-full
+					h-60
 					duration-500
 					hover:cursor-pointer
 					hover:drop-shadow-md
@@ -61,7 +59,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 				`}
 				onClick={openCard}
 			>
-				<Image src={imageSrc} alt={"profile image"} width={500} height={500} />
+				<Image src={imageSrc} alt={"profile image"} width={500} height={300} className={`h-40 object-none`} />
 				<div>{ name }</div>
 			</div>
 		</>
