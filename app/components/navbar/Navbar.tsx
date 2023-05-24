@@ -53,7 +53,7 @@ const Navbar = () => {
 			<div className={`py-4 bg-white/60 border-b-[1px]`}>
 				<Container>
 					<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
-						<Link href={"/"}>
+						<Link href={"/"} aria-label={"PRESSO"}>
 							<Logo />
 						</Link>
 						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight`}>
