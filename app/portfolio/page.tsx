@@ -63,30 +63,28 @@ const Page = () => {
 	
 	return (
 		<>
-			<div className={`flex justify-center`}>
-				<div className={`sm:w-[42rem] w-full`} style={{ paddingLeft: `calc(min(16px, 8vw))`, paddingRight: `calc(min(16px, 8vw))` }}>
-					<div className={`font-light sm:text-xl mt-10 text-md`}>
-						지금까지 총 <span className={`font-medium`}>{projects.length}</span>개의 프로젝트를 진행했어요.
-					</div>
-					<hr className={`mt-3 mb-10`} />
-					<div className={`grid sm:grid-cols-2 grid-cols-1 gap-4`}>
-						{
-							projects.map((item, index) => {
-								return (
-									<ProjectCard
-										key={index}
-										name={item.displayName}
-										routeName={item.routeName}
-										imageSrc={"https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F102ed6b7-bca2-4312-bdec-614b91753b7a%2FiPad_Pro_12.9_.png?table=block&id=00a927eb-fe7b-4a54-8c99-6222d9af715c&cache=v2"}
-										cardRef={cardRef}
-										setPosition={setPosition}
-									/>
-								)
-							})
-						}
-					</div>
+			<Container>
+				<div className={`font-light sm:text-xl mt-10 text-md`}>
+					지금까지 총 <span className={`font-medium`}>{projects.length}</span>개의 프로젝트를 진행했어요.
 				</div>
-			</div>
+				<hr className={`mt-3 mb-10`} />
+				<div className={`grid sm:grid-cols-2 grid-cols-1 gap-4`}>
+					{
+						projects.map((item, index) => {
+							return (
+								<ProjectCard
+									key={index}
+									name={item.displayName}
+									routeName={item.routeName}
+									imageSrc={"https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F102ed6b7-bca2-4312-bdec-614b91753b7a%2FiPad_Pro_12.9_.png?table=block&id=00a927eb-fe7b-4a54-8c99-6222d9af715c&cache=v2"}
+									cardRef={cardRef}
+									setPosition={setPosition}
+								/>
+							)
+						})
+					}
+				</div>
+			</Container>
 			<div
 				ref={cardBorderRef}
 				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[999] bg-gray-200`}
