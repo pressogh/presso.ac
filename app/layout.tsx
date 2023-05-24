@@ -1,8 +1,11 @@
-import './globals.css'
-import { Noto_Sans_KR } from 'next/font/google'
+import './globals.css';
+import localFont from 'next/font/local';
 import Navbar from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/Footer";
 
-const notoSansKR = Noto_Sans_KR({ weight: "400", subsets: ["latin"] })
+const pretendard = localFont({
+    src: '../public/fonts/pretendard.woff2',
+})
 
 export const metadata = {
     title: 'PRESSO | Kanghyoek Lee',
@@ -16,11 +19,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ko-kr">
-            <body className={notoSansKR.className}>
+            <body className={pretendard.className}>
                 <Navbar />
                 <div className={`pb-20 pt-14`}>
                     { children }
                 </div>
+                <Footer />
             </body>
         </html>
     )

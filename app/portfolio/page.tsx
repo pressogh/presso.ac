@@ -92,16 +92,16 @@ const Page = () => {
 				style={{ clipPath: `polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px)` }}
 			>
 				<Container>
-				<div className={"flex animate-pulse"}>
-					<div className={"w-80 h-[3rem] bg-slate-200 rounded-md"} />
-					<div className={"w-1/2 h-full bg-slate-200"} />
-				</div>
+					<div className={"flex animate-pulse"}>
+						<div className={"w-80 h-[3rem] bg-slate-200 rounded-md"} />
+						<div className={"w-1/2 h-full bg-slate-200"} />
+					</div>
 				</Container>
 			</div>
 			
 			<style jsx>{`
 				.growing {
-					animation: grow 0.75s ease-in-out forwards;
+					animation: grow 0.5s ease-in-out forwards;
 				}
 				@keyframes grow {
                     0% {
@@ -122,9 +122,9 @@ const Page = () => {
 				}
 				
 				.borderGrowing {
-					animation: borderGrowing 0.75s ease-in-out forwards;
+					animation: borderGrow 0.5s ease-in-out forwards;
                 }
-				@keyframes borderGrowing {
+				@keyframes borderGrow {
 					0% {
 						clip-path: polygon(${position.left}px ${position.top}px, ${position.left + position.width}px ${position.top}px, ${position.left + position.width}px ${position.top+ position.height}px, ${position.left}px ${position.top + position.height}px);
 					}

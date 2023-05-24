@@ -3,8 +3,7 @@
 import Container from "@/app/components/Container";
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
-import Image from "next/image";
-import logo from "@/app/components/navbar/logo.svg";
+import Logo from "@/public/logo.svg";
 import Link from "next/link";
 import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
@@ -48,20 +47,30 @@ const Navbar = () => {
 				fixed
 				w-full
 				z-10
-				${growing ? "bg-white duration-500" : "backdrop-blur-[2px]"}
+				${growing ? "bg-white duration-[400ms]" : "backdrop-blur-[2px]"}
 			`}
 		>
-			<div className={`py-4 border-b-[1px]`}>
+			<div className={`py-4 bg-white/60 border-b-[1px]`}>
 				<Container>
 					<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
-						<Link href={"/portfolio"}>
-							<Image src={logo} width={150} height={100} alt={"logo"} />
+						<Link href={"/"}>
+							<Logo />
 						</Link>
-						<div>3</div>
+						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight`}>
+							<Link href={"/about"}>
+								<div className={`${pathName.split('/').at(-1) === "about" && "text-[#004ABF]"}`}>ABOUT</div>
+							</Link>
+							<Link href={"/portfolio"}>
+								<div className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF]"}`}>PROJECT</div>
+							</Link>
+							<Link href={"/blog"}>
+								<div className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF]"}`}>BLOG</div>
+							</Link>
+						</div>
 					</div>
 				</Container>
 			</div>
-			<div className={`h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }}></div>
+			<div className={`h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }} />
 		</div>
 	);
 };
