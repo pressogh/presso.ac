@@ -52,7 +52,7 @@ const Navbar = () => {
 				z-10
 				text-black
 				dark:text-white
-				${growing ? "bg-white duration-[400ms]" : "backdrop-blur-[2px]"}
+				${growing ? "bg-white dark:bg-neutral-900 duration-[400ms]" : "backdrop-blur-[2px]"}
 			`}
 		>
 			<div className={`py-4 bg-white/60 dark:bg-neutral-900/60 border-b-[1px] dark:border-neutral-500`}>
