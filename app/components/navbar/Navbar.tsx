@@ -64,7 +64,7 @@ const Navbar = () => {
 								darkMode ?  <LogoDark /> : <Logo />
 							}
 						</Link>
-						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight`}>
+						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight duration-500`}>
 							<Link href={"/about"}>
 								<div className={`${pathName.split('/').at(-1) === "about" && "text-[#004ABF] dark:text-[#0063FF]"}`}>ABOUT</div>
 							</Link>

@@ -88,12 +88,12 @@ const Page = () => {
 			<div
 				ref={cardBorderRef}
 				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[999] bg-gray-200 dark:bg-neutral-800`}
-				style={{ clipPath: `polygon(${position.left}px ${position.top}px, ${position.left + position.width}px ${position.top}px, ${position.left + position.width}px ${position.top + position.height}px, ${position.left}px ${position.top + position.height}px)` }}
+				style={{ clipPath: `polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px)` }}
 			/>
 			<div
 				ref={cardRef}
 				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[1000] bg-white dark:bg-neutral-900 pt-32`}
-				style={{ clipPath: `polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px)` }}
+				style={{ clipPath: `polygon(${position.left + 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px)` }}
 			>
 				<Container>
 					<div className={"flex animate-pulse"}>
@@ -109,6 +109,27 @@ const Page = () => {
 				}
 				@keyframes grow {
                     0% {
+                        clip-path: polygon(${position.left + 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
+                    }
+                    25% {
+                        clip-path: polygon(0 calc(3.5rem + 2px), ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
+                    }
+                    50% {
+                        clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
+                    }
+                    75% {
+                        clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), 100% 100%, ${position.left + 2}px ${position.top + position.height - 2}px);
+                    }
+                    100% {
+                        clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), 100% 100%, 0 100%);
+                    }
+				}
+				
+				.borderGrowing {
+					animation: borderGrow 0.5s ease-in-out forwards;
+                }
+				@keyframes borderGrow {
+                    0% {
                         clip-path: polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
                     }
                     25% {
@@ -122,27 +143,6 @@ const Page = () => {
                     }
                     100% {
                         clip-path: polygon(0 calc(3.5rem + 1px), 100% calc(3.5rem + 1px), 100% 100%, 0 100%);
-                    }
-				}
-				
-				.borderGrowing {
-					animation: borderGrow 0.5s ease-in-out forwards;
-                }
-				@keyframes borderGrow {
-					0% {
-						clip-path: polygon(${position.left}px ${position.top}px, ${position.left + position.width}px ${position.top}px, ${position.left + position.width}px ${position.top+ position.height}px, ${position.left}px ${position.top + position.height}px);
-					}
-					25% {
-						clip-path: polygon(0 3.5rem, ${position.left + position.width}px ${position.top}px, ${position.left + position.width}px ${position.top + position.height}px, ${position.left}px ${position.top + position.height}px);
-                    }
-					50% {
-						clip-path: polygon(0 3.5rem, 100% 3.5rem, ${position.left + position.width}px ${position.top + position.height}px, ${position.left}px ${position.top + position.height}px);
-                    }
-					75% {
-						clip-path: polygon(0 3.5rem, 100% 3.5rem, 100% 100%, ${position.left}px ${position.top + position.height}px);
-                    }
-					100% {
-						clip-path: polygon(0 3.5rem, 100% 3.5rem, 100% 100%, 0 100%);
                     }
 				}
 			`}</style>
