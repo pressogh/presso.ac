@@ -4,12 +4,13 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
+import {ScreenTypes} from "@/types/ScreenTypes";
 
 interface ProjectCard {
 	name: string,
 	routeName: string,
-	imageSrc?: string,
-	projectType?: string,
+	thumbnail?: string,
+	screenType?: ScreenTypes,
 	description?: string,
 	cardRef: React.RefObject<HTMLDivElement>,
 	setPosition: (position: {
@@ -23,8 +24,8 @@ interface ProjectCard {
 const ProjectCard: React.FC<ProjectCard> = ({
 	name,
 	routeName,
-	imageSrc,
-	projectType,
+	thumbnail,
+	screenType,
 	description,
 	cardRef,
 	setPosition
@@ -86,14 +87,14 @@ const ProjectCard: React.FC<ProjectCard> = ({
 						flex
 						justify-center
 						items-center
-						${projectType === "tablet" && "border-[6px] border-black rounded-lg w-60"}
-						${projectType === "mobile" && "border-[3px] border-black rounded-md w-24 h-[11.5rem]"}
-						${projectType === "web" && "border border-neutral-500 dark:border-neutral-700 border-t-[10px] border-t-neutral-800 dark:border-t-neutral-800 rounded-md w-64 h-[8.5rem]"}
-						${imageSrc === undefined && "bg-white dark:bg-neutral-700"}
+						${screenType === "tablet" && "border-[6px] border-black rounded-lg w-60"}
+						${screenType === "mobile" && "border-[3px] border-black rounded-md w-24 h-[11.5rem]"}
+						${screenType === "web" && "border border-neutral-500 dark:border-neutral-700 border-t-[10px] border-t-neutral-800 dark:border-t-neutral-800 rounded-md w-64 h-[8.5rem]"}
+						${thumbnail === undefined && "bg-white dark:bg-neutral-700"}
 					`}
 				>
 					{
-						projectType === "web" && (
+						screenType === "web" && (
 							<div className={`absolute flex flex-row gap-0.5 right-2 top-[-0.45rem]`}>
 								<div className={`w-1 h-1 rounded-full bg-red-500`} />
 								<div className={`w-1 h-1 rounded-full bg-yellow-500`} />
@@ -102,12 +103,12 @@ const ProjectCard: React.FC<ProjectCard> = ({
 						)
 					}
 					{
-						imageSrc === undefined ? (
+						thumbnail === undefined ? (
 							<div
 								className={`
 									text-black
 									dark:text-white
-									${projectType === "mobile" ? "text-2xl" : "text-4xl"}
+									${screenType === "mobile" ? "text-2xl" : "text-4xl"}
 									font-bold
 								`}
 							>
@@ -115,15 +116,15 @@ const ProjectCard: React.FC<ProjectCard> = ({
 							</div>
 						) : (
 							<Image
-								src={imageSrc}
+								src={thumbnail}
 								alt={"profile image"}
 								width={500}
 								height={300}
 								className={`
 									h-full
-									${projectType === "tablet" && "rounded-sm object-fill"}
-									${projectType === "mobile" && "rounded-md object-fill"}
-									${projectType === "web" && "rounded-b-md object-fill"}
+									${screenType === "tablet" && "rounded-sm object-fill"}
+									${screenType === "mobile" && "rounded-md object-fill"}
+									${screenType === "web" && "rounded-b-md object-fill"}
 								`}
 							/>
 						)
