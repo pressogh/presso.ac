@@ -7,6 +7,8 @@ import { useCardGrowingStore } from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
 import {projects} from "@/etc/Projects";
 
+// TODO: fill project contents
+
 const Page = () => {
 	const growing = useCardGrowingStore((state: any) => state.growing, shallow);
 	const cardRef = useRef<HTMLDivElement>(null);
