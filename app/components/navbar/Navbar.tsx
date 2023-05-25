@@ -3,8 +3,8 @@
 import Container from "@/app/components/Container";
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
-import Logo from "@/public/logo.svg";
-import LogoDark from "@/public/logo-dark.svg";
+import Logo from "@/public/logo/logo.svg";
+import LogoDark from "@/public/logo/logo-dark.svg";
 import Link from "next/link";
 import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
@@ -55,14 +55,11 @@ const Navbar = () => {
 				${growing ? "bg-white dark:bg-neutral-900 duration-[400ms]" : "backdrop-blur-[2px]"}
 			`}
 		>
-			<div className={`py-4 bg-white/60 dark:bg-neutral-900/60 border-b-[1px] dark:border-neutral-500`}>
+			<div className={`py-4 bg-white/90 dark:bg-neutral-900/90 border-b-[1px] dark:border-neutral-500`}>
 				<Container>
 					<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
 						<Link href={"/"} aria-label={"PRESSO"}>
-							{/* TODO: 다크 모드 적용 */}
-							{
-								darkMode ?  <LogoDark /> : <Logo />
-							}
+							{ darkMode ?  <LogoDark /> : <Logo /> }
 						</Link>
 						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight duration-500`}>
 							<Link href={"/about"}>
