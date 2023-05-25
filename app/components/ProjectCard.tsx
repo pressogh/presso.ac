@@ -48,7 +48,9 @@ const ProjectCard: React.FC<ProjectCard> = ({
 				className={`
 					relative
 					bg-white
+					dark:bg-neutral-800
 					border-[1px]
+					dark:border-neutral-700
 					w-full
 					h-60
 					rounded-sm
@@ -61,7 +63,9 @@ const ProjectCard: React.FC<ProjectCard> = ({
 				onClick={openCard}
 			>
 				<Image src={imageSrc} alt={"profile image"} width={500} height={300} className={`h-40 object-none rounded-sm`} />
-				<div>{ name }</div>
+				<div className={`py-2 px-2`}>
+					<div className={`font-light`}>{ name }</div>
+				</div>
 			</div>
 		</>
 	);

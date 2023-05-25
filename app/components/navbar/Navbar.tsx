@@ -4,14 +4,17 @@ import Container from "@/app/components/Container";
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
 import Logo from "@/public/logo.svg";
+import LogoDark from "@/public/logo-dark.svg";
 import Link from "next/link";
 import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
 const Navbar = () => {
 	const { growing, onGrowEnd } = useCardGrowingStore((state: any) => state, shallow);
 	const [scrollY, setScrollY] = useState(0);
 	
+	const darkMode = useDarkMode();
 	const pathName = usePathname();
 	
 	/**
@@ -47,24 +50,29 @@ const Navbar = () => {
 				fixed
 				w-full
 				z-10
+				text-black
+				dark:text-white
 				${growing ? "bg-white duration-[400ms]" : "backdrop-blur-[2px]"}
 			`}
 		>
-			<div className={`py-4 bg-white/60 border-b-[1px]`}>
+			<div className={`py-4 bg-white/60 dark:bg-neutral-900/60 border-b-[1px] dark:border-neutral-500`}>
 				<Container>
 					<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
 						<Link href={"/"} aria-label={"PRESSO"}>
-							<Logo />
+							{/* TODO: 다크 모드 적용 */}
+							{
+								darkMode ?  <LogoDark /> : <Logo />
+							}
 						</Link>
 						<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight`}>
 							<Link href={"/about"}>
-								<div className={`${pathName.split('/').at(-1) === "about" && "text-[#004ABF]"}`}>ABOUT</div>
+								<div className={`${pathName.split('/').at(-1) === "about" && "text-[#004ABF] dark:text-[#0063FF]"}`}>ABOUT</div>
 							</Link>
 							<Link href={"/portfolio"}>
-								<div className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF]"}`}>PROJECT</div>
+								<div className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF] dark:text-[#0063FF]"}`}>PROJECT</div>
 							</Link>
 							<Link href={"/blog"}>
-								<div className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF]"}`}>BLOG</div>
+								<div className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF] dark:text-[#0063FF]"}`}>BLOG</div>
 							</Link>
 						</div>
 					</div>

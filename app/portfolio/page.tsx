@@ -87,12 +87,12 @@ const Page = () => {
 			</Container>
 			<div
 				ref={cardBorderRef}
-				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[999] bg-gray-200`}
+				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[999] bg-gray-200 dark:bg-neutral-800`}
 				style={{ clipPath: `polygon(${position.left}px ${position.top}px, ${position.left + position.width}px ${position.top}px, ${position.left + position.width}px ${position.top + position.height}px, ${position.left}px ${position.top + position.height}px)` }}
 			/>
 			<div
 				ref={cardRef}
-				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[1000] bg-white pt-32`}
+				className={`fixed top-0 left-0 w-screen h-screen max-w-full z-[1000] bg-white dark:bg-neutral-900 pt-32`}
 				style={{ clipPath: `polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px)` }}
 			>
 				<Container>

@@ -21,7 +21,7 @@ export default function RootLayout({
         <html lang="ko-kr">
             <body className={pretendard.className}>
                 <Navbar />
-                <div className={`pb-20 pt-14`}>
+                <div className={`pb-20 pt-14 text-black dark:text-white`}>
                     { children }
                 </div>
                 <Footer />
