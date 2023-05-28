@@ -4,13 +4,12 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
 import {shallow} from "zustand/shallow";
-import {ScreenTypes} from "@/types/ScreenTypes";
+import {ScreenType} from "@/types/ScreenType";
 
 interface ProjectCard {
 	name: string,
-	routeName: string,
 	thumbnail?: string,
-	screenType?: ScreenTypes,
+	screenType?: ScreenType,
 	description?: string,
 	cardRef: React.RefObject<HTMLDivElement>,
 	setPosition: (position: {
@@ -23,7 +22,6 @@ interface ProjectCard {
 
 const ProjectCard: React.FC<ProjectCard> = ({
 	name,
-	routeName,
 	thumbnail,
 	screenType,
 	description,
@@ -43,7 +41,8 @@ const ProjectCard: React.FC<ProjectCard> = ({
 		
 		let card = cardRef.current as HTMLDivElement;
 		card.onanimationend = () => {
-			route.push(`/portfolio/${routeName}`);
+			// Route with params
+			route.push(`/portfolio/${name.replace(/ /g, "-")}`);
 		}
 	}
 	
@@ -65,7 +64,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 			`}
 			onClick={openCard}
 			onMouseEnter={() => {
-				route.prefetch(`/portfolio/${routeName}`);
+				route.prefetch(`/portfolio/${name.replace(/ /g, "-")}`);
 			}}
 		>
 			<div
@@ -120,6 +119,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 								alt={"profile image"}
 								width={500}
 								height={300}
+								priority={screenType === "web" || screenType === "tablet"}
 								className={`
 									h-full
 									${screenType === "tablet" && "rounded-sm object-fill"}
