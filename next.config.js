@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	images: {
-		domains: ['www.notion.so'],
-	},
 	transpilePackages: ['core'],
 	compress: true,
 	swcMinify: true,

@@ -3,8 +3,6 @@ import ProjectGrid from "@/app/components/portfolio/ProjectGrid";
 import {getAllProjects} from "@/app/lib/etc";
 import {ProjectType} from "@/types/ProjectType";
 
-export const dynamic = 'force-static';
-
 const Page = async () => {
 	const projects: ProjectType[] = await getAllProjects();
 	

@@ -1,17 +1,15 @@
 import Container from "@/app/components/Container";
 import {getAllProjects, getProject} from "@/app/lib/etc";
 
-export const dynamic = 'force-static';
+const dynamicParams = false;
+export { dynamicParams };
 
 export const generateStaticParams = async () => {
-	// get all projects from _project directory
 	const projects = await getAllProjects();
 	
 	return projects.map((item) => {
 		return {
-			params: {
-				slug: item.name.replace(/ /g, "-")
-			}
+			slug: item.name.replace(/ /g, "-")
 		};
 	});
 };
