@@ -35,10 +35,10 @@ const Navbar = () => {
 	
 	useEffect(() => {
 		onGrowEnd();
-	}, [pathName]);
+	}, [pathName, onGrowEnd]);
 	
 	/**
-	 * 페이지 전환 시 스크롤 위치를 0으로 초기화
+	 * @description 페이지 전환 시 스크롤 위치를 0으로 초기화
 	 */
 	useEffect(() => {
 		setScrollY(0);

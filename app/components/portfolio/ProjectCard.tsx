@@ -86,7 +86,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 						flex
 						justify-center
 						items-center
-						${screenType === "tablet" && "border-[6px] border-black rounded-lg w-60"}
+						${screenType === "tablet" && "border-[6px] border-black rounded-lg w-60 h-[11rem]"}
 						${screenType === "mobile" && "border-[3px] border-black rounded-md w-24 h-[11.5rem]"}
 						${screenType === "web" && "border border-neutral-500 dark:border-neutral-700 border-t-[10px] border-t-neutral-800 dark:border-t-neutral-800 rounded-md w-64 h-[8.5rem]"}
 						${thumbnail === undefined && "bg-white dark:bg-neutral-700"}
@@ -116,15 +116,13 @@ const ProjectCard: React.FC<ProjectCard> = ({
 						) : (
 							<Image
 								src={thumbnail}
-								alt={"profile image"}
-								width={500}
-								height={300}
+								alt={"project image"}
+								fill={true}
 								priority={screenType === "web" || screenType === "tablet"}
 								className={`
-									h-full
-									${screenType === "tablet" && "rounded-sm object-fill"}
-									${screenType === "mobile" && "rounded-md object-fill"}
-									${screenType === "web" && "rounded-b-md object-fill"}
+									${screenType === "tablet" && "rounded-sm"}
+									${screenType === "mobile" && "rounded-md"}
+									${screenType === "web" && "rounded-b-md"}
 								`}
 							/>
 						)

@@ -33,7 +33,7 @@ const ProjectGrid = ({
 			card.classList.add("growing");
 			cardBorder.classList.add("borderGrowing");
 		}
-	}, [position]);
+	}, [position, cardRef, cardBorderRef, growing]);
 	
 	return (
 		<>
