@@ -1,28 +1,19 @@
 import Container from "@/app/components/Container";
-import {ProjectType} from "@/types/ProjectType";
+import {getAllProjects, getProject} from "@/app/lib/etc";
 
-// TODO: dynamicParams is not working
-const dynamicParams = false;
-export { dynamicParams };
+export const dynamic = 'force-static';
 
 export const generateStaticParams = async () => {
-	const res = await fetch(`http://localhost:3000/api/projects`);
-	const projects = await res.json();
+	// get all projects from _project directory
+	const projects = await getAllProjects();
 	
-	return projects.map((item: ProjectType) => {
+	return projects.map((item) => {
 		return {
 			params: {
 				slug: item.name.replace(/ /g, "-")
 			}
-		}
+		};
 	});
-};
-
-const getProjects = async (params: {
-	slug: string
-}) => {
-	const res = await fetch(`http://localhost:3000/api/projects/${params.slug}`);
-	return await res.json();
 };
 
 interface Params {
@@ -31,14 +22,8 @@ interface Params {
 	}
 }
 
-interface Props {
-	name: string,
-	description?: string,
-	content: string
-}
-
 const Page = async ({ params }: Params) => {
-	const { name, description, content }: Props = await getProjects(params);
+	const { name, description, content }: any = await getProject(params.slug);
 	
 	return (
 		<Container>

@@ -1,12 +1,12 @@
 import Container from "@/app/components/Container";
 import ProjectGrid from "@/app/components/portfolio/ProjectGrid";
+import {getAllProjects} from "@/app/lib/etc";
+import {ProjectType} from "@/types/ProjectType";
 
-const getProjects = async () => {
-	const res = await fetch("http://localhost:3000/api/projects");
-	return await res.json();
-}
+export const dynamic = 'force-static';
+
 const Page = async () => {
-	const projects = await getProjects();
+	const projects: ProjectType[] = await getAllProjects();
 	
 	return (
 		<>
