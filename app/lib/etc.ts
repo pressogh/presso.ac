@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { ProjectType } from "@/types/ProjectType";
 
 import { compileMDX } from "next-mdx-remote/rsc";
-import useMDXComponents from "@/app/mdx-components";
+import MDXComponents from "@/app/mdx-components";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 
@@ -55,7 +55,7 @@ export const getProject = async (slug: string) => {
 			},
 			parseFrontmatter: true,
 		},
-		components: {...useMDXComponents({})}
+		components: {...MDXComponents({})}
 	});
 	
 	return {

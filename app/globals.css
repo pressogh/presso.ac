@@ -13,30 +13,6 @@ body {
     display: none;
 }
 
-h1 {
-    @apply text-4xl font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
-h2 {
-    @apply text-3xl font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
-h3 {
-    @apply text-2xl font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
-h4 {
-    @apply text-xl font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
-h5 {
-    @apply text-lg font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
-h6 {
-    @apply text-base font-semibold text-neutral-900 dark:text-neutral-100;
-}
-
 /**
  * One Dark theme for prism.js
  * Based on Atom's One Dark theme: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
@@ -109,7 +85,7 @@ pre[class*="language-"] *::selection {
 /* Code blocks */
 pre[class*="language-"] {
     padding: 1em;
-    margin: 0.5em 0;
+    margin: 1em 0;
     overflow: auto;
     border-radius: 0.3em;
 }
