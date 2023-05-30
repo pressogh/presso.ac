@@ -3,6 +3,10 @@ const nextConfig = {
 	transpilePackages: ['core'],
 	compress: true,
 	swcMinify: true,
+	experimental: {
+		mdxRs: true,
+	},
+	pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 	webpack: config => {
 		config.module.rules.push({
 			test: /\.svg$/,
@@ -18,4 +22,7 @@ const nextConfig = {
 	}
 }
 
-module.exports = nextConfig
+const withMDX = require('@next/mdx')({
+	extension: /\.mdx?$/,
+});
+module.exports = withMDX(nextConfig);

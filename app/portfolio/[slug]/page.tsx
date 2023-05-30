@@ -1,5 +1,5 @@
 import Container from "@/app/components/Container";
-import {getAllProjects, getProject, markdownToHtml} from "@/app/lib/etc";
+import {getAllProjects, getProject} from "@/app/lib/etc";
 
 const dynamicParams = false;
 export { dynamicParams };
@@ -26,9 +26,11 @@ const Page = async ({ params }: Params) => {
 	return (
 		<Container>
 			<div className={"mt-20"}>
-				<div className={`font-bold text-3xl`}>{ name }</div>
-				<div className={`font-light text-md`}>{ description }</div>
-				<div className={`mt-10`} dangerouslySetInnerHTML={{ __html: await markdownToHtml(content) }} />
+				<div className={`font-semibold text-4xl`}>{ name }</div>
+				<div className={`font-light text-md mt-4`}>{ description }</div>
+				<div className={`mt-10`}>
+					{ content }
+				</div>
 			</div>
 		</Container>
 	);

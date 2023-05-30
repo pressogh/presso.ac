@@ -3,20 +3,15 @@ import fs from "fs";
 import matter from 'gray-matter';
 import {ProjectType} from "@/types/ProjectType";
 
-const cwd = process.cwd();
-const projectsDirectory = join(cwd, '_projects');
+import {compileMDX} from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import rehypePrism from "rehype-prism-plus";
 
-import rehypeExternalLinks from 'rehype-external-links';
-import rehypePrism from 'rehype-prism-plus';
-import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
+const cwd = process.cwd();
+const projectsDirectory = join(cwd, '/_projects');
 
 const getAllMdFiles = () => {
-	return fs.readdirSync(projectsDirectory).filter((path) => /\.md?$/.test(path));
+	return fs.readdirSync(projectsDirectory).filter((path) => /\.mdx?$/.test(path));
 }
 
 const parseMarkdown = async (filename: string) => {
@@ -46,26 +41,23 @@ export const getProject = async (slug: string) => {
 	const parsed = decodeURIComponent(slug);
 	
 	const markdownWithMetadata = fs.readFileSync(
-		join(projectsDirectory, `${parsed}.md`),
+		join(projectsDirectory, `${parsed}.mdx`),
 		'utf-8'
 	);
 	
-	const { data, content } = matter(markdownWithMetadata);
+	const { content, frontmatter } = await compileMDX({
+		source: markdownWithMetadata,
+		options: {
+			mdxOptions: {
+				remarkPlugins: [remarkGfm],
+				rehypePlugins: [rehypePrism],
+			},
+			parseFrontmatter: true,
+		},
+	});
+	
 	return {
-		...data,
+		...frontmatter,
 		content,
 	}
-}
-
-export const markdownToHtml = async (markdown: string) => {
-	const result = await unified()
-		.use(remarkParse)
-		.use(remarkGfm)
-		.use(remarkRehype, { allowDangerousHtml: true })
-		.use(rehypeSlug)
-		.use(rehypePrism, { ignoreMissing: true })
-		.use(rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferer'] })
-		.use(rehypeStringify, { allowDangerousHtml: true })
-		.process(markdown);
-	return result.toString();
 }
