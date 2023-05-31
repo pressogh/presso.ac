@@ -6,10 +6,20 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 	return {
 		...components,
 		a: ({ children, href, ...props }) => (
-			// @ts-ignore
-			<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
-				{ children }
-			</Link>
+			<>
+				{
+					href && href.startsWith("/") ? (
+						// @ts-ignore
+						<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
+							{ children }
+						</Link>
+					) : (
+						<a href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
+							{ children }
+						</a>
+					)
+				}
+			</>
 		),
 		h1: ({ children, ...props }) => (
 			<h1 className={`font-semibold text-5xl mt-10 mb-3`} {...props}>
