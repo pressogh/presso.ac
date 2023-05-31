@@ -3,10 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useCardGrowingStore } from "@/app/hooks/useCardGrowingStore";
 import { shallow } from "zustand/shallow";
+
 import ProjectCard from "@/app/components/portfolio/ProjectCard";
-import {ScreenType} from "@/types/ScreenType";
 import Container from "@/app/components/Container";
-import {ProjectType} from "@/types/ProjectType";
+
+import { ScreenType } from "@/types/ScreenType";
+import { ProjectType } from "@/types/ProjectType";
 
 interface Props {
 	projects: ProjectType[]

@@ -48,7 +48,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 		),
 		img: ({ children, ...props }) => (
 			// @ts-ignore
-			<Image width={1000} height={1000} {...props} className={`mt-3`} />
+			<Image width={1000} height={1000} className={`my-3`} {...props} />
 		),
 	};
 }
