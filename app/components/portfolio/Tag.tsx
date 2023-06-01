@@ -4,7 +4,7 @@ interface Props {
 
 const Tag = ({ tag }: Props) => {
 	return (
-		<div className={`inline-block mr-1 mb-1.5 bg-indigo-100 text-indigo-900 px-3 py-0.5 rounded-3xl`}>
+		<div className={`inline-flex mr-1 mb-1.5 bg-indigo-100 dark:bg-indigo-900 text-indigo-900 dark:text-white px-3 py-0.5 rounded-3xl`}>
 			{ tag }
 		</div>
 	);
