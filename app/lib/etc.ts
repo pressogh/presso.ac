@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { ProjectType } from "@/types/ProjectType";
 
 import { compileMDX } from "next-mdx-remote/rsc";
-import MDXComponents from "@/app/mdx-components";
+import MDXComponents from "@/app/components/portfolio/MDXComponents";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";

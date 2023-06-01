@@ -1,7 +1,7 @@
 import Container from "@/app/components/Container";
 import { getAllProjects, getProject } from "@/app/lib/etc";
 import CustomTyping from "@/app/components/portfolio/CustomTyping";
-import Script from "next/script";
+import TagGrid from "@/app/components/portfolio/TagGrid";
 
 const dynamicParams = false;
 export { dynamicParams };
@@ -23,7 +23,7 @@ interface Params {
 }
 
 const Page = async ({ params }: Params) => {
-	const { name, description, content }: any = await getProject(params.slug);
+	const { name, description, tags, content }: any = await getProject(params.slug);
 	
 	return (
 		<>
@@ -35,6 +35,9 @@ const Page = async ({ params }: Params) => {
 							{ description }
 						</CustomTyping>
 					</div>
+					
+					{ tags && tags.length > 0 && <TagGrid tags={tags} /> }
+					
 					<div className={`mt-10`}>
 						{ content }
 					</div>

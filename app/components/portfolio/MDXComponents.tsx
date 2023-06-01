@@ -11,7 +11,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 					href ? (
 						(href.startsWith("/") || href.startsWith("#")) ? (
 							// @ts-ignore
-							<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
+							<Link href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer`} {...props}>
 								{ children }
 							</Link>
 						) : (href.startsWith("https://youtu.be") || href.startsWith("https://www.youtu.be") || href.startsWith("youtu.be")) ? (
@@ -30,7 +30,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 								allowFullScreen
 							/>
 						) : (
-							<a href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} rel="noopener noreferrer" target="_blank" {...props}>
+							<a href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer`} rel="noopener noreferrer" target="_blank" {...props}>
 								{ children }
 							</a>
 						)

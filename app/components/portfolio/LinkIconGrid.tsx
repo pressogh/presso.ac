@@ -16,7 +16,7 @@ const LinkIconGrid = ({ links }: Props) => {
 					<a key={index} href={link.url} target={`_blank`} rel="noopener noreferrer">
 						<div className={`flex flex-col gap-3`}>
 							<LinkIcon icon={link.icon} />
-							<div className={`font-semibold`}>{ link.name }</div>
+							<div className={`font-semibold text-sm sm:text-base`}>{ link.name }</div>
 						</div>
 					</a>
 				))

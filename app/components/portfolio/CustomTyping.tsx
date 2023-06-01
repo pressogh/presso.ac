@@ -84,7 +84,9 @@ const CustomTyping = ({ children }: Props) => {
 			className={`
 				${isTyping ? 'inline-block leading-6 border-r-[1px] pr-0.5 animate-[cursor-blink_0.5s_infinite]' : ''}
 			`}
-		/>
+		>
+			&nbsp;
+		</div>
 	);
 };
 
