@@ -75,7 +75,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 		),
 		img: ({ children, ...props }) => (
 			// @ts-ignore
-			<Image width={1000} height={1000} className={`my-3`} priority={true} {...props} />
+			<Image width={1000} height={1000} className={`my-3`} priority={true} alt={props.src} {...props} />
 		),
 		hr: ({ children, ...props }) => (
 			<hr className={`my-3`} {...props} />

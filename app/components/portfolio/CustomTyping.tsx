@@ -8,6 +8,7 @@ interface Props {
 
 const CustomTyping = ({ children }: Props) => {
 	const divRef = useRef<HTMLDivElement>(null);
+	const [isFirstLoaded, setIsFirstLoaded] = useState(true);
 	const [isTyping, setIsTyping] = useState(false);
 	
 	const toKorChars = useCallback((text: string) => {
@@ -45,7 +46,8 @@ const CustomTyping = ({ children }: Props) => {
 	}, []);
 	
 	useEffect(() => {
-		if (!isTyping && children) {
+		if (isFirstLoaded && !isTyping && children) {
+			setIsFirstLoaded(false);
 			setIsTyping(true);
 			
 			// 타이핑할 문장
@@ -74,7 +76,7 @@ const CustomTyping = ({ children }: Props) => {
 				}
 			}, 50);
 		}
-	}, [children]);
+	}, [children, isTyping, toKorChars, isFirstLoaded]);
 	
 	return (
 		<div
