@@ -7,6 +7,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import MDXComponents from "@/app/mdx-components";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
 import LinkIcon from "@/app/components/portfolio/LinkIcon";
 import LinkIconGrid from "@/app/components/portfolio/LinkIconGrid";
 
@@ -60,7 +61,7 @@ export const getProject = async (slug: string) => {
 		options: {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
-				rehypePlugins: [rehypePrism],
+				rehypePlugins: [rehypePrism, rehypeSlug],
 			},
 			parseFrontmatter: true,
 		},

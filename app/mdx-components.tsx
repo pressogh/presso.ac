@@ -9,7 +9,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			<>
 				{
 					href ? (
-						href.startsWith("/") ? (
+						(href.startsWith("/") || href.startsWith("#")) ? (
 							// @ts-ignore
 							<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
 								{ children }
@@ -22,7 +22,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 								allow={"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}
 								allowFullScreen
 							/>
-						) : (href.startsWith("https://figma.com") || href.startsWith("https://www.figma.com") || href.startsWith("figma.com")) ? (
+						) : (href.startsWith("https://figma.com/embed") || href.startsWith("https://www.figma.com/embed") || href.startsWith("figma.com/embed")) ? (
 							<iframe
 								height={"500"}
 								width={"100%"}
