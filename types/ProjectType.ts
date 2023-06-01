@@ -6,4 +6,5 @@ export interface ProjectType {
 	thumbnail?: string,
 	screenType?: ScreenType,
 	description?: string,
+	displayPriority?: string
 }

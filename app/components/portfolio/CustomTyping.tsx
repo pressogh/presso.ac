@@ -45,7 +45,7 @@ const CustomTyping = ({ children }: Props) => {
 	}, []);
 	
 	useEffect(() => {
-		if (!isTyping) {
+		if (!isTyping && children) {
 			setIsTyping(true);
 			
 			// 타이핑할 문장

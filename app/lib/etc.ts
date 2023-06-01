@@ -7,6 +7,8 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import MDXComponents from "@/app/mdx-components";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
+import LinkIcon from "@/app/components/portfolio/LinkIcon";
+import LinkIconGrid from "@/app/components/portfolio/LinkIconGrid";
 
 const cwd = process.cwd();
 const projectsDirectory = join(cwd, '/_projects');
@@ -35,6 +37,13 @@ export const getAllProjects = async () => {
 		projects.push(await parseMarkdown(file) as ProjectType);
 	}
 	
+	projects.sort((a, b) => {
+		if (!a.displayPriority) return 1;
+		if (!b.displayPriority) return -1;
+		
+		return parseInt(a.displayPriority) - parseInt(b.displayPriority);
+	});
+	
 	return projects;
 }
 
@@ -55,7 +64,11 @@ export const getProject = async (slug: string) => {
 			},
 			parseFrontmatter: true,
 		},
-		components: {...MDXComponents({})}
+		components: {
+			...MDXComponents({}),
+			LinkIconGrid,
+			LinkIcon
+		},
 	});
 	
 	return {

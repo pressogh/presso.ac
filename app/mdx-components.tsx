@@ -8,16 +8,33 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 		a: ({ children, href, ...props }) => (
 			<>
 				{
-					href && href.startsWith("/") ? (
-						// @ts-ignore
-						<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
-							{ children }
-						</Link>
-					) : (
-						<a href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
-							{ children }
-						</a>
-					)
+					href ? (
+						href.startsWith("/") ? (
+							// @ts-ignore
+							<Link href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} {...props}>
+								{ children }
+							</Link>
+						) : (href.startsWith("https://youtu.be") || href.startsWith("https://www.youtu.be") || href.startsWith("youtu.be")) ? (
+							<iframe
+								className={`w-full h-96`}
+								src={"https://www.youtube.com/embed/" + href.split("/").at(-1)}
+								title={"YouTube video player"}
+								allow={"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}
+								allowFullScreen
+							/>
+						) : (href.startsWith("https://figma.com") || href.startsWith("https://www.figma.com") || href.startsWith("figma.com")) ? (
+							<iframe
+								height={"500"}
+								width={"100%"}
+								src={href}
+								allowFullScreen
+							/>
+						) : (
+							<a href={href} className={`text-blue-500 dark:text-blue-400 hover:underline cursor-pointer`} rel="noopener noreferrer" target="_blank" {...props}>
+								{ children }
+							</a>
+						)
+					) : null
 				}
 			</>
 		),
@@ -52,13 +69,16 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</h6>
 		),
 		p: ({ children, ...props }) => (
-			<p className={`font-light mb-3`} {...props}>
+			<p className={`font-light mb-3 leading-6`} {...props}>
 				{ children }
 			</p>
 		),
 		img: ({ children, ...props }) => (
 			// @ts-ignore
 			<Image width={1000} height={1000} className={`my-3`} priority={true} {...props} />
+		),
+		hr: ({ children, ...props }) => (
+			<hr className={`my-3`} {...props} />
 		),
 	};
 }
