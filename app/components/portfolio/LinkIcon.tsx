@@ -54,6 +54,21 @@ const LinkIcon = ({ icon, src }: Props) => {
 				</div>
 			</div>
 		)
+	} else if (icon === 'figma') {
+		return (
+			<div className={`inline-block w-20 h-20 group`}>
+				<div className={`absolute w-20 h-20 rounded-2xl bg-[rgb(51,51,51)] transform group-hover:scale-110 duration-300 shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.075)]`} />
+				<div className={`relative w-20 h-20 flex justify-center items-center bg-in`}>
+					<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={`w-10 h-10 group-hover:scale-125 transform duration-300 ml-0.5`}>
+						<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+						<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+						<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+						<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+						<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+					</svg>
+				</div>
+			</div>
+		)
 	}
 	
 	return (
