@@ -33,10 +33,10 @@ const Page = async ({ params }: Params) => {
 			<Container>
 				<div className={"mt-20"}>
 					<div className={`flex flex-row justify-between items-end`}>
-						<div className={`font-semibold text-5xl`}>{ name }</div>
-						<div className={`font-thin text-xl `}>{ `${dayjs(startDate).format("YYYY.MM")} - ${dayjs(endDate).format("YYYY.MM")}` }</div>
+						<div className={`font-semibold sm:text-5xl text-4xl`}>{ name }</div>
+						<div className={`font-thin sm:text-xl text-base`}>{ `${dayjs(startDate).format("YYYY.MM")} - ${dayjs(endDate).format("YYYY.MM")}` }</div>
 					</div>
-					<div className={`font-light text-xl mt-4`}>
+					<div className={`font-light sm:text-xl text-base mt-4`}>
 						<CustomTyping>
 							{ description }
 						</CustomTyping>

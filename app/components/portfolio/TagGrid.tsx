@@ -6,7 +6,7 @@ interface Props {
 
 const TagGrid = ({ tags }: Props) => {
 	return (
-		<div className={`mt-4`}>
+		<div className={`sm:mt-4 mt-2`}>
 			{
 				tags.map((tag, index) => (
 					<Tag key={index} tag={tag} />
