@@ -80,6 +80,11 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 		hr: ({ children, ...props }) => (
 			<hr className={`my-3`} {...props} />
 		),
+		strong: ({ children, ...props }) => (
+			<strong className={`font-medium`} {...props}>
+				{ children }
+			</strong>
+		),
 	};
 }
 

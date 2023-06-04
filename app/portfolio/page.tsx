@@ -1,6 +1,6 @@
 import Container from "@/app/components/Container";
 import ProjectGrid from "@/app/components/portfolio/ProjectGrid";
-import { getAllProjects } from "@/app/lib/etc";
+import { getAllProjects } from "@/app/lib/portfolio/etc";
 import { ProjectType } from "@/types/ProjectType";
 
 const Page = async () => {
