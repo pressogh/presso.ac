@@ -1,8 +1,14 @@
+import dynamic from "next/dynamic";
+
 import Container from "@/app/components/Container";
 import { getAllProjects, getProject } from "@/app/lib/etc";
-import CustomTyping from "@/app/components/portfolio/CustomTyping";
 import TagGrid from "@/app/components/portfolio/TagGrid";
 import dayjs from "dayjs";
+
+const CustomTyping = dynamic(
+	() => import("@/app/components/portfolio/CustomTyping"),
+	{ ssr: true, loading: () => <div className={`inline-block leading-6`}>&nbsp;</div> }
+);
 
 dayjs.locale("ko");
 
@@ -31,15 +37,14 @@ const Page = async ({ params }: Params) => {
 	return (
 		<>
 			<Container>
-				<div className={"mt-20"}>
-					<div className={`flex flex-row justify-between items-end`}>
+				<div className={"sm:mt-20 mt-6"}>
+					<div className={`flex flex-row sm:justify-between items-end`}>
 						<div className={`font-semibold sm:text-5xl text-4xl`}>{ name }</div>
-						<div className={`font-thin sm:text-xl text-base`}>{ `${dayjs(startDate).format("YYYY.MM")} - ${dayjs(endDate).format("YYYY.MM")}` }</div>
+						<div className={`font-thin sm:text-xl text-lg sm:ml-0 ml-2`}>{ `${dayjs(startDate).format("YYYY.MM")} - ${dayjs(endDate).format("YYYY.MM")}` }</div>
 					</div>
-					<div className={`font-light sm:text-xl text-base mt-4`}>
-						<CustomTyping>
-							{ description }
-						</CustomTyping>
+					<div className={`font-light sm:text-xl text-lg sm:mt-4 mt-2`}>
+						{/* @ts-expect-error Lazy Imported Component */}
+						<CustomTyping text={description} />
 					</div>
 					
 					{ tags && tags.length > 0 && <TagGrid tags={tags} /> }

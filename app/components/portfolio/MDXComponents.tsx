@@ -49,27 +49,27 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</h2>
 		),
 		h3: ({ children, ...props }) => (
-			<h3 className={`font-semibold text-3xl mt-4 mb-3`} {...props}>
+			<h3 className={`font-semibold text-3xl mt-4 mb-1`} {...props}>
 				{ children }
 			</h3>
 		),
 		h4: ({ children, ...props }) => (
-			<h4 className={`font-semibold text-2xl mt-2 mb-3`} {...props}>
+			<h4 className={`font-semibold text-2xl mt-2 mb-1`} {...props}>
 				{ children }
 			</h4>
 		),
 		h5: ({ children, ...props }) => (
-			<h5 className={`font-semibold text-xl mt-1 mb-3`} {...props}>
+			<h5 className={`font-semibold text-xl mt-1 mb-1`} {...props}>
 				{ children }
 			</h5>
 		),
 		h6: ({ children, ...props }) => (
-			<h6 className={`font-semibold text-lg mb-3`} {...props}>
+			<h6 className={`font-semibold text-lg mb-1`} {...props}>
 				{ children }
 			</h6>
 		),
 		p: ({ children, ...props }) => (
-			<p className={`font-light mb-3 leading-6`} {...props}>
+			<p className={`font-light mb-2 leading-2`} {...props}>
 				{ children }
 			</p>
 		),

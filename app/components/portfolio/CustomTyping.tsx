@@ -1,15 +1,16 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 interface Props {
-	children: string
+	text: string
 }
 
-const CustomTyping = ({ children }: Props) => {
-	const divRef = useRef<HTMLDivElement>(null);
+const CustomTyping = ({ text }: Props) => {
 	const [isFirstLoaded, setIsFirstLoaded] = useState(true);
 	const [isTyping, setIsTyping] = useState(false);
+	const [typingText, setTypingText] = useState("");
 	
 	const toKorChars = useCallback((text: string) => {
 		const cCho = [ 'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ' ];
@@ -46,12 +47,12 @@ const CustomTyping = ({ children }: Props) => {
 	}, []);
 	
 	useEffect(() => {
-		if (isFirstLoaded && !isTyping && children) {
+		if (isFirstLoaded && !isTyping && text) {
 			setIsFirstLoaded(false);
 			setIsTyping(true);
 			
 			// 타이핑할 문장
-			let result = children.split('');
+			let result = text.split('');
 			let typing: Array<Array<string>> = [];
 			
 			// 각글자 초성, 중성, 종성으로 나눔
@@ -59,15 +60,14 @@ const CustomTyping = ({ children }: Props) => {
 				typing[i] = toKorChars(result[i]);
 			}
 			
-			let resultDiv = divRef.current as HTMLDivElement;
-			let i = 0, j = 0, text = '';
+			let i = 0, j = 0, newText = '';
 			
 			let inter = setInterval(() => {
 				if (i <= typing.length - 1) {
-					resultDiv.innerHTML = text + typing[i][j++];
+					setTypingText(newText + typing[i][j++]);
 					
 					if (j == typing[i].length) {
-						text += typing[i++][j - 1];
+						newText += typing[i++][j - 1];
 						j = 0;
 					}
 				} else {
@@ -76,17 +76,28 @@ const CustomTyping = ({ children }: Props) => {
 				}
 			}, 50);
 		}
-	}, [children, isTyping, toKorChars, isFirstLoaded]);
+	}, [text, isTyping, toKorChars, isFirstLoaded]);
 	
 	return (
-		<div
-			ref={divRef}
-			className={`
-				${isTyping ? 'inline-block leading-6 border-r-[1px] pr-0.5 animate-[cursor-blink_0.5s_infinite]' : ''}
-			`}
-		>
-			&nbsp;
-		</div>
+		<>
+			{
+				isMobile ? (
+					<div className={`inline-block leading-6`}>
+						{ text }
+					</div>
+				) : (
+					<div
+						className={`
+							inline-block
+							leading-6
+							${isTyping ? 'border-r-[1px] pr-0.5 animate-[cursor-blink_0.5s_infinite]' : ''}
+						`}
+					>
+						{ typingText }
+					</div>
+				)
+			}
+		</>
 	);
 };
 

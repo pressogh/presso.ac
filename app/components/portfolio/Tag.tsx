@@ -16,7 +16,7 @@ const Tag = ({ tag }: Props) => {
 				px-3
 				py-0.5
 				sm:text-base
-				text-xs
+				text-sm
 				rounded-3xl
 			`}
 		>
