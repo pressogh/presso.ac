@@ -4,4 +4,103 @@ description: '가출 청소년들이 안전하게 도움을 받도록 도와주�
 thumbnail: '/thumbnails/teenlief.png'
 screenType: 'mobile'
 displayPriority: '4'
+tags: [React Native, DRF, MySQL, Github Actions, Django, Docker, AWS]
+startDate: "2022-07-04"
+endDate: "2022-11-09"
 ---
+
+![teenlief.png](/thumbnails/teenlief.png)
+
+### 서비스 소개
+
+---
+
+##### 서비스 목적
+
+**가출 청소년들이 안전하게 도움을 받을 수 있도록 도와주는 어플리케이션**
+
+##### 제작 동기
+
+당시에 일본의 [토요코 키즈 등과 같은 가출 청소년으로 인한 사회적 문제](https://www.youtube.com/watch?v=t9VLkqSWrIU)로 이슈가 되었습니다.
+
+가출 청소년이 도움을 받는 과정에서 성범죄 등 각종 범죄에 노출되어 문제가 되었는데, 이를 해결하고자 어플리케이션을 제작했습니다.
+
+##### 주요 기능
+
+이 어플리케이션에는 청소년, 헬퍼 두 가지 분류의 유저가 있습니다.
+
+헬퍼는 자신이 도움을 줄 수 있는 위치에 핀을 놓고, 가출 청소년이 그 핀을 눌러 서로 약속을 잡으면 약속이 서버에 기록됩니다.
+
+가출 청소년이 안전하게 도움을 받을 수 있도록 헬퍼는 핀을 놓기 위해서 본인인증이 필요하고, 핀은 공개된 장소에만 놓을 수 있도록 처리했습니다.
+
+헬퍼는 다른 헬퍼에게 후원을 해주어 직접적으로 가출 청소년에게 도움을 주지 못하더라도 다른 헬퍼를 통해 금전적인 지원을 해줄수 있습니다.
+
+### 플로우차트
+
+---
+
+![teenlief-flowchart.png](/portfolio/teenlief-flowchart.png)
+
+### 담당한 역할
+
+---
+
+##### 모델 설계
+
+팀원과 함께 모델 설계를 담당했습니다.
+
+최대한 중복되는 정보를 줄이도록 데이터베이스 과목에서 학습하였던 정규화를 적용하여 DB를 설계했습니다.
+
+##### 백엔드 기능 개발
+
+DRF를 이용하여 백엔드 개발을 진행했습니다.
+
+API 기능 개발과 실시간 채팅 기능 개발을 담당했습니다.
+
+##### 프론트엔드 개발
+
+React Native를 이용하여 프론트엔드 개발을 진행했습니다.
+
+어플리케이션에 필요한 다양한 컴포넌트 및 채팅 기능을 구현했습니다.
+
+##### CD <span className={`font-light text-base text-neutral-400`}>Continuous delivery</span>
+
+배포에 걸리는 시간을 최소화하기 위해서 Github Actions를 이용하여 main브랜치에 push시 Docker 컨테이너를 교체하여 자동으로 배포되도록 구현했습니다.
+
+##### 배포
+
+AWS Lightsail에 Docker를 사용하여 배포를 진행했습니다.
+
+SSL을 적용하여 보안을 강화했습니다.
+
+
+### 시연 동영상
+
+---
+
+https://youtu.be/OzTwd0fxQGg
+
+### 성과
+
+---
+
+**제 16회 공개 SW개발자 대회에서 1차 평가를 통과**했습니다.
+
+### Links
+
+---
+
+<LinkIconGrid
+	links={[
+		{
+			name: 'Github - Frontend',
+			src: 'https://github.com/GMG-group/teenlief',
+			icon: 'github'
+		},
+		{
+			name: 'Github - Backend',
+			src: 'https://github.com/GMG-group/teenlief-backend',
+			icon: 'github'
+		}
+	]}
+/>

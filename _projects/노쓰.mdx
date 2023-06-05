@@ -4,4 +4,108 @@ description: '리워드 기반 쓰레기 수거 어플리케이션'
 thumbnail: '/thumbnails/nossu.png'
 screenType: 'mobile'
 displayPriority: '5'
+tags: [Github Actions, React Native, DRF, MySQL, Docker, AWS, Django]
+startDate: "2022-07-04"
+endDate: "2022-09-22"
 ---
+
+![nossu.png](/thumbnails/nossu.png)
+
+### 서비스 소개
+
+---
+
+##### 서비스 목적
+
+**주변의 쓰레기를 촬영하여 포인트를 걸고 쓰레기를 등록하면 다른 사람이 그 쓰레기를 치우고 포인트를 받아갈 수 있는 어플리케이션**
+
+##### 제작 동기
+
+길가에 쓰레기들이 방치되어 있는 모습을 보고, 리워드를 통해 보상을 받고 싶은 사람이 쓰레기를 치우면 길거리를 조금 더 깔끔하게 유지할 수 있지 않을까? 라는 생각에서 제작을 시작했습니다.
+
+##### 주요 기능
+
+주요 타겟은 시골 등 분리수거가 힘든 곳에 사는 사람들로, 쓰레기를 등록하면 다른 사람들이 그 쓰레기를 치워 주고 포인트를 얻게 됩니다.
+
+쓰레기를 치우고 난 뒤, 치운 사람이 쓰레기를 치웠다는 증거 사진을 업로드하면 오브젝트 디텍션으로 실제로 쓰레기가 치워졌는지 검사하고, 쓰레기를 등록한 사람에게도 알림이 가 실제로 쓰레기를 치웠다면 수락, 아니라고 판단되면 거절을 선택할 수 있습니다.
+
+### 플로우차트
+
+---
+
+![nossu-flowchart.png](/portfolio/nossu-flowchart.png)
+
+### 디자인
+
+---
+
+[Figma](https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FnotBxS7OhZBfvVB78zMNKX%2FNo-ssu%3Ftype%3Ddesign%26node-id%3D203%253A9%26t%3DxpbJwLB3rGqr6QzE-1)
+
+### 담당한 역할
+
+---
+
+##### 모델 설계
+
+팀원과 함께 모델 설계를 담당했습니다.
+
+최대한 중복되는 정보를 줄이도록 데이터베이스 과목에서 학습하였던 정규화를 적용하여 DB를 설계했습니다.
+
+##### 백엔드 기능 개발
+
+DRF를 이용하여 백엔드 개발을 진행했습니다.
+
+어플리케이션에 사용되는 다양한 API 기능 개발을 담당했습니다.
+
+##### 프론트엔드 개발
+
+React Native를 이용하여 프론트엔드 개발을 진행했습니다.
+
+어플리케이션에 필요한 다양한 컴포넌트를 구현했습니다.
+
+##### CD <span className={`font-light text-base text-neutral-400`}>Continuous delivery</span>
+
+배포에 걸리는 시간을 최소화하기 위해서 Github Actions를 이용하여 main브랜치에 push시 Docker 컨테이너를 교체하여 자동으로 배포되도록 구현했습니다.
+
+##### 배포
+
+AWS Lightsail에 Docker를 사용하여 배포를 진행했습니다.
+
+SSL을 적용하여 보안을 강화했습니다.
+
+##### 디자인
+
+어플리케이션의 다양한 기능을 스마트폰의 작은 화면에 담을 수 있도록 깔끔하게 디자인했습니다.
+
+
+### 팜플렛
+
+---
+
+https://www.hansung.ac.kr/cse/9316/subview.do
+
+노쓰 - 29페이지
+
+### Links
+
+---
+
+<LinkIconGrid
+	links={[
+		{
+			name: 'Github - Frontend',
+			src: 'https://github.com/GongGyeongJin-2022/No-ssu',
+			icon: 'github'
+		},
+		{
+			name: 'Github - Backend',
+			src: 'https://github.com/GongGyeongJin-2022/No-ssu-backend',
+			icon: 'github'
+		},
+		{
+			name: 'Figma',
+			src: 'https://www.figma.com/file/notBxS7OhZBfvVB78zMNKX/No-ssu?type=design&node-id=203%3A9&t=xpbJwLB3rGqr6QzE-1',
+			icon: 'figma'
+		}
+	]}
+/>

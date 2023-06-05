@@ -4,6 +4,92 @@ description: '위치 기반 쓰레기통 정보 공유 어플리케이션'
 thumbnail: '/thumbnails/trashit.png'
 screenType: 'mobile'
 displayPriority: '7'
+tags: [React Native, DRF, MySQL, AWS, Django]
+startDate: "2020-11-10"
+endDate: "2022-02-07"
 ---
 
-[AMath](/portfolio/AMath)
+![trashit.pnt](/thumbnails/trashit.png)
+
+### 서비스 소개
+
+---
+
+##### 서비스 목적
+
+**주변에 있는 쓰레기통의 위치를 찾을 수 있도록 도와주는 어플리케이션**
+
+##### 제작 동기
+
+길거리에서 쓰레기가 생겼을 때, 쓰레기통이 많이 배치되어있지 않아 버릴곳이 없어 집까지 가져가거나 주변에 대충 버리는 상황이 자주 발생했습니다.
+
+따라서, 쓰레기통의 위치 정보를 쉽게 알 수 있는 앱이 있다면 쓰레기 처리에 대한 부담도 줄어들고 환경적으로도 좋을 것 같다고 판단하여 개발을 시작했습니다.
+
+##### 주요 기능
+
+메인 화면인 지도 화면에서는 다른 사용자들이 올려놓은 쓰레기통의 위치를 핀을 통에 확인할 수 있고, 핀의 색상을 통해 쓰레기통의 상태를 확인할 수 있습니다.
+
+쓰레기통 등록 화면에서는 쓰레기통의 사진과 함께 추가적인 정보를 글로 입력하여 다른 유저가 쓰레기통을 찾는 데 도움을 줄 수 있습니다.
+
+핀을 누르면 쓰레기통의 사진과 글로 된 정보, 투표 현황을 확인할 수 있습니다.
+
+투표는 그 위치에 정상적으로 쓰레기통이 있다면 좋아요, 아니라면 싫어요를 눌러 다른 유저에게 쓰레기통에 대한 상태를 파악할 수 있도록 해 줍니다.
+
+### 담당한 역할
+
+---
+
+##### 모델 설계
+
+팀원과 함께 어플리케이션에 필요한 모델 설계를 담당했습니다.
+
+##### 프론트엔드 개발
+
+상세 화면, 업로드 화면, 리더보드 화면 등 다양한 화면을 개발했습니다.
+
+##### 백엔드 기능 개발
+
+유저 디테일, 좋아요 기능, 리더보드 정보 제공 등에 필요한 백엔드 작업을 담당했습니다.
+
+##### 배포
+
+AWS EC2에 백엔드 배포를 담당했습니다.
+
+
+### 시연 동영상
+
+---
+
+https://youtu.be/mrb5fSpk5Cs
+
+### 성과
+
+---
+
+**제 4회 KBSC에서 최우수상을 수상**했습니다.
+
+https://www.kbsccoding.com/board/board.php?bo_table=notice&wr_id=67
+
+### Links
+
+---
+
+<LinkIconGrid
+	links={[
+		{
+			name: 'Github - Frontend',
+			url: 'https://github.com/entrolEC/Trash-It',
+			icon: 'github'
+		},
+		{
+			name: 'Github - Backend',
+			url: 'https://github.com/entrolEC/Trash-It-backend',
+			icon: 'github'
+		},
+		{
+			name: 'Figma',
+			url: 'https://www.figma.com/file/6cuwdFr52cXSg6PlgnJNei/Hyoyulbugi?node-id=0%3A1&t=MC9r5ER24uYC1IXF-1',
+			icon: 'figma'
+		}
+	]}
+/>

@@ -39,27 +39,27 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</>
 		),
 		h1: ({ children, ...props }) => (
-			<h1 className={`font-semibold text-5xl mt-10 mb-3`} {...props}>
+			<h1 className={`font-semibold text-5xl mt-14 mb-3`} {...props}>
 				{ children }
 			</h1>
 		),
 		h2: ({ children, ...props }) => (
-			<h2 className={`font-semibold text-4xl mt-8 mb-3`} {...props}>
+			<h2 className={`font-semibold text-4xl mt-12 mb-3`} {...props}>
 				{ children }
 			</h2>
 		),
 		h3: ({ children, ...props }) => (
-			<h3 className={`font-semibold text-3xl mt-4 mb-1`} {...props}>
+			<h3 className={`font-semibold text-3xl mt-10 mb-1`} {...props}>
 				{ children }
 			</h3>
 		),
 		h4: ({ children, ...props }) => (
-			<h4 className={`font-semibold text-2xl mt-2 mb-1`} {...props}>
+			<h4 className={`font-semibold text-2xl mt-8 mb-1`} {...props}>
 				{ children }
 			</h4>
 		),
 		h5: ({ children, ...props }) => (
-			<h5 className={`font-semibold text-xl mt-1 mb-1`} {...props}>
+			<h5 className={`font-semibold text-xl mt-6 mb-1`} {...props}>
 				{ children }
 			</h5>
 		),
@@ -75,13 +75,13 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 		),
 		img: ({ children, ...props }) => (
 			// @ts-ignore
-			<Image width={1000} height={1000} className={`my-3`} priority={true} alt={props.src} {...props} />
+			<Image width={1000} height={1000} className={`my-3 max-h-[30rem] object-contain`} priority={true} alt={props.src} {...props} />
 		),
 		hr: ({ children, ...props }) => (
 			<hr className={`my-3`} {...props} />
 		),
 		strong: ({ children, ...props }) => (
-			<strong className={`font-medium`} {...props}>
+			<strong className={`transform duration-300 bg-[#B7CDED]/60 hover:bg-[#B7CDED]/40 dark:bg-[#344C6E]/80 dark:hover:bg-[#344C6E]/60 px-1.5 py-0.5 text-[#344C6E] dark:text-[#B7CDED] rounded-lg font-light`} {...props}>
 				{ children }
 			</strong>
 		),
