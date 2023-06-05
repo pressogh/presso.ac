@@ -61,6 +61,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 				hover:drop-shadow-md
 				hover:scale-[1.02]
 				justify-self-center
+				group
 			`}
 			onClick={openCard}
 			onMouseEnter={() => {
@@ -90,6 +91,10 @@ const ProjectCard: React.FC<ProjectCard> = ({
 						${screenType === "mobile" && "border-[3px] border-black rounded-md w-24 h-[11.5rem]"}
 						${screenType === "web" && "border border-neutral-500 dark:border-neutral-700 border-t-[10px] border-t-neutral-800 dark:border-t-neutral-800 rounded-md w-64 h-[8.5rem]"}
 						${thumbnail === undefined && "bg-white dark:bg-neutral-700"}
+						transform
+						duration-500
+						group-hover:shadow-[0.3rem_0.5rem_0.2rem_0.2rem_rgba(60,60,60,0.05)]
+						group-hover:scale-[1.075]
 					`}
 				>
 					{
@@ -110,6 +115,9 @@ const ProjectCard: React.FC<ProjectCard> = ({
 									${screenType === "mobile" ? "text-2xl" : "text-4xl"}
 									font-bold
 								`}
+								style={{
+									textShadow: "0.1em 0.075em 0.075em rgba(60, 60, 60, 0.15)"
+								}}
 							>
 								{ name }
 							</div>
@@ -127,7 +135,6 @@ const ProjectCard: React.FC<ProjectCard> = ({
 							/>
 						)
 					}
-					
 				</div>
 			</div>
 			<div className={`py-3 px-4`}>
