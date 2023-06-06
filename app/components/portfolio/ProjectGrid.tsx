@@ -84,16 +84,16 @@ const ProjectGrid = ({
 			            clip-path: polygon(${position.left + 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
 			        }
 			        25% {
-			            clip-path: polygon(0 calc(3.5rem + 2px), ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
+			            clip-path: polygon(0 0, ${position.left + position.width - 2}px ${position.top + 2}px, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
 			        }
 			        50% {
-			            clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
+			            clip-path: polygon(0 0, 100% 0, ${position.left + position.width - 2}px ${position.top + position.height - 2}px, ${position.left + 2}px ${position.top + position.height - 2}px);
 			        }
 			        75% {
-			            clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), 100% 100%, ${position.left + 2}px ${position.top + position.height - 2}px);
+			            clip-path: polygon(0 0, 100% 0, 100% 100%, ${position.left + 2}px ${position.top + position.height - 2}px);
 			        }
 			        100% {
-			            clip-path: polygon(0 calc(3.5rem + 2px), 100% calc(3.5rem + 2px), 100% 100%, 0 100%);
+			            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 			        }
 				}
 				
@@ -105,16 +105,16 @@ const ProjectGrid = ({
 			            clip-path: polygon(${position.left + 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
 			        }
 			        25% {
-			            clip-path: polygon(0 calc(3.5rem + 1px), ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
+			            clip-path: polygon(0 0, ${position.left + position.width - 1}px ${position.top + 1}px, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
 			        }
 			        50% {
-			            clip-path: polygon(0 calc(3.5rem + 1px), 100% calc(3.5rem + 1px), ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
+			            clip-path: polygon(0 0, 100% 0, ${position.left + position.width - 1}px ${position.top + position.height - 1}px, ${position.left + 1}px ${position.top + position.height - 1}px);
 			        }
 			        75% {
-			            clip-path: polygon(0 calc(3.5rem + 1px), 100% calc(3.5rem + 1px), 100% 100%, ${position.left + 1}px ${position.top + position.height - 1}px);
+			            clip-path: polygon(0 0, 100% 0, 100% 100%, ${position.left + 1}px ${position.top + position.height - 1}px);
 			        }
 			        100% {
-			            clip-path: polygon(0 calc(3.5rem + 1px), 100% calc(3.5rem + 1px), 100% 100%, 0 100%);
+			            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 			        }
 				}
 			`}</style>

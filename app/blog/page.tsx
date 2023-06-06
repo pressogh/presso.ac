@@ -7,13 +7,15 @@ const Page = async () => {
 	const posts: PostType[] = await getAllPosts();
 	
 	return (
-		<>
-			<Container>
-				<div className={`mt-10`}>
+		<Container>
+			<div className={`mt-10`}>
+				<div className={`text-5xl font-bold`}>Blog</div>
+				<div className={`text-xl font-thin my-4`}>공유하고 싶거나 다시 보고 싶은 기술들을 정리합니다.</div>
+				<div className={`mt-8`}>
 					<PostGrid posts={posts} />
 				</div>
-			</Container>
-		</>
+			</div>
+		</Container>
 	);
 };
 
