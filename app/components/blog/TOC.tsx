@@ -41,12 +41,20 @@ const TOC = () => {
 				<ul className={`list-disc w-full m-0 pl-5 pt-4 max-h-[calc(100vh-10rem)] overflow-auto padding-0`}>
 					{
 						headings.map((heading) => (
-							<li key={heading.id} className={`mb-[0.625rem] last:mb-0 text-[rgb(136,144,150)] ${heading.id === activeId ? 'text-[rgb(75,110,160)]' : ''}`}>
+							<li
+								key={heading.id}
+								className={`
+									font-light
+									leading-6
+									mb-[0.625rem]
+									last:mb-0
+									text-[rgb(136,144,150)]
+									${heading.id === activeId ? 'text-[rgb(75,110,160)]' : ''}
+								`}
+							>
 								<Link
 									href={`#${heading.id}`}
 									className={`
-										font-light
-										leading-6
 										cursor-pointer
 										pl-1
 									`}
