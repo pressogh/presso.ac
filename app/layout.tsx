@@ -16,7 +16,7 @@ export default function RootLayout({
         <html lang="ko-kr">
             <body>
                 <Navbar />
-                <div className={`pb-10 pt-14 text-black dark:text-white`}>
+                <div className={`pb-10 text-black dark:text-white`}>
                     { children }
                 </div>
                 <Footer />

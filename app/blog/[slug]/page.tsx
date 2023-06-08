@@ -29,7 +29,7 @@ const Page = async ({ params }: Params) => {
 	
 	return (
 		<Container>
-			<div className={"sm:mt-20 mt-6"}>
+			<div className={"sm:mt-14 mt-6"}>
 				<TOC />
 				
 				<div>
