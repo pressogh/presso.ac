@@ -7,7 +7,7 @@ interface Props {
 
 const PostGrid = ({ posts }: Props) => {
 	return (
-		<div className={`flex flex-col gap-4`}>
+		<div className={`flex flex-col gap-10`}>
 			{
 				posts.map((item, index) => {
 					return (
