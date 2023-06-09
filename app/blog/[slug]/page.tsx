@@ -34,7 +34,13 @@ const Page = async ({ params }: Params) => {
 
 				<div>
 					<div className={`font-semibold sm:text-5xl text-4xl`}>{ title }</div>
-					<div className={`font-extralight text-lg mt-4 text-neutral-400`}>{ dayjs(date).format("YYYY년 MM월 DD일") }</div>
+					{
+						date && (
+							<div className={`font-extralight text-base mt-4 text-neutral-400`}>
+								Posted at { dayjs(date).format("YYYY년 MM월 DD일") }
+							</div>
+						)
+					}
 				</div>
 
 				<div className={`mt-16`}>

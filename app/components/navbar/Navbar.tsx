@@ -6,12 +6,9 @@ import {usePathname} from "next/navigation";
 import Logo from "@/public/logo/logo.svg";
 import LogoDark from "@/public/logo/logo-dark.svg";
 import Link from "next/link";
-import {useCardGrowingStore} from "@/app/hooks/useCardGrowingStore";
-import {shallow} from "zustand/shallow";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
 const Navbar = () => {
-	const { growing, onGrowEnd } = useCardGrowingStore((state: any) => state, shallow);
 	const [scrollY, setScrollY] = useState(0);
 	
 	const darkMode = useDarkMode();
@@ -33,16 +30,12 @@ const Navbar = () => {
 		return () => window.removeEventListener("scroll", onScroll, true);
 	}, []);
 	
-	useEffect(() => {
-		onGrowEnd();
-	}, [pathName, onGrowEnd]);
-	
 	/**
 	 * @description 페이지 전환 시 스크롤 위치를 0으로 초기화
 	 */
 	useEffect(() => {
 		setScrollY(0);
-	}, [pathName, growing]);
+	}, [pathName]);
 	
 	return (
 		<>
@@ -52,7 +45,7 @@ const Navbar = () => {
 					w-full
 					text-black
 					dark:text-white
-					${growing ? "bg-white dark:bg-neutral-900 duration-[400ms]" : "backdrop-blur-[2px]"}
+					backdrop-blur-[2px]
 				`}
 			>
 				<div className={`py-4 bg-white/90 dark:bg-neutral-900/90 border-b-[1px] dark:border-neutral-500`}>
