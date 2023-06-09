@@ -14,23 +14,23 @@ const postsDirectory = join(cwd, '/_posts');
 
 export const getAllPosts = async () => {
 	const mdFiles = getAllMdFiles(postsDirectory);
-	
+
 	const posts: PostType[] = [];
 	for (const file of mdFiles) {
 		posts.push(await parseMarkdown(join(postsDirectory, file)) as PostType);
 	}
-	
+
 	return posts;
 }
 
 export const getPost = async (slug: string) => {
 	const parsed = decodeURIComponent(slug);
-	
+
 	const markdownWithMetadata = fs.readFileSync(
 		join(postsDirectory, `${parsed}.mdx`),
 		'utf-8'
 	);
-	
+
 	const { content, frontmatter } = await compileMDX({
 		source: markdownWithMetadata,
 		options: {
@@ -44,7 +44,7 @@ export const getPost = async (slug: string) => {
 			...MDXComponents({}),
 		},
 	});
-	
+
 	return {
 		...frontmatter,
 		content,
