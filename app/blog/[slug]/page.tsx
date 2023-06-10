@@ -5,8 +5,7 @@ import TOC from "@/app/components/blog/TOC";
 
 dayjs.locale("ko");
 
-const dynamicParams = false;
-export { dynamicParams };
+const dynamic = 'force-static';
 
 export const generateStaticParams = async () => {
 	const posts = await getAllPosts();
@@ -29,7 +28,7 @@ const Page = async ({ params }: Params) => {
 
 	return (
 		<Container>
-			<div className={"sm:mt-14 mt-6"}>
+			<div className={"sm:mt-20 mt-6"}>
 				<TOC />
 
 				<div>
@@ -43,7 +42,7 @@ const Page = async ({ params }: Params) => {
 					}
 				</div>
 
-				<div className={`mt-16`}>
+				<div className={`mt-10`}>
 					{ content }
 				</div>
 			</div>

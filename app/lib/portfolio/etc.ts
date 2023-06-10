@@ -3,12 +3,12 @@ import fs from "fs";
 import { ProjectType } from "@/types/ProjectType";
 
 import { compileMDX } from "next-mdx-remote/rsc";
-import MDXComponents from "@/app/components/MDXComponents";
+import MDXComponents from "@/app/components/markdown/MDXComponents";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
-import LinkIcon from "@/app/components/portfolio/LinkIcon";
-import LinkIconGrid from "@/app/components/portfolio/LinkIconGrid";
+import LinkIcon from "@/app/components/markdown/LinkIcon";
+import LinkIconGrid from "@/app/components/markdown/LinkIconGrid";
 import {getAllMdFiles, parseMarkdown} from "@/app/lib/etc";
 
 const cwd = process.cwd();

@@ -1,4 +1,4 @@
-import ProjectCard from "@/app/components/portfolio/ProjectCard";
+import ProjectCard from "@/app/components/markdown/ProjectCard";
 
 import { ScreenType } from "@/types/ScreenType";
 import { ProjectType } from "@/types/ProjectType";

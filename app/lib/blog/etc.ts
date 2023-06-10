@@ -2,12 +2,13 @@ import { join } from 'path';
 import fs from "fs";
 
 import { compileMDX } from "next-mdx-remote/rsc";
-import MDXComponents from "@/app/components/MDXComponents";
+import MDXComponents from "@/app/components/markdown/MDXComponents";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import { getAllMdFiles, parseMarkdown } from "@/app/lib/etc";
 import { PostType } from "@/types/PostType";
+import Conclusion from "@/app/components/markdown/Conclusion";
 
 const cwd = process.cwd();
 const postsDirectory = join(cwd, '/_posts');
@@ -42,6 +43,7 @@ export const getPost = async (slug: string) => {
 		},
 		components: {
 			...MDXComponents({}),
+			Conclusion
 		},
 	});
 

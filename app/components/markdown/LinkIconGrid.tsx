@@ -1,4 +1,4 @@
-import LinkIcon from "@/app/components/portfolio/LinkIcon";
+import LinkIcon from "@/app/components/markdown/LinkIcon";
 
 interface Props {
 	links: Array<{

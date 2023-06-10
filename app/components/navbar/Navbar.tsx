@@ -45,10 +45,9 @@ const Navbar = () => {
 					w-full
 					text-black
 					dark:text-white
-					backdrop-blur-[2px]
 				`}
 			>
-				<div className={`py-4 bg-white/90 dark:bg-neutral-900/90 border-b-[1px] dark:border-neutral-500`}>
+				<div className={`py-4 bg-white dark:bg-[#202021] border-b-[1px] dark:border-neutral-500`}>
 					<Container>
 						<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
 							<Link href={"/"} aria-label={"PRESSO"}>

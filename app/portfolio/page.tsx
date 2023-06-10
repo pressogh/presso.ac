@@ -1,5 +1,5 @@
 import Container from "@/app/components/Container";
-import ProjectGrid from "@/app/components/portfolio/ProjectGrid";
+import ProjectGrid from "@/app/components/markdown/ProjectGrid";
 import { getAllProjects } from "@/app/lib/portfolio/etc";
 import { ProjectType } from "@/types/ProjectType";
 
