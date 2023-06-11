@@ -6,7 +6,7 @@ import Comment from "@/app/components/blog/Comment";
 
 dayjs.locale("ko");
 
-const dynamic = 'force-static';
+export const dynamic = 'force-static';
 
 export const generateStaticParams = async () => {
 	const posts = await getAllPosts();

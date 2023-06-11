@@ -1,19 +1,18 @@
-import dynamic from "next/dynamic";
+import { default as dynamicImport } from "next/dynamic";
 
 import Container from "@/app/components/Container";
 import { getAllProjects, getProject } from "@/app/lib/portfolio/etc";
 import TagGrid from "@/app/components/portfolio/TagGrid";
 import dayjs from "dayjs";
 
-const CustomTyping = dynamic(
+const CustomTyping = dynamicImport(
 	() => import("@/app/components/portfolio/CustomTyping"),
 	{ ssr: true, loading: () => <div className={`inline-block leading-6`}>&nbsp;</div> }
 );
 
 dayjs.locale("ko");
 
-const dynamicParams = false;
-export { dynamicParams };
+export const dynamic = 'force-static';
 
 export const generateStaticParams = async () => {
 	const projects = await getAllProjects();
