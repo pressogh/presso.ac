@@ -2,6 +2,7 @@ import {getAllPosts, getPost} from "@/app/lib/blog/etc";
 import Container from "@/app/components/Container";
 import dayjs from "dayjs";
 import TOC from "@/app/components/blog/TOC";
+import Comment from "@/app/components/blog/Comment";
 
 dayjs.locale("ko");
 
@@ -42,9 +43,11 @@ const Page = async ({ params }: Params) => {
 					}
 				</div>
 
-				<div className={`mt-10`}>
+				<div className={`my-10`}>
 					{ content }
 				</div>
+				
+				<Comment />
 			</div>
 		</Container>
 	);
