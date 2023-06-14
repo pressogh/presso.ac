@@ -3,6 +3,8 @@ import { getAllPosts } from "@/app/lib/blog/etc";
 import { PostType } from "@/types/PostType";
 import PostGrid from "@/app/components/blog/PostGrid";
 
+export const dynamic = 'force-static';
+
 const Page = async () => {
 	const posts: PostType[] = await getAllPosts();
 	

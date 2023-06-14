@@ -21,8 +21,7 @@ const PostCard = ({ post }: Props) => {
 					hover:border-r-0
 					hover:border-b-0
 					hover:border-l-4
-					hover:border-indigo-950
-					dark:hover:border-indigo-800
+					hover:border-indigo-800
 				`}
 			>
 				<div className={`text-3xl font-medium text-neutral-800 dark:text-neutral-100`}>{ post.title }</div>
