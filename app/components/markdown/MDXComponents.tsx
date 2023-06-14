@@ -69,7 +69,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</h6>
 		),
 		p: ({ children, ...props }) => (
-			<p className={`font-light mb-1 leading-7`} {...props}>
+			<p className={`font-light mb-1.5 leading-8`} {...props}>
 				{ children }
 			</p>
 		),

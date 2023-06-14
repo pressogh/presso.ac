@@ -33,7 +33,7 @@ const Page = async ({ params }: Params) => {
 				<TOC />
 
 				<div>
-					<div className={`font-semibold sm:text-5xl text-4xl`}>{ title }</div>
+					<div className={`font-semibold sm:text-5xl sm:leading-[4rem] text-4xl`}>{ title }</div>
 					{
 						date && (
 							<div className={`font-extralight text-base mt-4 text-neutral-400`}>
