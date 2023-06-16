@@ -1,8 +1,10 @@
+import Container from "@/app/components/Container";
+
 const Page = () => {
 	return (
-		<div>
-			About
-		</div>
+		<Container>
+			<div>준비 중에 있습니다...</div>
+		</Container>
 	);
 };
 
