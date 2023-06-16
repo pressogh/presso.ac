@@ -37,17 +37,17 @@ AWS S3에 파일을 저장하도록 코드를 수정했고, 위 그래프 정도
 
 따라서 원인은 AWS 인스턴스의 문제가 아니라 메모리 누수로 인해 메모리가 가득 차면서 CPU가 정상적으로 작동하지 않는 문제라고 판단하였다.
 
-이에 대해서 구글링을 해봤더니 gunicorn을 사용할 때 가끔 worker 노드들이 메모리를 들고 일을 하다가 해제를 못 하는 케이스가 발생하기 때문에 **max_requests**와 **max_requests_jitter**를 설정해 주어야 한다고 한다.
+이에 대해서 구글링을 해봤더니 gunicorn을 사용할 때 가끔 worker 노드들이 메모리를 들고 일을 하다가 해제를 못 하는 케이스가 발생하기 때문에 **max-requests**와 **max-requests-jitter**를 설정해 주어야 한다고 한다.
 위의 두 개의 옵션을 통해 일정 횟수의 request가 올 때마다 worker를 재시작하도록 하여 메모리 누수를 방지할 수 있다.
 ![memory.png](/posts/AWS-EC2-인스턴스가-가끔씩-터지는-문제/memory.png)
-*max_requests, max_requests_jitter 옵션을 적용했을 때 확실히 메모리 사용량이 감소한 것을 확인할 수 있다.*
+*max-requests, max-requests-jitter 옵션을 적용했을 때 확실히 메모리 사용량이 감소한 것을 확인할 수 있다.*
 
-### max_requests, max_requests_jitter
-gunicorn을 사용할 때, **max_requests** 옵션을 주지 않으면 worker가 restart되지 않아 메모리를 계속 잡고 있는 문제가 발생한다.
+### max-requests, max-requests-jitter
+gunicorn을 사용할 때, **max-requests** 옵션을 주지 않으면 worker가 restart되지 않아 메모리를 계속 잡고 있는 문제가 발생한다.
 
-따라서 일정 횟수의 request 뒤에 worker를 restart해주는 **max_requests** 옵션을 사용하면 worker가 잡고 있는 메모리를 놓아줄 수 있다.
+따라서 일정 횟수의 request 뒤에 worker를 restart해주는 **max-requests** 옵션을 사용하면 worker가 잡고 있는 메모리를 놓아줄 수 있다.
 
-하지만 요청이 몰렸을 때, 모든 worker가 restart 되는 상황이 있다면 다운타임 상황이 발생할 수 있으므로 **max_requests_jitter** 옵션을 이용해 max_requests 값에 0 ~ jitter 값 사이의 랜덤 값을 추가하여 동시에 모든 worker가 restart되는 현상을 방지할 수 있다.
+하지만 요청이 몰렸을 때, 모든 worker가 restart 되는 상황이 있다면 다운타임 상황이 발생할 수 있으므로 **max-requests-jitter** 옵션을 이용해 max-requests 값에 0 ~ jitter 값 사이의 랜덤 값을 추가하여 동시에 모든 worker가 restart되는 현상을 방지할 수 있다.
 ```python
 # https://github.com/benoitc/gunicorn/blob/master/gunicorn/workers/base.py
 
@@ -80,7 +80,7 @@ gunicorn의 worker 개수는 다음과 같은 공식을 따르는 것을 추천�
 ### 결론
 인스턴스의 사양 문제가 아닌 메모리 문제로 인해 서버가 터진 것을 알 수 있었다.
 
-메모리 문제의 원인으로는 gunicorn에 **max_requests**, **max_requests_jitter** 옵션을 설정하지 않았고, worker의 개수를
+메모리 문제의 원인으로는 gunicorn에 **max-requests**, **max-requests-jitter** 옵션을 설정하지 않았고, worker의 개수를
 사양보다 너무 많이 지정하여 발생하는 문제로 확인되었다.
 
 처음에는 인스턴스 사양 문제 혹은 django의 **InMemoryUploadedFile**이 api 호출이 종료된 이후에도 메모리에 남아있을 가능성 등을 생각했었지만,
