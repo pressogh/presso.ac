@@ -17,7 +17,7 @@ export default async function Home() {
 	return (
 		<Container>
 			<header className={`my-16`}>
-				<div className={`text-5xl font-bold from-[rgba(17,24,28,1)] to-[rgba(0,74,191,1)] bg-gradient-to-r bg-clip-text text-transparent`}>
+				<div className={`text-5xl font-bold from-[rgba(17,24,28,1)] dark:from-white to-[rgba(0,74,191,1)] dark:to-[rgba(0,74,191,1)] bg-gradient-to-r bg-clip-text text-transparent`}>
 					안녕하세요, 저는 이강혁입니다.
 				</div>
 			</header>
@@ -28,7 +28,7 @@ export default async function Home() {
 					{
 						data.contents.map((content, index) => {
 							return (
-								<div className={`flex flex-row justify-between w-full font-light mb-16`}>
+								<div key={content.name} className={`flex flex-row justify-between w-full font-light mb-16`}>
 									<div className={`sticky top-8 w-40 h-full`}>
 										<div className={`text-2xl font-medium mb-2`}>{ content.name }</div>
 										<div className={`text-sm`}>
@@ -42,7 +42,7 @@ export default async function Home() {
 										{
 											content.projects.map((project, index) => {
 												return (
-													<div className={`mb-10`}>
+													<div key={project.title.text} className={`mb-10`}>
 														<div className={`inline-block text-2xl font-medium mb-2 text-[#4B6EA0] group relative`}>
 															<div>{ project.title.text }</div>
 															{
@@ -82,7 +82,7 @@ export default async function Home() {
 	                                                                {
 																		project.title.links.map((link, index) => {
 																			return (
-																				<Link href={link.url}>
+																				<Link key={link.url} href={link.url}>
 																					<WorkExperienceTitleToolTipIcon type={link.type} />
 																				</Link>
 																			)
@@ -100,7 +100,7 @@ export default async function Home() {
 																{
 																	project.works && project.works.map((work, index) => {
 																		return (
-																			<li className={`mb-5 pl-2 [&_a]:text-blue-500 [&_a]:dark:text-blue-400 [&_a]:cursor-pointer`} dangerouslySetInnerHTML={{ __html: work }} />
+																			<li key={work} className={`mb-5 pl-2 [&_a]:text-blue-500 [&_a]:dark:text-blue-400 [&_a]:cursor-pointer`} dangerouslySetInnerHTML={{ __html: work }} />
 																		);
 																	})
 																}
@@ -109,7 +109,7 @@ export default async function Home() {
 																{
 																	project.techStack && project.techStack.map((tech, index) => {
 																		return (
-																			<span className={`text-xs px-2 py-0.5 bg-[#ECEEF0] rounded-full`}>{ tech }</span>
+																			<span key={tech} className={`text-xs px-2 py-0.5 bg-[#ECEEF0] dark:bg-[#26292B] rounded-full`}>{ tech }</span>
 																		);
 																	})
 																}
