@@ -1,0 +1,75 @@
+{
+    "title": "프로젝트 경험",
+    "contents": [
+        {
+            "name": "토니스코딩",
+            "position": "개발자 및 튜터",
+            "startDate": "2022.02",
+            "endDate": "2022.12",
+            "description": "코딩 교육 플랫폼",
+            "projects": [
+                {
+                    "title": {
+                        "text": "AMath",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/tonyscoding/AMath"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/tonyscoding/AMath_wsgi"
+                            },
+                            {
+                                "type": "play-store",
+                                "url": "https://play.google.com/store/apps/details?id=com.cmath"
+                            },
+                            {
+                                "type": "app-store",
+                                "url": "https://apps.apple.com/kr/app/amath/id6446975466"
+                            },
+                            {
+                                "type": "figma",
+                                "url": "https://www.figma.com/file/BerBfXHDdLsbn5fIyMqjuk/AMath?type=design&node-id=116%3A328&t=TXNQKcVrteaT34sJ-1"
+                            },
+                            {
+                                "type": "other",
+                                "url": "/portfolio/AMath"
+                            }
+                        ]
+                    },
+                    "startDate": "2022.12",
+                    "endDate": "2023.03",
+                    "description": "학생이 오답노트를 작성하면 선생님이 온라인으로 확인할 수 있는 LMS 어플리케이션입니다.",
+                    "works": [
+                        "반응형 디자인을 적용하여 모든 디바이스에서 동일하게 보이도록 개발했습니다.",
+                        "테스트 코드를 적용하여 개발 및 유지보수를 용이하게 했습니다.",
+                        "에러 모니터링을 위해 AWS CloudWatch를 사용했습니다.",
+                        "SSL을 적용하여 보안성을 강화하였습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/AMath>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "DRF", "React Native", "MySQL", "AWS", "SSL"]
+                },
+                {
+                    "title": {
+                        "text": "교재 편집기 리팩터링",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/tonyscoding/topolar_textbook_editor"
+                            }
+                        ]
+                    },
+                    "startDate": "2022.06",
+                    "endDate": "2022.09",
+                    "description": "기존에 사용하던 교재 편집기의 단점을 보완하여 학원에서 사용하던 교재 편집기를 리팩터링했습니다.",
+                    "works": [
+                        "교재 제작 후, 웹 페이지에 접속하여 교재를 업로드해야하는 불필요한 프로세스 등을 제거함으로써 교재 제작 프로세스를 40% 단축시켰습니다.",
+                        "Github actions를 사용하여 배포 자동화를 구현했습니다."
+                    ],
+                    "techStack": ["React", "Electron", "Github Actions", "NextUI"]
+                }
+            ]
+        }
+    ]
+}
