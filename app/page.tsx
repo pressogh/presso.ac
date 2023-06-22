@@ -32,7 +32,9 @@ export default async function Home() {
 									<div className={`sticky top-8 w-40 h-full`}>
 										<div className={`text-2xl font-medium mb-2`}>{ content.name }</div>
 										<div className={`text-sm`}>
-											{ dayjs(content.startDate, "YYYY.MM").format("YYYY.MM") } ~ { dayjs(content.endDate, "YYYY.MM").format("YYYY.MM") }
+											{ content.startDate && dayjs(content.startDate, "YYYY.MM").format("YYYY.MM") }
+											{ (content.startDate || content.endDate) && ' ~ ' }
+											{ content.endDate && dayjs(content.endDate, "YYYY.MM").format("YYYY.MM") }
 										</div>
 										<div>{ content.position }</div>
 										<div className={`text-neutral-500`}>{ content.description }</div>
@@ -76,7 +78,7 @@ export default async function Home() {
 	                                                                    flex-row
 	                                                                    justify-center
 	                                                                    items-center
-	                                                                    gap-4
+	                                                                    gap-5
 	                                                                `}
 																>
 	                                                                {
@@ -92,7 +94,9 @@ export default async function Home() {
 															}
 														</div>
 														<div className={`text-sm`}>
-															{ dayjs(project.startDate, "YYYY.MM").format("YYYY.MM") } ~ { dayjs(project.endDate, "YYYY.MM").format("YYYY.MM") }
+															{ project.startDate && dayjs(project.startDate, "YYYY.MM").format("YYYY.MM") }
+															{ (project.startDate || project.endDate) && ' ~ ' }
+															{ project.endDate && dayjs(project.endDate, "YYYY.MM").format("YYYY.MM") }
 														</div>
 														<div>
 															<div>{ project.description }</div>

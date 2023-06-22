@@ -31,10 +31,6 @@
                             {
                                 "type": "figma",
                                 "url": "https://www.figma.com/file/BerBfXHDdLsbn5fIyMqjuk/AMath?type=design&node-id=116%3A328&t=TXNQKcVrteaT34sJ-1"
-                            },
-                            {
-                                "type": "other",
-                                "url": "/portfolio/AMath"
                             }
                         ]
                     },
@@ -68,6 +64,201 @@
                         "Github actions를 사용하여 배포 자동화를 구현했습니다."
                     ],
                     "techStack": ["React", "Electron", "Github Actions", "NextUI"]
+                }
+            ]
+        },
+        {
+            "name": "멋쟁이 사자처럼 10기",
+            "position": "지식 공유자",
+            "description": "지식을 공유하며 서로 성장해 나가는 커뮤니티",
+            "startDate": "2022.03",
+            "endDate": "2022.12",
+            "projects": [
+                {
+                    "title": {
+                        "text": "술도가",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/pressogh/suldoga"
+                            }
+                        ]
+                    },
+                    "startDate": "2022.07",
+                    "endDate": "2022.08",
+                    "description": "한국형 칵테일을 소개하고 술 문화를 공유하는 서비스입니다.",
+                    "works": [
+                        "14인 프로젝트로 팀장 및 백엔드 파트를 담당하여 PM, 개발 역할을 했습니다.",
+                        "PM으로써 회의를 진행하며 팀원들의 역할을 조율하고 모든 팀원들이 참여할 수 있도록 도움을 주었습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/술도가>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "Django Template", "AWS", "MySQL"]
+                },
+                {
+                    "title": {
+                        "text": "Django 지식 공유"
+                    },
+                    "startDate": "2022.03",
+                    "endDate": "2022.12",
+                    "works": [
+                        "비전공자, 입문자를 대상으로 Django를 이용한 백엔드 지식을 공유했습니다."
+                    ],
+                    "techStack": ["Django", "Django Template", "Git"]
+                }
+            ]
+        },
+        {
+            "name": "그 외 프로젝트",
+            "projects": [
+                {
+                    "title": {
+                        "text": "한움",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/pressogh/hansung_grade"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/pressogh/hansung_grade_backend"
+                            },
+                            {
+                                "type": "other",
+                                "url": "https://hanum.presso.codes"
+                            }
+                        ]
+                    },
+                    "description": "한성대학교 학생들이 성적을 시각화하여 볼 수 있도록 만든 서비스입니다.",
+                    "startDate": "2022.05",
+                    "endDate": "2023.03",
+                    "works": [
+                        "동적이며 디자인을 깔끔하게 할 수 있도록 NextUI를 사용했습니다.",
+                        "제공하는 내용이 심플하고 학교 학생들만이 사용하므로 SPA로 개발했습니다.",
+                        "Jenkins를 이용해 Github 릴리즈 시 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
+                        "Cloudflare과 SSL을 사용하여 보안을 강화했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/한움>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["FastAPI", "NextJS", "Oracle Cloud", "Cloudflare", "Jenkins", "Docker", "SSL"]
+                },
+                {
+                    "title": {
+                        "text": "효율부기",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/2022-Hansung-WebFramework1/hansung-scheduler"
+                            },
+                            {
+                                "type": "figma",
+                                "url": "https://www.figma.com/file/6cuwdFr52cXSg6PlgnJNei/Hyoyulbugi?node-id=0%3A1&t=MC9r5ER24uYC1IXF-1"
+                            }
+                        ]
+                    },
+                    "description": "한성대학교 학생들을 위한 수강신청 보조 서비스입니다.",
+                    "startDate": "2022.10",
+                    "endDate": "2022.12",
+                    "works": [
+                        "동적이며 디자인을 깔끔하게 할 수 있도록 NextUI를 사용했습니다.",
+                        "제공하는 내용이 심플하고 학교 학생들만이 사용하므로 SPA로 개발했습니다.",
+                        "평소에 느꼈던 불편한 점을 해결하기 위해 해당 서비스를 개발하게 되었습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/효율부기>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["ReactJS", "Figma"]
+                },
+                {
+                    "title": {
+                        "text": "틴리프",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/GMG-group/teenlief"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/GMG-group/teenlief-backend"
+                            }
+                        ]
+                    },
+                    "description": "가출 청소년이 당하는 범죄를 해결하기 위한 서비스입니다.",
+                    "startDate": "2022.07",
+                    "endDate": "2022.11",
+                    "works": [
+                        "3인 프로젝트로 백엔드 개발 및 프론드엔드 작업을 보조했습니다.",
+                        "효율적인 데이터 관리를 위해 recoil을 사용했습니다.",
+                        "Github Actions를 사용하여 Github 릴리즈 시 자동으로 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
+                        "SSL을 사용하여 보안성을 강화했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/틴리프>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "DRF", "React Native", "AWS", "MySQL", "Github Actions", "Docker", "SSL"]
+                },
+                {
+                    "title": {
+                        "text": "노쓰",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/GongGyeongJin-2022/No-ssu"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/GongGyeongJin-2022/No-ssu-backend"
+                            }
+                        ]
+                    },
+                    "description": "리워드 기반 쓰레기 수거 어플리케이션입니다.",
+                    "startDate": "2022.07",
+                    "endDate": "2022.09",
+                    "works": [
+                        "4인 프로젝트로 프론트엔드, 백엔드, 인프라를 담당했습니다.",
+                        "효율적인 데이터 관리를 위해 recoil을 사용했습니다.",
+                        "Github Actions를 사용하여 Github 릴리즈 시 자동으로 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
+                        "SSL을 사용하여 보안성을 강화했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/노쓰>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "DRF", "React Native", "AWS", "MySQL", "Github Actions", "Docker", "SSL"]
+                },
+                {
+                    "title": {
+                        "text": "Trash It",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/entrolEC/Trash-It"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/entrolEC/Trash-It-backend"
+                            }
+                        ]
+                    },
+                    "description": "위치 기반 쓰레기통 정보 공유 어플리케이션입니다.",
+                    "startDate": "2020.11",
+                    "endDate": "2022.02",
+                    "works": [
+                        "2인 프로젝트로 프론트엔드 및 백엔드 개발을 담당했습니다.",
+                        "사용자에게 적합한 화면 배치를 위해 많이 고민했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/Trash-it>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "DRF", "React Native", "AWS", "MySQL"]
+                },
+                {
+                    "title": {
+                        "text": "Wordable",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/pressogh/wordable"
+                            }
+                        ]
+                    },
+                    "description": "자동 태깅 기능을 탑재한 동영상 공유 플랫폼입니다.",
+                    "startDate": "2019.06",
+                    "endDate": "2019.11",
+                    "works": [
+                        "2인 프로젝트로 디자인 및 프론트엔드 개발을 담당했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/Wordable>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["Django", "Django Template", "PyQt", "Bootstrap"]
                 }
             ]
         }
