@@ -32,13 +32,24 @@ pipeline {
                         } catch (Exception e) {
                             echo 'Container not found'
                         }
-                        sh 'docker run -d \
-                            --name $JOB_NAME \
-                            --restart unless-stopped \
-                            -e "TZ=Asia/Seoul" \
-                            --network app_custom_network \
-                            --ip 172.19.0.5 \
-                            $USERNAME/$JOB_NAME:latest'
+
+                        if (env.JOB_NAME == "presso.codes") {
+                            sh 'docker run -d \
+                                --name $JOB_NAME \
+                                --restart unless-stopped \
+                                -e "TZ=Asia/Seoul" \
+                                --network app_custom_network \
+                                --ip 172.19.0.4 \
+                                $USERNAME/$JOB_NAME:latest'
+                        } else if (env.JOB_NAME == 'dev.presso.codes') {
+                            sh 'docker run -d \
+                                --name $JOB_NAME \
+                                --restart unless-stopped \
+                                -e "TZ=Asia/Seoul" \
+                                --network app_custom_network \
+                                --ip 172.19.0.5 \
+                                $USERNAME/$JOB_NAME:latest'
+                        }
                     }
                 }
             }
