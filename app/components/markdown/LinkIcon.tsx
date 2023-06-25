@@ -6,7 +6,7 @@ const LinkIcon = ({ icon }: Props) => {
 	if (icon === 'github') {
 		return (
 			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
-				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[rgb(51,51,51)] transform group-hover:scale-110 duration-300 shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.075)] dark:shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.25)]`} />
+				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[rgb(51,51,51)] transform group-hover:scale-110 duration-300 shadow-[0_0_1em_1em_rgba(51,51,51,0.05)] dark:shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.25)]`} />
 				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
 					<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300`}>
 						<path
@@ -22,7 +22,7 @@ const LinkIcon = ({ icon }: Props) => {
 		return (
 			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
 				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-indigo-50 transform group-hover:scale-110 duration-300 shadow-[0_0_0.5em_0.5em_rgba(238,242,255,0.5)] dark:shadow-[0_0_0.5em_0.5em_rgba(238,242,255,0.25)]`} />
-				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
 						<g>
 							<path fill={"#32BBFF"} d="M382.369,175.623C322.891,142.356,227.427,88.937,79.355,6.028 C69.372-0.565,57.886-1.429,47.962,1.93l254.05,254.05L382.369,175.623z"/>
@@ -42,7 +42,7 @@ const LinkIcon = ({ icon }: Props) => {
 		return (
 			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
 				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[#0071E3] transform group-hover:scale-110 duration-300 shadow-[0_0_0.5em_0.5em_rgba(0,113,227,0.075)] dark:shadow-[0_0_0.5em_0.5em_rgba(0,113,227,0.25)]`} />
-				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" className={`sm:w-10 sm:h-10 w-6 h-6 scale-[2.0] group-hover:scale-[2.5] transform duration-300 ml-0.5`}>
 						<g>
 							<g>
@@ -57,7 +57,7 @@ const LinkIcon = ({ icon }: Props) => {
 		return (
 			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
 				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[rgb(51,51,51)] transform group-hover:scale-110 duration-300 shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.075)] dark:shadow-[0_0_0.5em_0.5em_rgba(51,51,51,0.25)]`} />
-				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
 					<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
 						<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
 						<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
@@ -72,7 +72,7 @@ const LinkIcon = ({ icon }: Props) => {
 		return (
 			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
 				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-indigo-700 transform group-hover:scale-110 duration-300 shadow-[0_0_1em_1em_rgba(67,56,202,0.075)] dark:shadow-[0_0_1em_1em_rgba(67,56,202,0.1)]`} />
-				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
 						<circle fill={"none"} cx="256" cy="256" r="244.494" />
 						<path fill={"white"} d="M512,256c0-68.38-26.63-132.668-74.981-181.019C388.668,26.629,324.38,0,256,0
@@ -112,6 +112,54 @@ const LinkIcon = ({ icon }: Props) => {
 							C88.345,420.977,66.325,395.224,50.491,365.675z M397.189,441.202c-8.714-9.835-17.723-18.709-26.992-26.58
 							c11.774-26.525,20.368-56.72,25.433-89.018c27.947,9.884,50.194,23.262,65.645,39.845c0.075,0.081,0.156,0.147,0.234,0.226
 							C445.675,395.225,423.654,420.978,397.189,441.202z" />
+					</svg>
+				</div>
+			</div>
+		)
+	} else if (icon === "resume") {
+		return (
+			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
+				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-indigo-600 transform group-hover:scale-110 duration-300 shadow-[0_0_1em_1em_rgba(67,56,202,0.075)] dark:shadow-[0_0_1em_1em_rgba(67,56,202,0.1)]`} />
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+					<svg fill="none" stroke="white" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
+						<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+					</svg>
+				</div>
+			</div>
+		)
+	} else if (icon === "blog") {
+		return (
+			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
+				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[rgb(255,179,0)] transform group-hover:scale-110 duration-300 shadow-[0_0_1em_1em_rgba(255,179,0,0.05)] dark:shadow-[0_0_1em_1em_rgba(67,56,202,0.1)]`} />
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center bg-in`}>
+					<svg fill="none" stroke="white" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
+						<path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+					</svg>
+				</div>
+			</div>
+		)
+	} else if (icon === 'twitter') {
+		return (
+			<div className={`inline-block sm:w-20 sm:h-20 w-12 h-12 group`}>
+				<div className={`absolute sm:w-20 sm:h-20 w-12 h-12 sm:rounded-2xl rounded-xl bg-[rgb(56,161,242)] transform group-hover:scale-110 duration-300 shadow-[0_0_1em_1em_rgba(56,161,242,0.05)] dark:shadow-[0_0_1em_1em_rgba(67,56,202,0.1)]`} />
+				<div className={`relative sm:w-20 sm:h-20 w-12 h-12 flex justify-center items-center`}>
+					<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" className={`sm:w-10 sm:h-10 w-6 h-6 group-hover:scale-125 transform duration-300 ml-0.5`}>
+						<g>
+							<path
+								d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73
+									c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783
+									c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598
+									C101.163,99.244,58.83,76.863,29.76,41.204c-1.036-1.271-2.632-1.956-4.266-1.825c-1.635,0.128-3.104,1.05-3.93,2.467
+									c-5.896,10.117-9.013,21.688-9.013,33.461c0,16.035,5.725,31.249,15.838,43.137c-3.075-1.065-6.059-2.396-8.907-3.977
+									c-1.529-0.851-3.395-0.838-4.914,0.033c-1.52,0.871-2.473,2.473-2.513,4.224c-0.007,0.295-0.007,0.59-0.007,0.889
+									c0,23.935,12.882,45.484,32.577,57.229c-1.692-0.169-3.383-0.414-5.063-0.735c-1.732-0.331-3.513,0.276-4.681,1.597
+									c-1.17,1.32-1.557,3.16-1.018,4.84c7.29,22.76,26.059,39.501,48.749,44.605c-18.819,11.787-40.34,17.961-62.932,17.961
+									c-4.714,0-9.455-0.277-14.095-0.826c-2.305-0.274-4.509,1.087-5.294,3.279c-0.785,2.193,0.047,4.638,2.008,5.895
+									c29.023,18.609,62.582,28.445,97.047,28.445c67.754,0,110.139-31.95,133.764-58.753c29.46-33.421,46.356-77.658,46.356-121.367
+									c0-1.826-0.028-3.67-0.084-5.508c11.623-8.757,21.63-19.355,29.773-31.536c1.237-1.85,1.103-4.295-0.33-5.998
+									C307.394,57.037,305.009,56.486,302.973,57.388z"
+							/>
+						</g>
 					</svg>
 				</div>
 			</div>

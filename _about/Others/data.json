@@ -1,0 +1,38 @@
+{
+    "title": "기타",
+    "contents": [
+        {
+            "title": "학력",
+            "type": "text",
+            "list": [
+                "한성대학교 컴퓨터공학부 웹공학트랙/지능시스템트랙 3학년 2학기 수료 후 휴학중"
+            ]
+        },
+        {
+            "title": "링크",
+            "type": "icon-grid",
+            "list": [
+                {
+                    "name": "이력서",
+                    "icon": "resume",
+                    "url": "https://dev.presso.codes/"
+                },
+                {
+                    "name": "깃허브",
+                    "icon": "github",
+                    "url": "https://github.com/pressogh/"
+                },
+                {
+                    "name": "블로그",
+                    "icon": "blog",
+                    "url": "https://dev.presso.codes/blog/"
+                },
+                {
+                    "name": "트위터",
+                    "icon": "twitter",
+                    "url": "https://twitter.com/PRESSO__"
+                }
+            ]
+        }
+    ]
+}

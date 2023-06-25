@@ -1,4 +1,4 @@
-import {PostType} from "@/types/PostType";
+import {PostType} from "@/types/blog/PostType";
 import Link from "next/link";
 import dayjs from "dayjs";
 

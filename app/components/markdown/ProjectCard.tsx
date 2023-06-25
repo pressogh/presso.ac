@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {ScreenType} from "@/types/ScreenType";
+import {ScreenType} from "@/types/portfolio/ScreenType";
 import Link from "next/link";
 
 interface ProjectCard {

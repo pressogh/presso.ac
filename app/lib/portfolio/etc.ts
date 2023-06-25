@@ -1,6 +1,6 @@
 import { join } from 'path';
 import fs from "fs";
-import { ProjectType } from "@/types/ProjectType";
+import { ProjectType } from "@/types/portfolio/ProjectType";
 
 import { compileMDX } from "next-mdx-remote/rsc";
 import MDXComponents from "@/app/components/markdown/MDXComponents";

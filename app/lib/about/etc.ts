@@ -7,11 +7,29 @@ dayjs.locale('ko');
 const cwd = process.cwd();
 const aboutDirectory = join(cwd, '/_about');
 
-export const getAbout = async () => {
+export const getHeader = async () => {
+	const data = fs.readFileSync(
+		join(aboutDirectory, `/Header/data.json`),
+		'utf-8'
+	);
+	
+	return JSON.parse(data);
+}
+
+export const getWorkExperience = async () => {
 	const data = fs.readFileSync(
 		join(aboutDirectory, `/Work-Experience/data.json`),
 		'utf-8'
 	);
 
+	return JSON.parse(data);
+}
+
+export const getOthers = async () => {
+	const data = fs.readFileSync(
+		join(aboutDirectory, `/Others/data.json`),
+		'utf-8'
+	);
+	
 	return JSON.parse(data);
 }

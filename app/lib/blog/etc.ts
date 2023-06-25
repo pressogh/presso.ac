@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import { getAllMdFiles, parseMarkdown } from "@/app/lib/etc";
-import { PostType } from "@/types/PostType";
+import { PostType } from "@/types/blog/PostType";
 import Conclusion from "@/app/components/markdown/Conclusion";
 import dayjs from "dayjs";
 

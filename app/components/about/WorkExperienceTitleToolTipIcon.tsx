@@ -1,4 +1,4 @@
-import {LinkType} from "@/types/WorkExperienceType";
+import {LinkType} from "@/types/about/WorkExperienceType";
 
 const WorkExperienceTitleToolTipIcon = ({ type }: { type: LinkType }) => {
 	if (type === 'github') {

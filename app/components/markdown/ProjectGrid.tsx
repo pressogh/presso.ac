@@ -1,7 +1,7 @@
 import ProjectCard from "@/app/components/markdown/ProjectCard";
 
-import { ScreenType } from "@/types/ScreenType";
-import { ProjectType } from "@/types/ProjectType";
+import { ScreenType } from "@/types/portfolio/ScreenType";
+import { ProjectType } from "@/types/portfolio/ProjectType";
 
 interface Props {
 	projects: ProjectType[]

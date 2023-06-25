@@ -1,6 +1,6 @@
 import Container from "@/app/components/Container";
 import { getAllPosts } from "@/app/lib/blog/etc";
-import { PostType } from "@/types/PostType";
+import { PostType } from "@/types/blog/PostType";
 import PostGrid from "@/app/components/blog/PostGrid";
 
 export const dynamic = 'force-static';

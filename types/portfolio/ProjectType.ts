@@ -1,4 +1,4 @@
-import {ScreenType} from "@/types/ScreenType";
+import {ScreenType} from "@/types/portfolio/ScreenType";
 import {ReactElement} from "react";
 
 export interface ProjectType {
