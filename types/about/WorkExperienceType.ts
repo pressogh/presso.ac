@@ -3,7 +3,7 @@ export interface WorkExperienceType {
 	contents: ContentType[];
 }
 
-interface ContentType {
+export interface ContentType {
 	name: string;
 	position: string;
 	startDate?: string;
@@ -12,7 +12,7 @@ interface ContentType {
 	projects: ProjectType[];
 }
 
-interface ProjectType {
+export interface ProjectType {
 	title: ProjectTitleType;
 	startDate?: string;
 	endDate?: string;
@@ -21,12 +21,12 @@ interface ProjectType {
 	techStack?: string[];
 }
 
-interface ProjectTitleType {
+export interface ProjectTitleType {
 	text: string;
 	links?: ProjectTitleLinkType[];
 }
 
-interface ProjectTitleLinkType {
+export interface ProjectTitleLinkType {
 	type: LinkType,
 	url: string,
 }

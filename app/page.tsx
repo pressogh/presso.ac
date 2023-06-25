@@ -1,7 +1,7 @@
 import Container from "@/app/components/Container";
 import dayjs from "dayjs";
 import Header from "@/app/components/about/Header";
-import WorkExperience from "@/app/components/about/WorkExperience";
+import WorkExperience from "@/app/components/about/WorkExperience/WorkExperience";
 import Others from "@/app/components/about/Others";
 
 const customParseFormat = require('dayjs/plugin/customParseFormat');

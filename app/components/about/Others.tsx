@@ -6,8 +6,8 @@ const Others = async () => {
 	const data: OthersType = await getOthers();
 	
 	return (
-		<div className={`mt-4 tracking-wide`}>
-			<div className={`text-4xl font-medium tracking-tighter mb-8`}>{ data.title }</div>
+		<div className={`mt-10 tracking-wide`}>
+			<div className={`md:text-4xl text-3xl font-medium tracking-tighter mb-8`}>{ data.title }</div>
 			<div>
 				{
 					data.contents.map((content, index) => {
@@ -19,13 +19,13 @@ const Others = async () => {
 								<div>
 									{
 										content.type === "text" &&
-										<ul className={`list-disc list-outside mt-4 text-base leading-7 ml-4 marker:text-[rgb(75,110,160)] marker`}>
+										<ul className={`list-disc list-outside mt-4 md:text-base text-sm md:leading-7 leading-2 ml-4 marker:text-[rgb(75,110,160)] marker`}>
 											{
 												content.list && content.list.map((text, index) => {
 													return (
 														<>
 															{/* @ts-expect-error */}
-															<li key={text} className={`mb-5 pl-2 [&_a]:text-blue-500 [&_a]:dark:text-blue-400 [&_a]:cursor-pointer`} dangerouslySetInnerHTML={{ __html: text }} />
+															<li key={text} className={`md:mb-5 mb-3 pl-2 [&_a]:text-blue-500 [&_a]:dark:text-blue-400 [&_a]:cursor-pointer`} dangerouslySetInnerHTML={{ __html: text }} />
 														</>
 													)
 												})
