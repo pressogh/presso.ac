@@ -2,6 +2,17 @@
     "title": "기타",
     "contents": [
         {
+            "title": "수상",
+            "type": "text",
+            "list": [
+                "제 16회 공개SW 개발자 대회 1차 평가 통과 [<a href=/portfolio/틴리프>링크</a>]",
+                "2022 한성대학교 IT융합 메이커톤 Coding Challenge 동상",
+                "멋쟁이 사자처럼 10기 중앙 해커톤 전체 160팀 중 6등 [<a href=/portfolio/술도가>링크</a>]",
+                "제 4회 KB국민은행 소프트웨어 경진대회 최우수상 [<a href=/portfolio/Trash-it>링크</a>]",
+                "제 1회 한국코드페어 과학기술정보통신부장관상 [<a href=/portfolio/Wordable>링크</a>]"
+            ]
+        },
+        {
             "title": "학력",
             "type": "text",
             "list": [
