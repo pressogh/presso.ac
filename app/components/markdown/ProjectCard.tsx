@@ -7,6 +7,7 @@ interface ProjectCard {
 	thumbnail?: string,
 	screenType?: ScreenType,
 	description?: string,
+	blurDataURL?: string
 }
 
 const ProjectCard: React.FC<ProjectCard> = ({
@@ -14,6 +15,7 @@ const ProjectCard: React.FC<ProjectCard> = ({
 	thumbnail,
 	screenType,
 	description,
+	blurDataURL
 }) => {
 	return (
 		<Link href={`/portfolio/${name.replace(/ /g, "-")}`}>
@@ -98,6 +100,8 @@ const ProjectCard: React.FC<ProjectCard> = ({
 										${screenType === "mobile" && "rounded-md"}
 										${screenType === "web" && "rounded-b-md"}
 									`}
+									placeholder={"blur"}
+									blurDataURL={blurDataURL}
 								/>
 							)
 						}

@@ -21,6 +21,7 @@ const ProjectGrid = ({
 							thumbnail={item.thumbnail}
 							screenType={item.screenType as ScreenType}
 							description={item.description}
+							blurDataURL={item.blurDataURL}
 						/>
 					)
 				})
