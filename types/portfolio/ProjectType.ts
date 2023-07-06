@@ -11,4 +11,5 @@ export interface ProjectType {
 	tags?: string[],
 	startDate?: string,
 	endDate?: string,
+	blurDataURL?: string,
 }

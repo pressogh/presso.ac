@@ -1,3 +1,6 @@
+import withPlaiceholder from '@plaiceholder/next';
+import withMDX from '@next/mdx';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	transpilePackages: ['core'],
@@ -22,7 +25,9 @@ const nextConfig = {
 	}
 }
 
-const withMDX = require('@next/mdx')({
+const withMDXConfig = withMDX({
 	extension: /\.mdx?$/,
-});
-module.exports = withMDX(nextConfig);
+})
+
+
+export default withPlaiceholder(withMDXConfig(nextConfig));
