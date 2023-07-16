@@ -24,9 +24,9 @@ const PostCard = ({ post }: Props) => {
 					hover:border-indigo-800
 				`}
 			>
-				<div className={`text-3xl font-medium text-neutral-800 dark:text-neutral-100`}>{ post.title }</div>
-				<div className={`font-light mt-2`}>{ post.description }</div>
-				<div className={`text-sm font-thin ${ post.description === null && "mt-6" }`}>{ dayjs(post.date).format("YYYY년 MM월 DD일") }</div>
+				<div className={`text-2xl font-medium text-neutral-800 dark:text-neutral-100`}>{ post.title }</div>
+				<div className={`text-sm font-extralight mt-2`}>{ post.description }</div>
+				<div className={`text-neutral-500 text-[0.75rem] font-light ${ post.description === null && "mt-6" }`}>{ dayjs(post.date).format("YYYY년 MM월 DD일") }</div>
 			</div>
 		</Link>
 	);
