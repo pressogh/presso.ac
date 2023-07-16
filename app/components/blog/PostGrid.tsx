@@ -1,4 +1,4 @@
-import {PostType} from "@/types/blog/PostType";
+import { PostType } from "@/types/blog/PostType";
 import PostCard from "@/app/components/blog/PostCard";
 
 interface Props {
