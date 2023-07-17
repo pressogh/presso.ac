@@ -16,7 +16,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 							</Link>
 						) : (href.startsWith("https://youtu.be") || href.startsWith("https://www.youtu.be") || href.startsWith("youtu.be")) ? (
 							<iframe
-								className={`w-full h-96`}
+								className={`w-full h-96 mb-4`}
 								src={"https://www.youtube.com/embed/" + href.split("/").at(-1)}
 								title={"YouTube video player"}
 								allow={"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}
