@@ -6,13 +6,12 @@ const Tag = ({ tag }: Props) => {
 	return (
 		<div
 			className={`
-				bg-indigo-100
-				dark:bg-indigo-900
-				text-indigo-900
+				bg-slate-200
+				dark:bg-slate-700
+				text-zinc-700
 				dark:text-white
 				px-3
 				py-0.5
-				sm:text-base
 				text-sm
 				rounded-3xl
 			`}
