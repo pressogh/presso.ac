@@ -10,4 +10,4 @@ RUN yarn set version berry
 RUN yarn install
 
 RUN yarn build
-CMD ["pm2-runtime", "start", "yarn", "--", "start"]
+CMD ["pm2-runtime", "start", "yarn start"]
