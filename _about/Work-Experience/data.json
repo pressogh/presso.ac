@@ -112,6 +112,35 @@
             "projects": [
                 {
                     "title": {
+                        "text": "디퓨전톡",
+                        "links": [
+                            {
+                                "type": "github",
+                                "url": "https://github.com/2023-IMAGE-FUSION-CONTEST/image-fusion-contest"
+                            },
+                            {
+                                "type": "github",
+                                "url": "https://github.com/2023-IMAGE-FUSION-CONTEST/image-fusion-contest-backend"
+                            },
+                            {
+                                "type": "other",
+                                "url": "https://contest.presso.codes"
+                            }
+                        ]
+                    },
+                    "description": "화풍 융합 및 AI 큐레이션 플랫폼입니다.",
+                    "startDate": "2023.06",
+                    "endDate": "2023.07",
+                    "works": [
+                        "2인 프로젝트로 프론트엔드 및 백엔드 개발을 담당했습니다.",
+                        "Jenkins를 이용해 Github 릴리즈 시 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
+                        "Cloudflare과 SSL을 사용하여 보안을 강화했습니다.",
+                        "자세한 내용을 보고 싶으시다면 <a href=/portfolio/디퓨전톡>다음 링크</a>를 확인해주세요."
+                    ],
+                    "techStack": ["FastAPI", "NextJS", "Zustand", "Prisma", "Oracle Cloud", "Cloudflare", "Jenkins", "Docker", "SSL", "OpenAI", "MySQL"]
+                },
+                {
+                    "title": {
                         "text": "한움",
                         "links": [
                             {

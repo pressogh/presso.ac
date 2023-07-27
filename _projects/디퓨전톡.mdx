@@ -1,0 +1,88 @@
+---
+name: '디퓨전톡'
+description: '화풍 융합 및 AI 큐레이션 플랫폼'
+thumbnail: '/thumbnails/diffusiontalk.png'
+screenType: 'web'
+displayPriority: 1
+tags: [FastAPI, NextJS, Zustand, Prisma, Oracle Cloud, Cloudflare, Jenkins, Docker, SSL, OpenAI, MySQL]
+startDate: "2023-06-27"
+endDate: "2023-07-16"
+---
+
+![diffusiontalk.png](/thumbnails/diffusiontalk.png)
+
+### 서비스 소개
+
+---
+
+##### 서비스 목적
+
+**문화 예술에 대한 접근성을 늘리기 위한 화풍 합성 및 AI 큐레이팅 플랫폼**
+
+##### 주요 기능
+
+작품 그리드에서 다양한 예술 작품들을 감상할 수 있습니다.
+
+작품 디테일 모달에서 값들을 조절하여 화풍 합성 기능을 사용할 수 있습니다.
+
+왼쪽 아래의 채팅 아이콘을 눌러 AI에게 작품에 대한 큐레이팅을 받을 수 있습니다.
+
+##### 배포 현황
+
+**현재 [웹 사이트](https://contest.presso.codes/)에 배포되어 있습니다.** [<sup>link</sup>](#links)
+
+### 담당한 역할
+
+---
+
+##### 프론트엔드 개발
+
+NextJS의 Dynamic Loading, Dynamic Rendering 등의 기능을 효율적으로 사용하여 사이트를 최적화했습니다.
+
+이미지를 불러오기 전에 블러처리된 이미지를 미리 불러와 [CLS](https://nextjs.org/learn/seo/web-performance/cls)를 방지했습니다.
+
+Zustand를 사용하여 전역 상태를 관리했습니다.
+
+작품 데이터 및 검색 기능을 사용하기 위해 Prisma를 이용했습니다.
+
+##### 백엔드 기능 개발
+
+가벼운 API서비스를 제공하기 위해 FastAPI를 사용했습니다.
+
+##### CD <span className={`font-light text-base text-neutral-400`}>Continuous delivery</span>
+
+배포에 걸리는 시간을 최소화하기 위해서 Jenkins를 이용하여 main브랜치에 push시 Docker 컨테이너를 교체하여 자동으로 배포되도록 구현했습니다.
+
+##### 배포
+
+Oracle Cloud에 Docker를 이용하여 배포를 진행했습니다.
+
+**SSL**을 적용하여 보안을 강화했습니다.
+
+Cloudflare를 사용하여 DDOS 방어 및 CDN, DNS로서의 기능을 하도록 했습니다.
+
+### Links
+
+---
+
+<LinkIconGrid
+    links={
+        [
+            {
+                name: "Frontend",
+                url: "https://github.com/2023-IMAGE-FUSION-CONTEST/image-fusion-contest",
+                icon: "github"
+            },
+            {
+                name: "Backend",
+                url: "https://github.com/2023-IMAGE-FUSION-CONTEST/image-fusion-contest-backend",
+                icon: "github"
+            },
+            {
+                name: "Web",
+                url: "https://contest.presso.codes/",
+                icon: "web"
+            }
+        ]
+    }
+/>
