@@ -1,14 +1,8 @@
 'use client';
 
 import { ContentType } from '@/types/about/WorkExperienceType';
-import dayjs from 'dayjs';
 import Info from '@/app/components/about/WorkExperience/Info';
 import Project from '@/app/components/about/WorkExperience/Project';
-
-let customParseFormat = require('dayjs/plugin/customParseFormat');
-
-dayjs.locale('ko');
-dayjs.extend(customParseFormat);
 
 interface Props {
 	contents: ContentType[];

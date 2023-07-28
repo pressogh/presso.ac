@@ -1,15 +1,14 @@
-import {ScreenType} from "@/types/portfolio/ScreenType";
-import {ReactElement} from "react";
+import { ScreenType } from '@/types/portfolio/ScreenType';
+import { ReactElement } from 'react';
 
 export interface ProjectType {
-	name: string,
-	thumbnail?: string,
-	screenType?: ScreenType,
-	description?: string,
-	displayPriority?: string,
-	content?: ReactElement,
-	tags?: string[],
-	startDate?: string,
-	endDate?: string,
-	blurDataURL?: string,
+	name: string;
+	thumbnail?: string;
+	screenType?: ScreenType;
+	description?: string;
+	content?: ReactElement;
+	tags?: string[];
+	startDate?: string;
+	endDate?: string;
+	blurDataURL?: string;
 }
