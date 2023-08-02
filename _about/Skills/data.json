@@ -1,0 +1,66 @@
+{
+	"title": "기술",
+	"contents": [
+		{
+			"title": "의사소통",
+			"list": [
+				"어떤 사람에게든 배울 점이 있다고 믿고 있고, 다른 사람의 행동을 보며 좋다고 판단한 행동을 따라하려고 노력합니다.",
+				"소통과 의견 충돌을 통해 더욱 발전할 수 있다고 생각합니다.",
+				"의견 충돌이 있을 때, 최대한 의미없는 다툼을 피하며 논리적으로 내 생각을 말하고 상대의 의견을 경청하도록 노력합니다.",
+				"직위 및 포지션에 관계 없이 적극적으로 생각을 표현하고 수용합니다."
+			]
+		},
+		{
+			"title": "Web",
+			"list": [
+				"의미있는 마크업을 작성하기 위해 노력합니다.",
+				"CSS 문법과 CSS in JS, CSS 전처리기에 익숙합니다.",
+				"웹 접근성과 표준을 지키기 위해 Lighthouse를 사용하고 있습니다.",
+				"반응형 웹과 다양한 환경의 브라우저를 지원하는 웹 사이트를 만들도록 노력하고 있습니다."
+			]
+		},
+		{
+			"title": "Javascript / Typescript",
+			"list": [
+				"ES6 이후의 Javascript 문법에 익숙합니다.",
+				"Type Safe하게 개발할 수 있도록 Typescript 개발 환경을 선호합니다.",
+				"CommonJS와 ES Modules의 모듈 시스템에 대해 이해하고 상황에 맞는 적절한 도구를 활용합니다.",
+				"Yarn과 Yarn Berry 사용을 선호합니다.",
+				"Async • Await 문법에 익숙합니다."
+			]
+		},
+		{
+			"title": "React",
+			"list": [
+				"React hooks를 상황에 맞게 사용할 수 있고, Custom hook을 제작하여 공통 비즈니스 로직을 적절히 모듈화해 사용할 수 있습니다.",
+				"함수형 컴포넌트 사용에 익숙합니다.",
+				"Zustand와 Recoil을 이용해 전역 상태를 관리한 경험이 있습니다."
+			]
+		},
+		{
+			"title": "NextJS",
+			"list": [
+				"App Directory를 이용한 NextJS 사용에 익숙합니다.",
+				"최신 NextJS 기술을 익히기 위해 자주 공식 문서 및 깃허브 릴리즈 내역을 확인하고 있습니다."
+			]
+		},
+		{
+			"title": "Django",
+			"list": [
+				"Django의 MTV 구조에 익숙합니다.",
+				"Django Rest Framework를 이용해 API 서버를 구축하고 유지보수할 수 있습니다.",
+				"select_related, prefetch_related를 이용해 쿼리를 최적화 할 수 있습니다.",
+				"Testing tools를 사용해 테스팅 코드를 작성해본 경험이 있습니다."
+			]
+		},
+		{
+			"title": "DevOps",
+			"list": [
+				"자동화를 통해 반복되는 작업을 줄이고 생산성을 높이는 것을 좋아합니다.",
+				"Jenkins 및 Github Actions를 이용한 CI/CD에 익숙합니다.",
+				"docker와 docker compose를 이용해 컨테이너로 이루어진 서비스 구축 및 실행할 수 있습니다.",
+				"Oracle Cloud, AWS EC2 등의 laaS를 사용해본 경험이 있습니다."
+			]
+		}
+	]
+}

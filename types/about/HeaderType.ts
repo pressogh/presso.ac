@@ -1,3 +1,4 @@
 export interface HeaderType {
-	title: string
+	title: string;
+	description: string;
 }
