@@ -33,7 +33,7 @@ const Others = async () => {
 													<>
 														<li
 															key={text.toString()}
-															className={`mb-3 break-keep pl-2 md:mb-5 [&_a]:cursor-pointer [&_a]:text-blue-500 [&_a]:dark:text-blue-400`}
+															className={`mb-3 pl-2 md:mb-5 [&_a]:cursor-pointer [&_a]:text-blue-500 [&_a]:dark:text-blue-400`}
 															dangerouslySetInnerHTML={{
 																__html: text.toString(),
 															}}

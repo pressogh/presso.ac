@@ -29,7 +29,7 @@ const Skills = async () => {
 											return (
 												<li
 													key={text}
-													className={`mb-4 break-keep pl-2 md:mb-3 [&_a]:cursor-pointer [&_a]:text-blue-500 [&_a]:dark:text-blue-400`}
+													className={`mb-4 pl-2 md:mb-3 [&_a]:cursor-pointer [&_a]:text-blue-500 [&_a]:dark:text-blue-400`}
 													dangerouslySetInnerHTML={{
 														__html: text,
 													}}
