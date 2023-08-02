@@ -6,7 +6,6 @@ RUN yarn global add pm2
 
 WORKDIR /app
 
-RUN yarn set version berry
 RUN yarn install
 
 RUN yarn build
