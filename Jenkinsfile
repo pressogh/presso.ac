@@ -11,7 +11,6 @@ pipeline {
                 sh 'docker buildx build \
                     --tag $JOB_NAME:latest \
                     --platform linux/amd64 \
-                    --cache-from type=local,src=/tmp/.buildx-cache/$JOB_NAME \
                     --cache-to type=local,dest=/tmp/.buildx-cache/$JOB_NAME \
                     --output type=docker .'
             }
