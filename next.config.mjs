@@ -3,8 +3,9 @@ import withMDX from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	output: "standalone",
 	transpilePackages: ['core'],
-	compress: true,
+	compress: false,
 	swcMinify: true,
 	experimental: {
 		mdxRs: true,
