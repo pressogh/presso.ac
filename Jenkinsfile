@@ -8,47 +8,43 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'docker build --platform linux/arm64 -t $USERNAME/$JOB_NAME:latest .'
-                }
-            }
-        }
-        stage('Push Image') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'docker login -u $USERNAME -p $PASSWORD'
-                    sh 'docker push $USERNAME/$JOB_NAME:latest'
-                }
+                sh 'docker buildx build \
+                    --tag $JOB_NAME:latest \
+                    --platform linux/amd64 \
+                    --cache-from type=local,src=/tmp/.buildx-cache/$JOB_NAME \
+                    --cache-to type=local,dest=/tmp/.buildx-cache/$JOB_NAME \
+                    --output type=docker .'
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh 'docker pull $USERNAME/$JOB_NAME:latest'
-                        try {
-                            sh 'docker stop $JOB_NAME'
-                            sh 'docker rm $JOB_NAME'
-                        } catch (Exception e) {
-                            echo 'Container not found'
-                        }
-
+                    try {
+                        sh 'docker stop $JOB_NAME'
+                        sh 'docker rm $JOB_NAME'
+                    } catch (Exception e) {
+                        echo 'Container not found'
+                    } finally {
                         if (env.JOB_NAME == "presso.codes") {
-                            sh 'docker run -d \
+                            sh 'docker run \
+                                -d \
                                 --name $JOB_NAME \
                                 --restart unless-stopped \
-                                -e "TZ=Asia/Seoul" \
-                                --network app_custom_network \
-                                --ip 172.19.0.4 \
-                                $USERNAME/$JOB_NAME:latest'
+                                --network custom_network \
+                                --ip 172.18.0.4 \
+                                --volume /etc/localtime:/etc/localtime:ro \
+                                --volume /etc/timezone:/etc/timezone:ro \
+                                 $JOB_NAME:latest'
                         } else if (env.JOB_NAME == 'dev.presso.codes') {
-                            sh 'docker run -d \
+                            sh 'docker run \
+                                -d \
                                 --name $JOB_NAME \
                                 --restart unless-stopped \
-                                -e "TZ=Asia/Seoul" \
-                                --network app_custom_network \
-                                --ip 172.19.0.5 \
-                                $USERNAME/$JOB_NAME:latest'
+                                --network custom_network \
+                                --ip 172.18.0.5 \
+                                --volume /etc/localtime:/etc/localtime:ro \
+                                --volume /etc/timezone:/etc/timezone:ro \
+                                 $JOB_NAME:latest'
                         }
                     }
                 }
@@ -56,12 +52,12 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            slackSend (channel: "#빌드-로그", color: "good", message: "${env.JOB_NAME} Build successful\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
-        }
-        failure {
-            slackSend (channel: "#빌드-로그", color: "#FF0000", message: "${env.JOB_NAME} Build failed\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
-        }
-    }
+//     post {
+//         success {
+//             slackSend (channel: "#빌드-로그", color: "good", message: "${env.JOB_NAME} Build successful\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
+//         }
+//         failure {
+//             slackSend (channel: "#빌드-로그", color: "#FF0000", message: "${env.JOB_NAME} Build failed\n`${env.JOB_NAME}#${env.BUILD_NUMBER}` \n<${env.BUILD_URL}|Open in Jenkins>")
+//         }
+//     }
 }
