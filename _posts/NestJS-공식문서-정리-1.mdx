@@ -1,0 +1,53 @@
+---
+title: "NestJS 공식문서 정리 #1"
+date: "2023-08-06"
+---
+
+### NestJS 소개
+
+---
+
+NestJS는 **Node.js 서버 어플리케이션을 구축하기 위한 프레임워크**
+
+기존에 있던 Node.js 서버 어플리케이션의 추상화 계층이 없다는 단점을 보완하기 위해 제작됨
+
+기본적으로 Express를 사용하지만, Fastify를 사용할 수도 있음
+
+- Express : 활성화된 커뮤니티에 의해 실제 서비스의 안정성이 검증된 안정적인 패키지
+- Fastify : 높은 퍼포먼스와 낮은 오버헤드에 중점을 둔 성능 중점의 패키지
+
+### NestJS의 구조
+
+---
+
+#### 컨트롤러
+
+들어오는 요청을 처리하고 클라이언트에 응답을 반환하는 역할
+
+**@Controller()** 데코레이터를 사용해 라우팅 가능
+
+```typescript
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('cats')
+export class CatsController {
+    @Get()
+    findAll() {
+        return 'This action returns all cats';
+	}
+}
+```
+
+각 요청의 인자에 데코레이터를 사용해 요청 시 전송된 값을 받아올 수 있음
+
+##### 사용 가능한 데코레이터
+> - @Request(), @Req() : req
+> - @Response(), @Res() : res
+> - @Next() : next
+> - @Session() : req.session
+> - @Param(key?: string) : req.params / req.params[key]
+> - @Body(key?: string) : req.body / req.body[key]
+> - @Query(key?: string) : req.query / req.query[key]
+> - @Headers(name?: string) : req.headers / req.headers[name]
+> - @Ip() : req.ip
+> - @HostParam() : req.hosts
