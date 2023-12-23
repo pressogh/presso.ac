@@ -37,8 +37,8 @@ export const getAllProjects = async () => {
 			let blurDataURL = '';
 			try {
 				if (item.thumbnail) {
-					const file = await fs.readFileSync(
-						join('public', item.thumbnail),
+					const file = fs.readFileSync(
+						join('public', item.thumbnail)
 					);
 					const { base64 } = await getPlaiceholder(file);
 

@@ -23,7 +23,7 @@ export const getAllPosts = async () => {
 	for (const file of mdFiles) {
 		posts.push(await parseMarkdown(join(postsDirectory, file)) as PostType);
 	}
-	
+
 	posts.sort((a, b) => {
 		if (!a.date) return 1;
 		else if (!b.date) return -1;
@@ -43,6 +43,7 @@ export const getPost = async (slug: string) => {
 		'utf-8'
 	);
 
+	// @ts-ignore
 	const { content, frontmatter } = await compileMDX({
 		source: markdownWithMetadata,
 		options: {
