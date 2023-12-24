@@ -49,7 +49,9 @@ export const getPost = async (slug: string) => {
 		options: {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
+				// @ts-ignore
 				rehypePlugins: [rehypePrism, rehypeSlug],
+				format: 'mdx'
 			},
 			parseFrontmatter: true,
 		},

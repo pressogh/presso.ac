@@ -16,7 +16,7 @@ export const dynamic = 'force-static';
 
 export const generateStaticParams = async () => {
 	const projects = await getAllProjects();
-	
+
 	return projects.map((item) => {
 		return {
 			slug: item.name.replace(/ /g, "-")
@@ -32,7 +32,7 @@ interface Params {
 
 const Page = async ({ params }: Params) => {
 	const { name, description, tags, startDate, endDate, content }: any = await getProject(params.slug);
-	
+
 	return (
 		<Container>
 			<div className={"sm:mt-20 mt-6"}>
@@ -41,12 +41,11 @@ const Page = async ({ params }: Params) => {
 					<div className={`font-thin sm:text-xl text-lg sm:ml-0 ml-2`}>{ `${dayjs(startDate).format("YYYY.MM")} - ${dayjs(endDate).format("YYYY.MM")}` }</div>
 				</div>
 				<div className={`font-light sm:text-xl text-lg sm:mt-4 mt-2`}>
-					{/* @ts-expect-error Lazy Imported Component */}
 					<CustomTyping text={description} />
 				</div>
-				
+
 				{ tags && tags.length > 0 && <TagGrid tags={tags} /> }
-				
+
 				<div className={`mt-10`}>
 					{ content }
 				</div>

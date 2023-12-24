@@ -13,10 +13,6 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
     "@plaiceholder/next": "^3.0.0",
-    "@types/mdx": "^2.0.10",
-    "@types/node": "^20.10.5",
-    "@types/react": "18.2.45",
-    "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.16",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
@@ -38,6 +34,10 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
+    "@types/mdx": "^2.0.10",
+    "@types/node": "^20.10.5",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
     "@svgr/webpack": "^8.1.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",

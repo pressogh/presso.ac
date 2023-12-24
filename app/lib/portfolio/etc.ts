@@ -78,6 +78,7 @@ export const getProject = async (slug: string) => {
 		options: {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
+				// @ts-ignore
 				rehypePlugins: [rehypePrism, rehypeSlug],
 			},
 			parseFrontmatter: true,

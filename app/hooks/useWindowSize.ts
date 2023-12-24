@@ -1,6 +1,4 @@
-'use client';
-
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 interface windowSizeType {
 	width: undefined | number,
@@ -12,7 +10,7 @@ const useWindowSize = () => {
 		width: undefined,
 		height: undefined
 	});
-	
+
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			const handleResize = () => {
@@ -21,10 +19,10 @@ const useWindowSize = () => {
 					height: window.innerHeight
 				});
 			}
-			
+
 			window.addEventListener("resize", handleResize);
 			handleResize();
-			
+
 			return () => window.removeEventListener("resize", handleResize);
 		} else {
 			return () => window.removeEventListener("resize", () => {
@@ -32,7 +30,7 @@ const useWindowSize = () => {
 			});
 		}
 	}, [])
-	
+
 	return windowSize;
 };
 
