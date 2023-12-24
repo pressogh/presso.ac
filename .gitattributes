@@ -885,3 +885,6 @@
 .yarn/cache/mdast-util-definitions-npm-5.1.2-45a5b0f1bf-da9049c155.zip filter=lfs diff=lfs merge=lfs -text
 .yarn/cache/trim-lines-npm-3.0.1-24471f7e84-3a1611fa9e.zip filter=lfs diff=lfs merge=lfs -text
 .yarn/cache/type-fest-npm-0.20.2-b36432617f-dea9df45ea.zip filter=lfs diff=lfs merge=lfs -text
+.yarn/cache/next-npm-14.0.5-canary.25-cd02f90f75-ca712f636b.zip filter=lfs diff=lfs merge=lfs -text
+.yarn/cache/@next-env-npm-14.0.5-canary.25-91d37f84b6-25fe981567.zip filter=lfs diff=lfs merge=lfs -text
+.yarn/cache/@next-swc-darwin-x64-npm-14.0.5-canary.25-c3ab968370-10c0.zip filter=lfs diff=lfs merge=lfs -text

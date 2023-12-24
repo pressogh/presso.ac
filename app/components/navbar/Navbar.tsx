@@ -3,17 +3,16 @@
 import Container from "@/app/components/Container";
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
-import Logo from "@/public/logo/logo.svg";
-import LogoDark from "@/public/logo/logo-dark.svg";
+import Logo from "@/public/logo/Logo";
 import Link from "next/link";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
 const Navbar = () => {
 	const [scrollY, setScrollY] = useState(0);
-	
+
 	const darkMode = useDarkMode();
 	const pathName = usePathname();
-	
+
 	/**
 	 * 스크롤 위치를 계산하여 scrollY 상태를 업데이트
 	 */
@@ -25,18 +24,18 @@ const Navbar = () => {
 			// @ts-ignore
 			setScrollY((scroll * 100).toFixed(1));
 		};
-		
+
 		window.addEventListener("scroll", onScroll);
 		return () => window.removeEventListener("scroll", onScroll, true);
 	}, []);
-	
+
 	/**
 	 * @description 페이지 전환 시 스크롤 위치를 0으로 초기화
 	 */
 	useEffect(() => {
 		setScrollY(0);
 	}, [pathName]);
-	
+
 	return (
 		<>
 			<div
@@ -51,7 +50,7 @@ const Navbar = () => {
 					<Container>
 						<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
 							<Link href={"/"} aria-label={"PRESSO"}>
-								{ darkMode ?  <LogoDark /> : <Logo /> }
+								<Logo />
 							</Link>
 							<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight duration-500`}>
 								<Link href={"/"}>
