@@ -1,12 +1,16 @@
-import Container from "@/app/components/Container";
-import ProjectGrid from "@/app/components/markdown/ProjectGrid";
-import { getAllProjects } from "@/app/lib/portfolio/etc";
 import { ProjectType } from "@/types/portfolio/ProjectType";
 
-export const dynamic = 'force-static';
+import Container from "@/app/components/Container";
+import ProjectGrid from "@/app/components/markdown/ProjectGrid";
+
+export const dynamic = "force-dynamic";
+
+const getData = async () => {
+	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`).then((res) => res.json());
+}
 
 const Page = async () => {
-	const projects: ProjectType[] = await getAllProjects();
+	const projects: ProjectType[] = await getData();
 
 	return (
 		<Container>

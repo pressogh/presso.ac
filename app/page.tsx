@@ -1,20 +1,22 @@
 import Container from '@/app/components/Container';
-import Header from '@/app/components/about/Header/Header';
-import WorkExperience from '@/app/components/about/WorkExperience/WorkExperience';
-import Others from '@/app/components/about/Others/Others';
-import Skills from '@/app/components/about/Skills/Skills';
+import Header from '@/app/components/about/Header';
+import WorkExperience from '@/app/components/about/WorkExperience';
+import Others from '@/app/components/about/Others';
+import Skills from '@/app/components/about/Skills';
 
-export const dynamic = 'force-static';
+export const dynamic = "force-dynamic";
 
-export default async function Home() {
+const Page = () => {
 	return (
 		<Container>
 			<div className={`w-full break-keep font-light`}>
 				<Header />
 				<WorkExperience />
-				<Skills />
 				<Others />
+				<Skills />
 			</div>
 		</Container>
 	);
 }
+
+export default Page;
