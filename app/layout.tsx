@@ -1,3 +1,5 @@
+import React from "react";
+
 import './globals.css';
 import Navbar from "@/app/components/navbar/Navbar";
 import Footer from "@/app/components/Footer";

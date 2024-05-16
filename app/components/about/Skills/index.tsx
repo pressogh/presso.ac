@@ -1,8 +1,11 @@
-import { getSkills } from '@/app/lib/about/etc';
 import { SkillsType } from '@/types/about/SkillsType';
 
-const Skills = async () => {
-	const data: SkillsType = await getSkills();
+const getData = async () => {
+	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=skills`).then((res) => res.json());
+}
+
+const Index = async () => {
+	const data: SkillsType = await getData();
 
 	return (
 		<div className={`mt-10 tracking-wide`}>
@@ -46,4 +49,4 @@ const Skills = async () => {
 	);
 };
 
-export default Skills;
+export default Index;

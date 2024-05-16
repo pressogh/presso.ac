@@ -1,16 +1,14 @@
 'use client';
 
 import Container from "@/app/components/Container";
-import {useEffect, useState} from "react";
-import {usePathname} from "next/navigation";
-import Logo from "@/public/logo/Logo";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import Logo from "@/public/icons/Logo";
 import Link from "next/link";
-import useDarkMode from "@/app/hooks/useDarkMode";
 
 const Navbar = () => {
 	const [scrollY, setScrollY] = useState(0);
 
-	const darkMode = useDarkMode();
 	const pathName = usePathname();
 
 	/**
@@ -37,7 +35,7 @@ const Navbar = () => {
 	}, [pathName]);
 
 	return (
-		<>
+		<div>
 			<div
 				className={`
 					z-50
@@ -50,17 +48,17 @@ const Navbar = () => {
 					<Container>
 						<div className={`flex flex-row items-center justify-between gap-3 md:gap-0`}>
 							<Link href={"/"} aria-label={"PRESSO"}>
-								<Logo />
+								<Logo className={`w-6 h-6`} strokeWidth={60} />
 							</Link>
 							<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight duration-500`}>
-								<Link href={"/"}>
-									<div className={`${pathName.split('/').at(-1) === "" && "text-[#004ABF] dark:text-[#0063FF]"}`}>ABOUT</div>
+								<Link href={"/"} className={`${pathName.split('/').at(-1) === "" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+									ABOUT
 								</Link>
-								<Link href={"/portfolio"}>
-									<div className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF] dark:text-[#0063FF]"}`}>PROJECT</div>
+								<Link href={"/portfolio"} className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+									PROJECT
 								</Link>
-								<Link href={"/blog"}>
-									<div className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF] dark:text-[#0063FF]"}`}>BLOG</div>
+								<Link href={"/blog"} className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+									BLOG
 								</Link>
 							</div>
 						</div>
@@ -70,7 +68,7 @@ const Navbar = () => {
 			<div className={`sticky top-0 z-50`}>
 				<div className={`absolute z-50 top-0 h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }} />
 			</div>
-		</>
+		</div>
 	);
 };
 

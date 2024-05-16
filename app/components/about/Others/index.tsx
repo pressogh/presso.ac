@@ -1,9 +1,12 @@
-import { getOthers } from '@/app/lib/about/etc';
 import { OthersType } from '@/types/about/OthersType';
 import LinkIconGrid from '@/app/components/markdown/LinkIconGrid';
 
-const Others = async () => {
-	const data: OthersType = await getOthers();
+const getData = async () => {
+	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=others`).then(res => res.json());
+}
+
+const Index = async () => {
+	const data: OthersType = await getData();
 
 	return (
 		<div className={`mt-10 tracking-wide`}>
@@ -61,4 +64,4 @@ const Others = async () => {
 	);
 };
 
-export default Others;
+export default Index;

@@ -1,13 +1,16 @@
 import Container from "@/app/components/Container";
-import { getAllPosts } from "@/app/lib/blog/etc";
 import { PostType } from "@/types/blog/PostType";
 import PostGrid from "@/app/components/blog/PostGrid";
 
-export const dynamic = 'force-static';
+const getData = async () => {
+	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`).then((res) => res.json());
+}
+
+export const dynamic = "force-dynamic";
 
 const Page = async () => {
-	const posts: PostType[] = await getAllPosts();
-	
+	const posts: PostType[] = await getData();
+
 	return (
 		<Container>
 			<div className={`sm:mt-20 mt-6`}>

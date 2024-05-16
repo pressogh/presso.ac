@@ -1,6 +1,8 @@
 import Container from "@/app/components/Container";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 const Page = () => {
 	return (
 		<Container>
@@ -9,7 +11,7 @@ const Page = () => {
 					안녕하세요, 저는 이강혁입니다.
 				</div>
 			</header>
-			
+
 			<div className={`mt-4`}>
 				<div className={`mb-4`}>
 					<div className={`text-2xl font-thin mb-6`}>내용 준비 중입니다.</div>
@@ -26,7 +28,7 @@ const Page = () => {
 							</div>
 						</div>
 					</Link>
-					
+
 					<Link href={'/blog'}>
 						<div className={`w-full h-full border border-black dark:border-white flex justify-center items-center rounded-sm hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer`}>
 							<div className={`flex flex-row items-center justify-center gap-2`}>

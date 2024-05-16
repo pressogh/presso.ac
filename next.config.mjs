@@ -3,7 +3,6 @@ import withMDX from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	output: "standalone",
 	compress: false,
 	experimental: {
 		mdxRs: true,

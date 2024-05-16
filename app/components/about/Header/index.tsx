@@ -1,8 +1,11 @@
-import { getHeader } from '@/app/lib/about/etc';
 import { HeaderType } from '@/types/about/HeaderType';
 
-const Header = async () => {
-	const data: HeaderType = await getHeader();
+const getData = async () => {
+	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=header`).then(res => res.json());
+}
+
+const Index = async () => {
+	const data: HeaderType = await getData();
 
 	return (
 		<header className={`my-8 md:my-16`}>
@@ -20,7 +23,7 @@ const Header = async () => {
 					md:text-5xl
 				`}
 			>
-				{data.title}
+				{ data.title }
 			</div>
 
 			<div className={`mt-6 flex flex-row items-center gap-6`}>
@@ -34,4 +37,4 @@ const Header = async () => {
 	);
 };
 
-export default Header;
+export default Index;
