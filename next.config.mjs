@@ -21,7 +21,8 @@ const nextConfig = {
 
 		return config
 	},
-	output: "standalone"
+	output: "standalone",
+	transpilePackages: ["next-mdx-remote"]
 }
 
 const withMDXConfig = withMDX({
