@@ -24,8 +24,8 @@ LABEL name="presso"
 RUN yarn global add pm2
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -37,8 +37,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
-ENV PORT 3000
-ENV HOSTNAME presso.ac
+ENV PORT=3000
+ENV HOSTNAME=presso.ac
 EXPOSE 3000
 
 ENTRYPOINT ["pm2-runtime", "start", "server.js", "--env", "production", "--watch", "--name", "presso.ac"]
