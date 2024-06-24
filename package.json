@@ -1,6 +1,6 @@
 {
-  "name": "presso.codes",
-  "version": "0.1.0",
+  "name": "presso.ac",
+  "version": "0.0.12",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
