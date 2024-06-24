@@ -14,7 +14,7 @@ WORKDIR /app
 COPY --from=deps /app/.yarn ./.yarn
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-COPY .env .env
+COPY ./.env .env
 
 RUN yarn build
 
