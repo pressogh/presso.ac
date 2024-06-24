@@ -9,6 +9,15 @@ import dayjs from "dayjs";
 import matter from "gray-matter";
 import { getPlaiceholder } from "plaiceholder";
 
+export const metadata = {
+	title: 'PORTFOLIO | Kanghyoek Lee',
+	description: '지금까지 진행한 프로젝트들을 정리했습니다.',
+	keywords: ['이강혁', 'PRESSO', "포트폴리오", "PORTFOLIO", "개발자"],
+	authors: [{ name: '이강혁', url: 'https://presso.ac' }],
+	creator: '이강혁',
+	publisher: '이강혁'
+}
+
 const getData = async () => {
 	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
 		const data = await res.json();

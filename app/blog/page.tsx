@@ -6,6 +6,15 @@ import { PostType } from "@/types/blog/PostType";
 import Container from "@/app/components/Container";
 import PostGrid from "@/app/components/blog/PostGrid";
 
+export const metadata = {
+	title: 'BLOG | Kanghyoek Lee',
+	description: '공유하고 싶거나 다시 보고 싶은 기술들을 정리했습니다.',
+	keywords: ['이강혁', 'PRESSO', "블로그", "BLOG", "개발자"],
+	authors: [{ name: '이강혁', url: 'https://presso.ac' }],
+	creator: '이강혁',
+	publisher: '이강혁'
+}
+
 const getData = async () => {
 	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
 		const data = await res.json();
