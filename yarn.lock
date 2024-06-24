@@ -7651,9 +7651,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"presso.codes@workspace:.":
+"presso.ac@workspace:.":
   version: 0.0.0-use.local
-  resolution: "presso.codes@workspace:."
+  resolution: "presso.ac@workspace:."
   dependencies:
     "@giscus/react": "npm:^3.0.0"
     "@mdx-js/loader": "npm:^3.0.1"
