@@ -4,8 +4,6 @@ import WorkExperience from '@/app/components/about/WorkExperience';
 import Others from '@/app/components/about/Others';
 import Skills from '@/app/components/about/Skills';
 
-export const dynamic = "force-dynamic";
-
 const Page = () => {
 	return (
 		<Container>

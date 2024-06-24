@@ -21,7 +21,7 @@ const Info = ({
 	endDate,
 }: InfoProps) => {
 	return (
-		<div className={`md:sticky md:top-8 md:h-full md:flex-[3_3_0%]`}>
+		<div className={`md:sticky md:top-8 md:h-full md:flex-[2_3_0%]`}>
 			<div className={`mb-4 text-sm md:w-56 md:text-base`}>
 				<div className={`mb-2 text-xl font-medium md:text-2xl`}>
 					{name}

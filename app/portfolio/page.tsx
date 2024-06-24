@@ -1,12 +1,67 @@
-import { ProjectType } from "@/types/portfolio/ProjectType";
+import {ProjectType} from "@/types/portfolio/ProjectType";
 
 import Container from "@/app/components/Container";
 import ProjectGrid from "@/app/components/markdown/ProjectGrid";
 
-export const dynamic = "force-dynamic";
+import fs from "fs";
+import { join } from "path";
+import dayjs from "dayjs";
+import matter from "gray-matter";
+import { getPlaiceholder } from "plaiceholder";
 
 const getData = async () => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portfolio`).then((res) => res.json());
+	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+		const data = await res.json();
+		const regex = /^resume\/projects\/.+\.mdx$/;
+
+		return data.objects.filter((item: { name: string }) => {
+			return regex.test(item.name);
+		});
+	});
+
+	let projects: ProjectType[] = await Promise.all(
+		mdFiles.map(async (item: { name: string }) => {
+			const file = item.name.split('/').pop();
+			const project = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/projects/${encodeURI(file ? file : '')}`).then((res) => res.text());
+
+			const { data } = matter(project);
+			return {
+				...data,
+			}
+		})
+	);
+
+	projects = await Promise.all(
+		projects.map(async (item, _) => {
+			let blurDataURL = '';
+			try {
+				if (item.thumbnail) {
+					const file = fs.readFileSync(
+						join('public/', item.thumbnail)
+					);
+					const { base64 } = await getPlaiceholder(file);
+
+					blurDataURL = base64;
+				}
+			} catch (e) {
+				console.error(e);
+			}
+
+			return { ...item, blurDataURL };
+		}),
+	);
+
+	projects.sort((a, b) => {
+		const aStartDate = dayjs(a.startDate);
+		const bStartDate = dayjs(b.startDate);
+
+		if (!aStartDate) return 1;
+		if (!bStartDate) return -1;
+
+		return aStartDate.isBefore(bStartDate) ? 1 : -1;
+	});
+
+	return projects;
 }
 
 const Page = async () => {

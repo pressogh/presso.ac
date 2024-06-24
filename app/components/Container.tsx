@@ -9,7 +9,7 @@ const Container: React.FC<ContainerProps> = ({
 }) => {
 	return (
 		<div className={`flex justify-center items-center`}>
-			<div className={`sm:w-[48rem] w-full px-[calc(min(16px,8vw))]`}>
+			<div className={`sm:w-[60rem] w-full px-[calc(min(16px,8vw))]`}>
 				{ children }
 			</div>
 		</div>

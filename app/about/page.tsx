@@ -1,8 +1,6 @@
 import Container from "@/app/components/Container";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
 const Page = () => {
 	return (
 		<Container>

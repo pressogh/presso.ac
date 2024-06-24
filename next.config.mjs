@@ -20,7 +20,8 @@ const nextConfig = {
 		};
 
 		return config
-	}
+	},
+	output: "standalone"
 }
 
 const withMDXConfig = withMDX({
