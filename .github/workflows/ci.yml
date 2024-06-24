@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
           echo "RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}" >> .env
-          echo printenv
+          cat .env
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
