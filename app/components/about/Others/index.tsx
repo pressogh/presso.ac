@@ -2,8 +2,7 @@ import { OthersType } from '@/types/about/OthersType';
 import LinkIconGrid from '@/app/components/markdown/LinkIconGrid';
 
 const getData = async () => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=others`).then(res => res.json());
-}
+	return await fetch(`${process.env.RESUME_BUCKET_URL}/resume/about/others/data.json`).then(res => res.json());}
 
 const Index = async () => {
 	const data: OthersType = await getData();

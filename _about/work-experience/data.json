@@ -2,6 +2,45 @@
     "title": "프로젝트 경험",
     "contents": [
         {
+            "name": "(주)알엠테크",
+            "position": "프론트엔드 & 백엔드 개발자",
+            "startDate": "2023.10",
+            "description": "통합 복지 플랫폼",
+            "projects": [
+                {
+                    "title": {
+                        "text": "사내 DevOps 시스템 구성 및 유지관리"
+                    },
+                    "startDate": "2023.11",
+                    "description": "사내에서 사용하는 DevOps 시스템 구성 및 유지관리를 담당했습니다.",
+                    "works": [
+                        "기존의 베어메탈로 구성되어 있던 서버를 Docker 컨테이너 기반으로 재구성하여 배포 자동화와 자원 효율성을 향상시켰습니다.",
+                        "이후 On-Premise Kubernetes 클러스터를 구축하여 가용 서버들을 통합 관리하고, 클러스터 내에서 고가용성(HA)을 유지할 수 있도록 설정했습니다.",
+                        "Traefik과 Let’s Encrypt, cert-manager, external-dns 등을 적절하게 이용해 SSL 인증서를 관리하고, IngressRoute 생성 시 자동으로 DNS에 반영되고 라우팅되도록 구성했습니다.",
+                        "HAProxy를 이용한 Load Balancing으로 다량의 베어본 서버에 트래픽이 적절하게 분배되도록 구성했습니다.",
+                        "Prometheus, Loki, Grafana(PLG Stack)을 사용해 모니터링 및 로그 수집 & 시각화 대시보드를 구성했습니다."
+                    ],
+                    "techStack": ["Docker", "Kubernetes", "Gitea", "Harbor", "Cloudflare", "HAProxy", "Prometheus", "Loki", "Grafana"]
+                },
+                {
+                    "title": {
+                        "text": "CS 백오피스"
+                    },
+                    "startDate": "2023.11",
+                    "endDate": "2024.01",
+                    "description": "사내에서 사용하는 고객지원 웹 페이지를 제작했습니다.",
+                    "works": [
+                        "FastAPI와 SQLAlchemy를 활용해 다중 데이터베이스를 연결할 수 있도록 백엔드를 구성했습니다.",
+                        "Celery를 활용해 물품 잔량 확인 및 재고 부족 경고 작업을 자동화하여 비효율적인 수작업을 제거하고, 경고 알림 시스템을 구축했습니다.",
+                        "Redis Pub/Sub을 이용해 Long-running task 후에 작업이 완료된 파일을 사용자에게 전달할 수 있도록 구성했습니다.",
+                        "NextJS와 Tailwind를 활용해 반응형 웹 페이지로 제작하여 다양한 기기에서 일관된 사용자 경험을 제공하고, CSS 모듈화를 통해 코드 유지보수를 용이하게 했습니다.",
+                        "Dockerfile의 Multi-stage build와 캐싱 기법을 적용하여 빌드 시간을 40% 이상 줄이고 배포 효율성을 높였습니다."
+                    ],
+                    "techStack": ["FastAPI", "SQLAlchemy", "Redis", "Celery", "Gunicorn", "NextJS", "Tailwind", "React-Query"]
+                }
+            ]
+        },
+        {
             "name": "토니스코딩",
             "position": "개발자 및 튜터",
             "startDate": "2022.02",
@@ -38,13 +77,13 @@
                     "endDate": "2023.03",
                     "description": "학생이 오답노트를 작성하면 선생님이 온라인으로 확인할 수 있는 LMS 어플리케이션입니다.",
                     "works": [
-                        "반응형 디자인을 적용하여 모든 디바이스에서 동일하게 보이도록 개발했습니다.",
-                        "테스트 코드를 적용하여 개발 및 유지보수를 용이하게 했습니다.",
-                        "에러 모니터링을 위해 AWS CloudWatch를 사용했습니다.",
-                        "SSL을 적용하여 보안성을 강화하였습니다.",
+                        "gunicorn 옵션을 적절히 사용해 worker 개수를 조정하고, 부하 상황에서 메모리 부족으로 인해 모든 worker가 동시에 종료되지 않도록 설계했습니다.",
+                        "React Native로 어플리케이션을 제작하고, 반응형 디자인을 적용하여 다양한 디바이스에서 컨텐츠가 동일하게 표출되도록 개발했습니다.",
+                        "유닛 테스트를 작성하여 개발 및 유지보수를 용이하게 했습니다.",
+                        "에러 발생 시 원인 파악을 쉽게 하기 위해 AWS CloudWatch를 이용해 에러가 로깅되도록 처리했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/AMath>다음 링크</a>를 확인해주세요."
                     ],
-                    "techStack": ["Django", "DRF", "React Native", "MySQL", "AWS", "SSL"]
+                    "techStack": ["Django", "DRF", "React Native", "Recoil", "MySQL", "AWS CloudWatch"]
                 },
                 {
                     "title": {
@@ -61,9 +100,9 @@
                     "description": "기존에 사용하던 교재 편집기의 단점을 보완하여 학원에서 사용하던 교재 편집기를 리팩터링했습니다.",
                     "works": [
                         "교재 제작 후, 웹 페이지에 접속하여 교재를 업로드해야하는 불필요한 프로세스 등을 제거함으로써 교재 제작 프로세스를 40% 단축시켰습니다.",
-                        "Github actions를 사용하여 배포 자동화를 구현했습니다."
+                        "Github actions와 Electron autoUpdater를 사용하여 브랜치에 커밋 시 자동으로 빌드 및 배포되는 시스템을 구성했습니다."
                     ],
-                    "techStack": ["React", "Electron", "Github Actions", "NextUI"]
+                    "techStack": ["React", "Recoil", "Electron", "Github Actions"]
                 }
             ]
         },
@@ -90,6 +129,7 @@
                     "works": [
                         "14인 프로젝트로 팀장 및 백엔드 파트를 담당하여 PM, 개발 역할을 했습니다.",
                         "PM으로써 회의를 진행하며 팀원들의 역할을 조율하고 모든 팀원들이 참여할 수 있도록 도움을 주었습니다.",
+                        "프로젝트에 필요한 환경 설정 및 유저 관련 모델과 API를 개발했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/술도가>다음 링크</a>를 확인해주세요."
                     ],
                     "techStack": ["Django", "Django Template", "AWS", "MySQL"]
@@ -101,7 +141,8 @@
                     "startDate": "2022.03",
                     "endDate": "2022.12",
                     "works": [
-                        "비전공자, 입문자를 대상으로 Django를 이용한 백엔드 지식을 공유했습니다."
+                        "비전공자, 입문자를 대상으로 Django를 이용한 백엔드 지식을 공유했습니다.",
+                        "Git과 Github 사용법에 대한 지식을 공유했습니다."
                     ],
                     "techStack": ["Django", "Django Template", "Git"]
                 }
@@ -132,12 +173,12 @@
                     "startDate": "2023.06",
                     "endDate": "2023.07",
                     "works": [
-                        "2인 프로젝트로 프론트엔드 및 백엔드 개발을 담당했습니다.",
+                        "Image Optimization을 적용해 전체 Image를 보여주기 전 Blur Image를 표출함으로써 CLS를 줄이고 사용자 경험을 향상시켰습니다.",
+                        "getStaticParams를 이용해 정적 페이지를 미리 빌드함으로써 응답 속도를 향상시켰습니다.",
                         "Jenkins를 이용해 Github 릴리즈 시 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
-                        "Cloudflare과 SSL을 사용하여 보안을 강화했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/디퓨전톡>다음 링크</a>를 확인해주세요."
                     ],
-                    "techStack": ["FastAPI", "NextJS", "Zustand", "Prisma", "Oracle Cloud", "Cloudflare", "Jenkins", "Docker", "SSL", "OpenAI", "MySQL"]
+                    "techStack": ["FastAPI", "NextJS", "Zustand", "Prisma", "Oracle Cloud", "Cloudflare", "Jenkins", "Docker", "OpenAI", "MySQL"]
                 },
                 {
                     "title": {
@@ -161,10 +202,9 @@
                     "startDate": "2022.05",
                     "endDate": "2023.03",
                     "works": [
-                        "동적이며 디자인을 깔끔하게 할 수 있도록 NextUI를 사용했습니다.",
-                        "제공하는 내용이 심플하고 학교 학생들만이 사용하므로 SPA로 개발했습니다.",
+                        "디자인의 통일성을 유지하고 동적인 디자인을 제공할 수 있는 NextUI를 사용했습니다.",
+                        "제공하는 내용이 간결하고, 학교 학생들만이 사용하기 때문에 SPA로 개발했습니다.",
                         "Jenkins를 이용해 Github 릴리즈 시 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
-                        "Cloudflare과 SSL을 사용하여 보안을 강화했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/한움>다음 링크</a>를 확인해주세요."
                     ],
                     "techStack": ["FastAPI", "NextJS", "Oracle Cloud", "Cloudflare", "Jenkins", "Docker", "SSL"]
@@ -187,12 +227,12 @@
                     "startDate": "2022.10",
                     "endDate": "2022.12",
                     "works": [
-                        "동적이며 디자인을 깔끔하게 할 수 있도록 NextUI를 사용했습니다.",
-                        "제공하는 내용이 심플하고 학교 학생들만이 사용하므로 SPA로 개발했습니다.",
-                        "평소에 느꼈던 불편한 점을 해결하기 위해 해당 서비스를 개발하게 되었습니다.",
+                        "디자인의 통일성을 유지하고 동적인 디자인을 제공할 수 있는 NextUI를 사용했습니다.",
+                        "제공하는 내용이 간결하고, 학교 학생들만이 사용하기 때문에 SPA로 개발했습니다.",
+                        "수강신청 시 느꼈던 불편한 점을 해결하기 위해 해당 서비스를 개발하게 되었습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/효율부기>다음 링크</a>를 확인해주세요."
                     ],
-                    "techStack": ["ReactJS", "Figma"]
+                    "techStack": ["React", "Recoil"]
                 },
                 {
                     "title": {
@@ -212,13 +252,13 @@
                     "startDate": "2022.07",
                     "endDate": "2022.11",
                     "works": [
-                        "3인 프로젝트로 백엔드 개발 및 프론드엔드 작업을 보조했습니다.",
-                        "효율적인 데이터 관리를 위해 recoil을 사용했습니다.",
+                        "React Native로 어플리케이션을 제작하고, 반응형 디자인을 적용하여 다양한 디바이스에서 컨텐츠가 동일하게 표출되도록 개발했습니다.",
+                        "Recoil을 이용해 데이터를 효율적으로 관리했습니다.",
+                        "Django channels를 이용해 Django ASGI 서버에서 실시간 채팅 기능을 구현했습니다.",
                         "Github Actions를 사용하여 Github 릴리즈 시 자동으로 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
-                        "SSL을 사용하여 보안성을 강화했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/틴리프>다음 링크</a>를 확인해주세요."
                     ],
-                    "techStack": ["Django", "DRF", "React Native", "AWS", "MySQL", "Github Actions", "Docker", "SSL"]
+                    "techStack": ["Django", "DRF", "React Native", "Recoil", "MySQL", "Github Actions", "Docker"]
                 },
                 {
                     "title": {
@@ -239,12 +279,12 @@
                     "endDate": "2022.09",
                     "works": [
                         "4인 프로젝트로 프론트엔드, 백엔드, 인프라를 담당했습니다.",
-                        "효율적인 데이터 관리를 위해 recoil을 사용했습니다.",
+                        "Recoil을 이용해 데이터를 효율적으로 관리했습니다.",
                         "Github Actions를 사용하여 Github 릴리즈 시 자동으로 Docker Image를 생성하고 서버에 배포하는 과정을 자동화했습니다.",
                         "SSL을 사용하여 보안성을 강화했습니다.",
                         "자세한 내용을 보고 싶으시다면 <a href=/portfolio/노쓰>다음 링크</a>를 확인해주세요."
                     ],
-                    "techStack": ["Django", "DRF", "React Native", "AWS", "MySQL", "Github Actions", "Docker", "SSL"]
+                    "techStack": ["Django", "DRF", "React Native", "Recoil", "MySQL", "Github Actions", "Docker"]
                 },
                 {
                     "title": {

@@ -1,12 +1,52 @@
-import Container from "@/app/components/Container";
+import matter from "gray-matter";
+import dayjs from "dayjs";
+
 import { PostType } from "@/types/blog/PostType";
+
+import Container from "@/app/components/Container";
 import PostGrid from "@/app/components/blog/PostGrid";
 
-const getData = async () => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`).then((res) => res.json());
+export const metadata = {
+	title: 'BLOG | Kanghyoek Lee',
+	description: '공유하고 싶거나 다시 보고 싶은 기술들을 정리했습니다.',
+	keywords: ['이강혁', 'PRESSO', "블로그", "BLOG", "개발자"],
+	authors: [{ name: '이강혁', url: 'https://presso.ac' }],
+	creator: '이강혁',
+	publisher: '이강혁'
 }
 
-export const dynamic = "force-dynamic";
+const getData = async () => {
+	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+		const data = await res.json();
+		const regex = /^resume\/posts\/.+\.mdx$/;
+
+		return data.objects.filter((item: { name: string }) => {
+			return regex.test(item.name);
+		});
+	});
+
+	const posts: PostType[] = await Promise.all(
+		mdFiles.map(async (item: { name: string }) => {
+			const file = item.name.split('/').pop();
+			const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURI(file ? file : '')}`).then((res) => res.text());
+
+			const { data } = matter(post);
+			return {
+				...data,
+			}
+		})
+	);
+
+	posts.sort((a, b) => {
+		if (!a.date) return 1;
+		else if (!b.date) return -1;
+		else {
+			return dayjs(a.date).isAfter(dayjs(b.date)) ? -1 : 1;
+		}
+	});
+
+	return posts;
+}
 
 const Page = async () => {
 	const posts: PostType[] = await getData();

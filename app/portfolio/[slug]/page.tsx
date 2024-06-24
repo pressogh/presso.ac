@@ -1,17 +1,68 @@
+import { compileMDX } from "next-mdx-remote/rsc";
+import { serialize } from "next-mdx-remote/serialize";
+import remarkGfm from "remark-gfm";
+import rehypePrism from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
+
 import Container from "@/app/components/Container";
 import Content from "@/app/components/portfolio/Content";
 import Header from "@/app/components/portfolio/Header";
+import MDXComponents from "@/app/components/markdown/MDXComponents";
+import LinkIconGrid from "@/app/components/markdown/LinkIconGrid";
+import LinkIcon from "@/app/components/markdown/LinkIcon";
 
-export const dynamic = "force-dynamic";
+const getData = async (slug: string) => {
+	const project = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/projects/${slug}.mdx`).then((res) => res.text());
+
+	const { frontmatter } = await compileMDX({
+		source: project,
+		options: {
+			parseFrontmatter: true
+		}
+	});
+
+	return {
+		...frontmatter,
+		content: await serialize(project, {
+			mdxOptions: {
+				remarkPlugins: [remarkGfm],
+				// @ts-ignore
+				rehypePlugins: [rehypePrism, rehypeSlug],
+			},
+			parseFrontmatter: true,
+			components: {
+				...MDXComponents({}),
+				LinkIconGrid,
+				LinkIcon,
+			}
+		})
+	};
+}
+
+export async function generateStaticParams() {
+	const projects = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+		const data = await res.json();
+		const regex = /^resume\/projects\/.+\.mdx$/;
+
+		return data.objects.filter((item: { name: string }) => {
+			return regex.test(item.name);
+		});
+	});
+
+	return projects.map((project: { name: string }) => {
+		const last = project.name.split('/').pop();
+		const file = last ? last.replace(/ /g, "-").replace(/\.mdx$/g, '') : '';
+
+		return {
+			slug: file
+		}
+	});
+}
 
 interface Params {
 	params: {
 		slug: string
 	}
-}
-
-const getData = async (slug: string) => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portfolio/${slug}`).then((res) => res.json());
 }
 
 const Page = async ({ params }: Params) => {

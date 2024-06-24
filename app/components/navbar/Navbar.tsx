@@ -35,7 +35,7 @@ const Navbar = () => {
 	}, [pathName]);
 
 	return (
-		<div>
+		<nav>
 			<div
 				className={`
 					z-50
@@ -68,7 +68,7 @@ const Navbar = () => {
 			<div className={`sticky top-0 z-50`}>
 				<div className={`absolute z-50 top-0 h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }} />
 			</div>
-		</div>
+		</nav>
 	);
 };
 

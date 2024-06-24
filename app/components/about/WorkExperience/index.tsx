@@ -2,7 +2,7 @@ import { WorkExperienceType } from "@/types/about/WorkExperienceType";
 import Contents from "@/app/components/about/WorkExperience/Contents";
 
 const getData = async () => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=work-experience`).then(res => res.json());
+	return await fetch(`${process.env.RESUME_BUCKET_URL}/resume/about/work-experience/data.json`).then(res => res.json());
 }
 
 const Index = async () => {

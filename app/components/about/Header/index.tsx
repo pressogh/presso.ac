@@ -1,7 +1,7 @@
 import { HeaderType } from '@/types/about/HeaderType';
 
 const getData = async () => {
-	return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about?query=header`).then(res => res.json());
+	return await fetch(`${process.env.RESUME_BUCKET_URL}/resume/about/header/data.json`).then(res => res.json());
 }
 
 const Index = async () => {
@@ -12,14 +12,11 @@ const Index = async () => {
 			<div
 				className={`
 					bg-gradient-to-r
-					from-[rgba(17,24,28,1)]
-					to-[rgba(0,74,191,1)]
+					text-[#4B6EA0]
+					dark:text-[rgba(0,74,191,1)]
 					bg-clip-text
 					text-4xl
 					font-bold
-					text-transparent
-					dark:from-white
-					dark:to-[rgba(0,74,191,1)]
 					md:text-5xl
 				`}
 			>
