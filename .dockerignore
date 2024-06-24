@@ -13,5 +13,4 @@ README.md
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-#.env
 out
