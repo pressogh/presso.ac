@@ -39,6 +39,8 @@ jobs:
         platform:
           - linux/amd64
           - linux/arm64
+    needs:
+      - get-version
 
     steps:
       - name: Prepare
