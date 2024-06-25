@@ -1,5 +1,11 @@
 FROM node:20.9.0-alpine AS base
 
+ARG NEXT_PUBLIC_API_URL
+ARG RESUME_BUCKET_URL
+
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV RESUME_BUCKET_URL=$RESUME_BUCKET_URL
+
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -14,6 +20,7 @@ WORKDIR /app
 COPY --from=deps /app/.yarn ./.yarn
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
 RUN yarn build
 
 FROM base AS runner
