@@ -1,4 +1,4 @@
-FROM node:20.9.0-alpine AS base
+FROM --platform=$BUILDPLATFORM node:20.9.0-alpine AS base
 
 ARG NEXT_PUBLIC_API_URL
 ARG RESUME_BUCKET_URL
