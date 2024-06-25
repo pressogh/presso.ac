@@ -3,7 +3,7 @@ module.exports = {
 		{
 			name: 'next-app',
 			script: './.pnp.cjs',
-			args: 'node server.js',
+			args: '.next/standalone/server.js',
 			interpreter: 'node',
 			env: {
 				NODE_ENV: 'production',
