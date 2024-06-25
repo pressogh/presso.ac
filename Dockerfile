@@ -18,8 +18,8 @@ RUN yarn install --immutable
 FROM base AS builder
 WORKDIR /app
 
-COPY --from=deps package*.json .yarnrc.yml .pnp.cjs .pnp.loader.mjs yarn.lock ./
-COPY --from=deps .yarn ./.yarn
+COPY --from=deps /app/package*.json /app/.yarnrc.yml /app/.pnp.cjs /app/.pnp.loader.mjs /app/yarn.lock ./
+COPY --from=deps /app/.yarn ./.yarn
 
 COPY . .
 
