@@ -12,6 +12,25 @@ env:
   REGISTRY_IMAGE: pressodh/presso.ac
 
 jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - name: Save version artifact
+        run: echo "v${{ steps.package-version.outputs.current-version }}" > version.txt
+
+      - name: Upload version artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-version
+          path: version.txt
+
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -20,6 +39,8 @@ jobs:
         platform:
           - linux/amd64
           - linux/arm64
+    needs:
+      - get-version
 
     steps:
       - name: Prepare
@@ -30,9 +51,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: Download version artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: npm-version
+          path: .
+
+      - name: Set version environment variable
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
 
       - name: Docker meta
         id: meta
@@ -40,7 +66,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY_IMAGE }}
           tags: |
-            ${{ steps.package-version.outputs.current-version}}
+            ${{ env.VERSION }}
             latest
 
       - name: Set up QEMU
@@ -87,6 +113,15 @@ jobs:
     needs:
       - build
     steps:
+      - name: Download version artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: npm-version
+          path: .
+
+      - name: Set version environment variable
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
@@ -102,6 +137,9 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY_IMAGE }}
+          tags: |
+            ${{ env.VERSION }}
+            latest
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -117,4 +155,4 @@ jobs:
 
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}
+          docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ env.VERSION }}
