@@ -9,20 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      RESUME_BUCKET_URL: ${{ secrets.RESUME_BUCKET_URL }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
-
-      - name: Add ENV
-        run: |
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
-          echo "RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}" >> .env
-          ls -als
-          pwd
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -42,3 +40,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: pressodh/presso.ac:latest, pressodh/presso.ac:${{ steps.package-version.outputs.current-version}}
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+            RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}
