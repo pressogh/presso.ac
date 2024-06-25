@@ -40,8 +40,6 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY pm2.config.js ./pm2.config.js
-
 COPY --from=deps /app/.pnp.cjs /app/.pnp.loader.mjs /app/.yarnrc.yml ./
 
 COPY --from=builder /app/public* ./public
@@ -54,4 +52,4 @@ ENV PORT=3000
 ENV HOSTNAME=presso.ac
 EXPOSE 3000
 
-ENTRYPOINT ["pm2-runtime", "start", "pm2.config.js", "--watch", "--name", "presso.ac"]
+ENTRYPOINT ["pm2-runtime", "start", "server.js", "--node-args", "-r ./.pnp.cjs", "--env", "production", "--watch", "--name", "presso.ac"]
