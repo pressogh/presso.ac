@@ -42,8 +42,8 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY pm2.config.js ./pm2.config.js
 
-COPY --from=builder .yarn ./.yarn
-COPY --from=builder .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock* ./
+COPY --from=deps .yarn ./.yarn
+COPY --from=deps .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock* ./
 
 COPY --from=builder /app/public* ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
