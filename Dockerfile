@@ -11,7 +11,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY .yarn ./.yarn
-COPY .pnp.cjs .yarnrc.yml package.json yarn.lock* ./
+COPY .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock* ./
 
 RUN yarn install --immutable
 
@@ -20,6 +20,7 @@ WORKDIR /app
 
 COPY --from=deps /app/.yarn ./.yarn
 COPY --from=deps /app/.pnp.cjs ./pnp.cjs
+COPY --from=deps /app/.pnp.loader.mjs ./pnp.loader.mjs
 
 COPY . .
 
