@@ -10,15 +10,17 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY .yarn .yarn
-COPY .yarnrc.yml package.json yarn.lock* ./
+COPY package*.json .yarnrc .yarnrc.yml .pnp.cjs .pnp.loader.mjs yarn.lock ./
+COPY .yarn ./.yarn
+
 RUN yarn install --immutable
 
 FROM base AS builder
 WORKDIR /app
 
-COPY --from=deps /app/.yarn ./.yarn
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps package*.json .yarnrc .yarnrc.yml .pnp.cjs .pnp.loader.mjs yarn.lock ./
+COPY --from=deps .yarn ./.yarn
+
 COPY . .
 
 RUN yarn build
