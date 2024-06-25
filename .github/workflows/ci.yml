@@ -67,7 +67,6 @@ jobs:
             RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          tags: ${{ steps.meta.outputs.tags }}
 
       - name: Export digest
         run: |
