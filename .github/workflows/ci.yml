@@ -23,7 +23,7 @@ jobs:
         uses: martinbeentjes/npm-get-version-action@v1.3.1
 
       - name: Save version artifact
-        run: echo "${{ steps.package-version.outputs.current-version }}" > version.txt
+        run: echo "v${{ steps.package-version.outputs.current-version }}" > version.txt
 
       - name: Upload version artifact
         uses: actions/upload-artifact@v4
@@ -138,7 +138,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY_IMAGE }}
           tags: |
-            v${{ env.VERSION }}
+            ${{ env.VERSION }}
             latest
 
       - name: Login to Docker Hub
