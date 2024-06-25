@@ -45,5 +45,5 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14"
   },
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.3.1"
 }
