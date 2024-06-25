@@ -44,6 +44,11 @@ COPY --from=deps /app/.pnp.cjs /app/.pnp.loader.mjs /app/.yarnrc.yml ./
 
 COPY --from=builder /app/public* ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+
+RUN rm -rf .yarn
+
+COPY --from=deps /app/.yarn ./yarn
+
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
