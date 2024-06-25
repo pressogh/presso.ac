@@ -61,12 +61,6 @@ jobs:
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
-          tags: pressodh/presso.ac:latest, pressodh/presso.ac:${{ steps.package-version.outputs.current-version}}
-          build-args: |
-            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
-            RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       - name: Export digest
         run: |
