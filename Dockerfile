@@ -40,9 +40,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=deps /app/.yarn ./.yarn
-COPY --from=deps /app/.pnp.cjs ./pnp.cjs
-COPY --from=deps /app/.pnp.loader.mjs ./pnp.loader.mjs
+COPY --from=builder .yarn ./.yarn
+COPY --from=builder .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock* ./
 
 COPY --from=builder /app/public* ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
