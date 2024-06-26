@@ -11,29 +11,19 @@ import {
 	thematicBreakPlugin,
 	toolbarPlugin,
 	linkPlugin,
-	InsertTable,
 	tablePlugin,
 	codeBlockPlugin,
 	codeMirrorPlugin,
 	frontmatterPlugin,
-	BlockTypeSelect,
-	BoldItalicUnderlineToggles,
-	CodeToggle,
-	CreateLink,
 	linkDialogPlugin,
-	InsertCodeBlock,
-	InsertFrontmatter,
-	InsertImage,
 	imagePlugin,
-	InsertThematicBreak,
-	ListsToggle,
-	UndoRedo,
-	Separator,
-	DiffSourceToggleWrapper,
-	diffSourcePlugin
+	diffSourcePlugin,
+	JsxComponentDescriptor,
+	jsxPlugin, NestedLexicalEditor
 } from "@mdxeditor/editor";
 
 import '@mdxeditor/editor/style.css'
+import TabBar from "@/app/components/markdown/Editor/TabBar";
 
 async function imageUploadHandler(image: File) {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${encodeURI("NextJS Yarn Berry 적용기")}/images/${image.name}`, {
@@ -53,6 +43,28 @@ interface EditorProps {
 	markdown: string;
 	editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
 }
+
+const jsxComponentDescriptors: JsxComponentDescriptor[] = [
+	{
+		name: 'Conclusion',
+		kind: 'flow',
+		source: '@/app/components/markdown/Conclusion.tsx',
+		props: [{ name: 'text', type: 'string' }],
+		hasChildren: false,
+		Editor: () => {
+			return (
+				<div style={{ border: '1px solid red', padding: 8, margin: 8, display: 'inline-block' }}>
+					<NestedLexicalEditor
+						getContent={(node) => node.children}
+						getUpdatedMdastNode={(mdastNode, children: any) => {
+							return { ...mdastNode, children }
+						}}
+					/>
+				</div>
+			)
+		}
+	}
+]
 
 const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
 	return (
@@ -76,30 +88,9 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
 				codeMirrorPlugin({ codeBlockLanguages: { ts: 'TypeScript', js: 'JavaScript', html: 'HTML', css: 'CSS', python: "Python", cpp: 'C++', c: 'C', text: 'TEXT' } }),
 				imagePlugin({ imageUploadHandler }),
 				diffSourcePlugin({ diffMarkdown: '', viewMode: 'rich-text' }),
+				jsxPlugin({ jsxComponentDescriptors }),
 				toolbarPlugin({
-					toolbarContents: () => (
-						<>
-							<UndoRedo />
-							<Separator />
-							<InsertFrontmatter />
-							<Separator />
-							<BoldItalicUnderlineToggles />
-							<Separator />
-							<BlockTypeSelect />
-							<Separator />
-							<InsertThematicBreak />
-							<ListsToggle />
-							<Separator />
-							<CreateLink />
-							<CodeToggle />
-							<InsertCodeBlock />
-							<InsertImage />
-							<InsertTable />
-							<DiffSourceToggleWrapper>
-								{ ' ' }
-							</DiffSourceToggleWrapper>
-						</>
-					)}
+					toolbarContents: () => <TabBar />}
 				),
 			]}
 		/>
