@@ -8,9 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/language": "^6.10.2",
     "@giscus/react": "^3.0.0",
+    "@lezer/highlight": "^1.2.0",
+    "@lezer/lr": "^1.4.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
+    "@mdxeditor/editor": "^3.6.1",
     "@next/mdx": "^14.2.3",
     "@plaiceholder/next": "^3.0.0",
     "autoprefixer": "10.4.19",

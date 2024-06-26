@@ -12,7 +12,7 @@ const Index = async () => {
 			<div
 				className={`
 					bg-gradient-to-r
-					text-[#4B6EA0]
+					text-[rgba(42,74,191,1)]
 					dark:text-[rgba(0,74,191,1)]
 					bg-clip-text
 					text-4xl
