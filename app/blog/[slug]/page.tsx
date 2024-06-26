@@ -13,11 +13,21 @@ import Content from "@/app/components/blog/Content";
 import Container from "@/app/components/Container";
 import Conclusion from "@/app/components/markdown/Conclusion";
 import MDXComponents from "@/app/components/markdown/MDXComponents";
+import {notFound} from "next/navigation";
+import {ApiError} from "next/dist/server/api-utils";
 
 dayjs.locale("ko");
 
 const getData = async (slug: string) => {
-	const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${slug}.mdx`).then((res) => res.text());
+	const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${slug}.mdx`)
+		.then((res) => {
+			if (!res.ok) throw new ApiError(404, 'Not Found');
+			return res.text();
+		})
+		.catch((e: ApiError) => {
+			if (e.statusCode === 404) return notFound();
+			throw e;
+		});
 
 	const { frontmatter } = await compileMDX({
 		source: post,
@@ -58,7 +68,7 @@ export async function generateStaticParams() {
 		const file = last ? last.replace(/ /g, "-").replace(/\.mdx$/g, '') : '';
 
 		return {
-			slug: file
+			slug: encodeURI(file)
 		}
 	});
 }

@@ -47,31 +47,33 @@ interface EditorProps {
 const jsxComponentDescriptors: JsxComponentDescriptor[] = [
 	{
 		name: 'Conclusion',
-		kind: 'flow',
+		kind: 'text',
 		source: '@/app/components/markdown/Conclusion.tsx',
-		props: [{ name: 'text', type: 'string' }],
-		hasChildren: false,
+		props: [],
+		hasChildren: true,
 		Editor: () => {
 			return (
-				<div style={{ border: '1px solid red', padding: 8, margin: 8, display: 'inline-block' }}>
+				<div className={`text-2xl font-light italic w-full flex justify-center items-center mt-6`}>
+					&quot;{` `}
 					<NestedLexicalEditor
 						getContent={(node) => node.children}
 						getUpdatedMdastNode={(mdastNode, children: any) => {
-							return { ...mdastNode, children }
+							return {...mdastNode, children}
 						}}
 					/>
+					&#34;
 				</div>
 			)
 		}
 	}
 ]
 
-const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
+const Editor: FC<EditorProps> = ({markdown, editorRef}) => {
 	return (
 		<MDXEditor
 			ref={editorRef}
 			markdown={markdown}
-			className={`w-full h-96`}
+			className={`w-full border rounded-lg overflow-y-scroll`}
 			onChange={(e) => console.log(e)}
 			contentEditableClassName="prose"
 			plugins={[

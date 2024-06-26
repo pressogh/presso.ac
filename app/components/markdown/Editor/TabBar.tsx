@@ -18,7 +18,7 @@ const InsertConclusion = () => {
 			onClick={() =>
 				insertJsx({
 					name: 'Conclusion',
-					kind: 'flow',
+					kind: 'text',
 					props: {}
 				})
 			}

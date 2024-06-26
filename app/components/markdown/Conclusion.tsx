@@ -1,11 +1,13 @@
+import React from "react";
+
 interface Props {
-	text: string
+	children: React.ReactNode;
 }
 
-const Conclusion = ({ text }: Props) => {
+const Conclusion = ({ children }: Props) => {
 	return (
 		<div className={`text-2xl font-light italic w-full flex justify-center items-center mt-6`}>
-			&quot; { text } &quot;
+			&quot; { children } &quot;
 		</div>
 	);
 };
