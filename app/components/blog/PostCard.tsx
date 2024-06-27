@@ -10,7 +10,7 @@ interface Props {
 
 const PostCard = ({ post }: Props) => {
 	return (
-		<Link href={`/blog/${post.title.replace(/ /g, '-').replace('#', '')}`}>
+		<Link href={`/blog/${encodeURIComponent(post.title)}`}>
 			<div
 				className={`
 					transform

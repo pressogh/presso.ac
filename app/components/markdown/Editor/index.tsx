@@ -14,7 +14,6 @@ import {
 	tablePlugin,
 	codeBlockPlugin,
 	codeMirrorPlugin,
-	frontmatterPlugin,
 	linkDialogPlugin,
 	imagePlugin,
 	diffSourcePlugin,
@@ -26,11 +25,11 @@ import '@mdxeditor/editor/style.css'
 import TabBar from "@/app/components/markdown/Editor/TabBar";
 
 async function imageUploadHandler(image: File) {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${encodeURI("NextJS Yarn Berry 적용기")}/images/${image.name}`, {
+	const response = await fetch(`/api/posts/${encodeURI("NextJS Yarn Berry 적용기")}/images/${encodeURIComponent(image.name)}`, {
 		method: 'PUT',
 		body: image,
 		headers: {
-			'Content-Type': 'image/jpeg',
+			'Content-Type': 'image/*',
 		},
 	})
 
@@ -41,6 +40,7 @@ async function imageUploadHandler(image: File) {
 
 interface EditorProps {
 	markdown: string;
+	setMarkdown: (markdown: string) => void;
 	editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
 }
 
@@ -68,13 +68,13 @@ const jsxComponentDescriptors: JsxComponentDescriptor[] = [
 	}
 ]
 
-const Editor: FC<EditorProps> = ({markdown, editorRef}) => {
+const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
 	return (
 		<MDXEditor
 			ref={editorRef}
 			markdown={markdown}
 			className={`w-full`}
-			onChange={(e) => console.log(e)}
+			onChange={(e) => setMarkdown(e)}
 			contentEditableClassName="prose"
 			plugins={[
 				headingsPlugin(),
