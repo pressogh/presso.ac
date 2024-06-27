@@ -26,9 +26,9 @@ const InsertConclusion = () => {
 
 const TabBar = () => {
 	return (
-		<div className={`w-full pt-10 bg-white dark:bg-[#202021]`}>
-			<div className={`flex flex-row w-full p-1.5 rounded-md overflow-x-auto justify-between items-center bg-gray-100`}>
-				<div className={`flex flex-row gap-1`}>
+		<div className={`w-full pt-10 bg-white dark:bg-[#202020] z-0`}>
+			<div className={`flex flex-row w-full p-1.5 rounded-md overflow-x-auto justify-between items-center bg-gray-100 dark:bg-[#282828] [&_*]:dark:!text-white`}>
+				<div className={`z-50 flex flex-row gap-1`}>
 					<UndoRedo />
 					<Separator />
 					<BoldItalicUnderlineToggles />

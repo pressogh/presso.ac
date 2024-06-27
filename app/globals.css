@@ -457,12 +457,18 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
     fill: transparent;
 }
 
+
+/* Style for MDXEditor */
 .mdxeditor-toolbar {
     @apply inline gap-0 border-none rounded-none p-0 items-start bg-none sticky z-10 !important;
 }
 
 .mdxeditor-popup-container {
     @apply border-none;
+}
+
+.mdxeditor > .mdxeditor-toolbar * button {
+    @apply dark:hover:bg-[#353535] dark:bg-[#282828] aria-checked:dark:bg-[#353535] !important;
 }
 
 /* Style for MDXEditor */
@@ -482,6 +488,8 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
                  'Segoe UI Emoji',
                  'Segoe UI Symbol',
                  'sans-serif';
+
+    @apply caret-black dark:caret-white;
     /*@apply sm:h-[calc(100lvh-18.6rem)] h-[calc(100lvh-14.6rem)];*/
 }
 
