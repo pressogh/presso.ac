@@ -40,7 +40,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 	};
 
 	return (
-		<div className={`flex flex-row justify-between items-end gap-40`}>
+		<div className={`flex flex-row justify-between items-end gap-[10%]`}>
 			<div className={`w-full`}>
 				<input
 					className={`font-semibold sm:text-5xl sm:leading-[4rem] text-4xl focus:outline-none w-full border-none bg-transparent`}
@@ -64,7 +64,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 				/>
 			</div>
 
-			<div>
+			<div className={`mb-8`}>
 				<button
 					className={`text-blue-600 p-2 rounded-md border border-blue-600 hover:bg-blue-600 hover:text-white font-light`}
 					onClick={handleSubmitButtonClick}>

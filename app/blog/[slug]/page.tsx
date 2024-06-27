@@ -84,14 +84,14 @@ interface Params {
 }
 
 const Page = async ({ params }: Params) => {
-	const { content, title, date }: any = await getData(params.slug);
+	const { content, title, date, description }: any = await getData(params.slug);
 
 	return (
 		<Container>
 			<div className={"sm:mt-20 mt-6"}>
 				<TOC />
 
-				<Header title={title} date={date} />
+				<Header title={title} date={date} description={description} />
 
 				<div className={`my-10`}>
 					<Content data={content} />

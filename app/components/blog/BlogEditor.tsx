@@ -3,7 +3,6 @@
 import { Suspense, useState } from "react";
 import dynamic from "next/dynamic";
 
-import TOC from "@/app/components/blog/TOC";
 import HeaderInput from "@/app/components/blog/HeaderInput";
 const Editor = dynamic(() => import('@/app/components/markdown/Editor'), { ssr: false });
 
@@ -15,8 +14,6 @@ const BlogEditor = () => {
 
 	return (
 		<div>
-			<TOC />
-
 			<HeaderInput
 				title={title} setTitle={setTitle}
 				date={date} setDate={setDate}
