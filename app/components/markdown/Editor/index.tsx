@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, {FC, useCallback, useEffect, useRef} from "react";
 import {
 	MDXEditor,
 	MDXEditorMethods,
@@ -17,58 +17,66 @@ import {
 	linkDialogPlugin,
 	imagePlugin,
 	diffSourcePlugin,
-	JsxComponentDescriptor,
-	jsxPlugin, NestedLexicalEditor
+	jsxPlugin
 } from "@mdxeditor/editor";
 
-import '@mdxeditor/editor/style.css'
+import '@mdxeditor/editor/style.css';
+
 import TabBar from "@/app/components/markdown/Editor/TabBar";
-
-async function imageUploadHandler(image: File) {
-	const response = await fetch(`/api/posts/${encodeURI("NextJS Yarn Berry 적용기")}/images/${encodeURIComponent(image.name)}`, {
-		method: 'PUT',
-		body: image,
-		headers: {
-			'Content-Type': 'image/*',
-		},
-	})
-
-	const json = await response.json()
-
-	return json.url
-}
+import jsxComponentDescriptors from "@/app/components/markdown/Editor/JSXComponentDescriptors";
 
 interface EditorProps {
+	title: string;
 	markdown: string;
 	setMarkdown: (markdown: string) => void;
-	editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
 }
 
-const jsxComponentDescriptors: JsxComponentDescriptor[] = [
-	{
-		name: 'Conclusion',
-		kind: 'text',
-		source: '@/app/components/markdown/Conclusion.tsx',
-		props: [],
-		hasChildren: true,
-		Editor: () => {
-			return (
-				<div className={`text-2xl font-light italic w-full flex justify-center items-center mt-6`}>
-					&quot;{` `}
-					<NestedLexicalEditor
-						getContent={(node) => node.children}
-						getUpdatedMdastNode={(mdastNode, children: any) => {
-							return { ...mdastNode, children }
-						}}
-					/>
-					&#34;
-				</div>
-			)
-		}
-	}
-]
+const Editor: FC<EditorProps> = ({ title, markdown, setMarkdown }) => {
+	const editorRef = useRef<MDXEditorMethods | null>(null);
 
-const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
+	// title이 변경되면 markdown의 모든 img 태그의 src를 변경해준다.
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			const images = markdown.match(/!\[.*]\(.*(http|https).*\..*\)/g) || [];
+			images.forEach((image) => {
+				const imageTitleIndex = image.split('/').findIndex((str) => str.includes('posts')) + 1;
+				const imageTitle = image.split('/')[imageTitleIndex];
+
+				if (imageTitle === title) return;
+
+				const src = image.match(/posts\/.*\/images\/.*.png/)![0];
+				const newSrc = `posts/${encodeURIComponent(title)}/images/${encodeURIComponent(src)}`;
+
+				const renameImage = fetch(`/api/posts/images/rename`, {
+					method: 'POST',
+					body: JSON.stringify({
+						src: 'resume/' + src,
+						newSrc: 'resume/' + newSrc,
+					}),
+				});
+
+				setMarkdown(markdown.replace(`${process.env.NEXT_PUBLIC_API_URL}/${src}`, `${process.env.NEXT_PUBLIC_API_URL}/${newSrc}`));
+				editorRef.current?.setMarkdown(markdown.replace(`${process.env.NEXT_PUBLIC_API_URL}/${src}`, `${process.env.NEXT_PUBLIC_API_URL}/${newSrc}`));
+			});
+		}, 3000);
+
+		return () => clearTimeout(timeout);
+	}, [editorRef, markdown, setMarkdown, title]);
+
+	const imageUploadHandler = useCallback(async (image: File) => {
+		const response = await fetch(`/api/posts/${encodeURIComponent(title)}/images/${encodeURIComponent(image.name)}`, {
+			method: 'PUT',
+			body: image,
+			headers: {
+				'Content-Type': 'image/*',
+			},
+		})
+
+		const json = await response.json()
+
+		return json.url
+	}, [title]);
+
 	return (
 		<MDXEditor
 			ref={editorRef}
