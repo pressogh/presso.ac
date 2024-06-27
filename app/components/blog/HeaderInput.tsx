@@ -24,6 +24,8 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 	const router = useRouter();
 
 	const handleSubmitButtonClick = async () => {
+		//
+
 		const frontmatter = {
 			title,
 			date,
