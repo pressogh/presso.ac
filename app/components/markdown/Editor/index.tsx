@@ -75,7 +75,7 @@ const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
 			markdown={markdown}
 			className={`w-full`}
 			onChange={(e) => setMarkdown(e)}
-			contentEditableClassName="prose"
+			contentEditableClassName={"prose"}
 			plugins={[
 				headingsPlugin(),
 				listsPlugin(),

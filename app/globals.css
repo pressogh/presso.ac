@@ -464,7 +464,7 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 .mdxeditor-popup-container {
-    @apply border-none;
+    @apply border-none z-50 !important;
 }
 
 .mdxeditor > .mdxeditor-toolbar * button {
