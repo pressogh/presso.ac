@@ -1,13 +1,9 @@
 import React from 'react';
 import {
-	BlockTypeSelect,
-	BoldItalicUnderlineToggles,
+	BlockTypeSelect, BoldItalicUnderlineToggles,
 	Button, CodeToggle, CreateLink, DiffSourceToggleWrapper, InsertCodeBlock,
-	InsertFrontmatter, InsertImage,
-	insertJsx$, InsertTable, InsertThematicBreak, ListsToggle,
-	Separator,
-	UndoRedo,
-	usePublisher
+	InsertImage, insertJsx$, InsertTable, InsertThematicBreak, ListsToggle,
+	Separator, UndoRedo, usePublisher
 } from "@mdxeditor/editor";
 
 const InsertConclusion = () => {
@@ -30,28 +26,30 @@ const InsertConclusion = () => {
 
 const TabBar = () => {
 	return (
-		<>
-			<UndoRedo />
-			<Separator />
-			<InsertFrontmatter />
-			<Separator />
-			<BoldItalicUnderlineToggles />
-			<Separator />
-			<BlockTypeSelect />
-			<Separator />
-			<InsertThematicBreak />
-			<ListsToggle />
-			<Separator />
-			<CreateLink />
-			<CodeToggle />
-			<InsertCodeBlock />
-			<InsertImage />
-			<InsertTable />
-			<InsertConclusion />
-			<DiffSourceToggleWrapper>
-				{ ' ' }
-			</DiffSourceToggleWrapper>
-		</>
+		<div className={`flex flex-row w-full justify-between`}>
+			<div className={`flex flex-row`}>
+				<UndoRedo />
+				<Separator />
+				<BoldItalicUnderlineToggles />
+				<Separator />
+				<BlockTypeSelect />
+				<Separator />
+				<InsertThematicBreak />
+				<ListsToggle />
+				<Separator />
+				<CreateLink />
+				<CodeToggle />
+				<InsertCodeBlock />
+				<InsertImage />
+				<InsertTable />
+				<InsertConclusion />
+			</div>
+			<div className={`flex flex-row items-center`}>
+				<DiffSourceToggleWrapper>
+					{ ' ' }
+				</DiffSourceToggleWrapper>
+			</div>
+		</div>
 	);
 };
 

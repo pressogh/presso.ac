@@ -58,7 +58,7 @@ const jsxComponentDescriptors: JsxComponentDescriptor[] = [
 					<NestedLexicalEditor
 						getContent={(node) => node.children}
 						getUpdatedMdastNode={(mdastNode, children: any) => {
-							return {...mdastNode, children}
+							return { ...mdastNode, children }
 						}}
 					/>
 					&#34;
@@ -73,7 +73,7 @@ const Editor: FC<EditorProps> = ({markdown, editorRef}) => {
 		<MDXEditor
 			ref={editorRef}
 			markdown={markdown}
-			className={`w-full border rounded-lg overflow-y-scroll`}
+			className={`w-full`}
 			onChange={(e) => console.log(e)}
 			contentEditableClassName="prose"
 			plugins={[
@@ -84,7 +84,6 @@ const Editor: FC<EditorProps> = ({markdown, editorRef}) => {
 				markdownShortcutPlugin(),
 				linkPlugin(),
 				tablePlugin(),
-				frontmatterPlugin(),
 				linkDialogPlugin(),
 				codeBlockPlugin({ defaultCodeBlockLanguage: 'js' }),
 				codeMirrorPlugin({ codeBlockLanguages: { ts: 'TypeScript', js: 'JavaScript', html: 'HTML', css: 'CSS', python: "Python", cpp: 'C++', c: 'C', text: 'TEXT' } }),

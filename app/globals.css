@@ -457,6 +457,14 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
     fill: transparent;
 }
 
+.mdxeditor-toolbar {
+    @apply sticky top-4 z-10 !important;
+}
+
+.mdxeditor-popup-container {
+    @apply border-none;
+}
+
 /* Style for MDXEditor */
 .prose {
     font-family: 'Pretendard Variable',
@@ -474,7 +482,7 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
                  'Segoe UI Emoji',
                  'Segoe UI Symbol',
                  'sans-serif';
-    @apply sm:h-[calc(100lvh-18.6rem)] h-[calc(100lvh-14.6rem)];
+    /*@apply sm:h-[calc(100lvh-18.6rem)] h-[calc(100lvh-14.6rem)];*/
 }
 
 .prose span {
