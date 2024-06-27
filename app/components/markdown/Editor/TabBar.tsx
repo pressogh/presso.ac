@@ -26,28 +26,30 @@ const InsertConclusion = () => {
 
 const TabBar = () => {
 	return (
-		<div className={`flex flex-row w-full justify-between`}>
-			<div className={`flex flex-row`}>
-				<UndoRedo />
-				<Separator />
-				<BoldItalicUnderlineToggles />
-				<Separator />
-				<BlockTypeSelect />
-				<Separator />
-				<InsertThematicBreak />
-				<ListsToggle />
-				<Separator />
-				<CreateLink />
-				<CodeToggle />
-				<InsertCodeBlock />
-				<InsertImage />
-				<InsertTable />
-				<InsertConclusion />
-			</div>
-			<div className={`flex flex-row items-center`}>
-				<DiffSourceToggleWrapper>
-					{ ' ' }
-				</DiffSourceToggleWrapper>
+		<div className={`w-full pt-10 bg-white dark:bg-[#202021]`}>
+			<div className={`flex flex-row w-full p-1.5 rounded-md overflow-x-auto justify-between items-center bg-gray-100`}>
+				<div className={`flex flex-row gap-1`}>
+					<UndoRedo />
+					<Separator />
+					<BoldItalicUnderlineToggles />
+					<Separator />
+					<BlockTypeSelect />
+					<Separator />
+					<InsertThematicBreak />
+					<ListsToggle />
+					<Separator />
+					<CreateLink />
+					<CodeToggle />
+					<InsertCodeBlock />
+					<InsertImage />
+					<InsertTable />
+					<InsertConclusion />
+				</div>
+				<div className={`flex flex-row items-center`}>
+					<DiffSourceToggleWrapper>
+						{ ' ' }
+					</DiffSourceToggleWrapper>
+				</div>
 			</div>
 		</div>
 	);

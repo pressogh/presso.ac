@@ -17,11 +17,9 @@ const BlogEditor = () => {
 
 			<HeaderInput title={title} setTitle={setTitle} date={date} setDate={setDate} />
 
-			<div className={`my-10`}>
-				<Suspense fallback={null}>
-					<Editor markdown={'Hello World!'} />
-				</Suspense>
-			</div>
+			<Suspense fallback={null}>
+				<Editor markdown={'Hello World!'} />
+			</Suspense>
 		</div>
 	);
 };
