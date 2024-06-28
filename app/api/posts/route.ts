@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
-export async function POST(request: Request) {
+import { auth } from "@/app/auth";
+
+export const POST = auth(async function POST(request: Request) {
 	const data = await request.json();
 	const title = data.title;
 	const mdx = data.data;
@@ -20,4 +22,4 @@ export async function POST(request: Request) {
 		"url": response.url,
 		"status": 1
 	})
-}
+});
