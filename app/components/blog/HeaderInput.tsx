@@ -24,7 +24,26 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 	const router = useRouter();
 
 	const handleSubmitButtonClick = async () => {
-		//
+		const imageUrls = markdown.match(/blob:(http|https):\/\/.*\/[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}/g) || [];
+
+		await Promise.all(imageUrls.map(async (url, index) => {
+			const image = await fetch(url).then((res) => res.blob());
+			const imageType = image.type.split('/')[1];
+
+			const response = await fetch(`/api/posts/${encodeURIComponent(title)}/images/${index + 1}.${imageType}`, {
+				method: 'PUT',
+				body: image,
+				headers: {
+					'Content-Type': 'image/*',
+				},
+			});
+
+			const json = await response.json();
+
+			markdown = markdown.replace(url, json.url);
+
+			return json.url;
+		}));
 
 		const frontmatter = {
 			title,
@@ -34,7 +53,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 
 		const md = await generateMDXWithFrontmatter(frontmatter, markdown);
 
-		const respose = await fetch('/api/posts', {
+		await fetch('/api/posts', {
 			method: 'POST',
 			body: JSON.stringify({ "title": title, "data": md }),
 		})

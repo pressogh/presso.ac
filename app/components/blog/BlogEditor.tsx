@@ -22,7 +22,7 @@ const BlogEditor = () => {
 			/>
 
 			<Suspense fallback={null}>
-				<Editor title={title} markdown={markdown} setMarkdown={setMarkdown} />
+				<Editor markdown={markdown} setMarkdown={setMarkdown} />
 			</Suspense>
 		</div>
 	);

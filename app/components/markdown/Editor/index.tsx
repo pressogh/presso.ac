@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useCallback, useRef } from "react";
+import React, {FC, useCallback, useEffect, useRef} from "react";
 import {
 	codeBlockPlugin,
 	codeMirrorPlugin,
@@ -26,12 +26,11 @@ import TabBar from "@/app/components/markdown/Editor/TabBar";
 import jsxComponentDescriptors from "@/app/components/markdown/Editor/JSXComponentDescriptors";
 
 interface EditorProps {
-	title: string;
 	markdown: string;
 	setMarkdown: (markdown: string) => void;
 }
 
-const Editor: FC<EditorProps> = ({ title, markdown, setMarkdown }) => {
+const Editor: FC<EditorProps> = ({ markdown, setMarkdown }) => {
 	const editorRef = useRef<MDXEditorMethods | null>(null);
 
 	const imageUploadHandler = useCallback(async (image: File) => {
