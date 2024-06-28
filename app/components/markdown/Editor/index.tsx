@@ -1,6 +1,6 @@
 "use client";
 
-import React, {FC, useCallback, useEffect, useRef} from "react";
+import React, { FC, useCallback, useRef } from "react";
 import {
 	codeBlockPlugin,
 	codeMirrorPlugin,

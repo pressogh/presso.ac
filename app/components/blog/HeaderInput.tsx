@@ -57,7 +57,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 			method: 'POST',
 			body: JSON.stringify({ "title": title, "data": md }),
 		})
-			.then((res) => router.push(`/blog/${encodeURIComponent(title)}`));
+			.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
 	};
 
 	return (
