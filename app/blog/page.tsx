@@ -16,9 +16,9 @@ export const metadata = {
 }
 
 const getData = async () => {
-	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`, { next: { revalidate: 3600 } }).then(async (res) => {
 		const data = await res.json();
-		const regex = /^resume\/posts\/.+\.mdx$/;
+		const regex = /^resume\/posts\/.+\/.+\.mdx$/;
 
 		return data.objects.filter((item: { name: string }) => {
 			return regex.test(item.name);
@@ -27,8 +27,12 @@ const getData = async () => {
 
 	const posts: PostType[] = await Promise.all(
 		mdFiles.map(async (item: { name: string }) => {
-			const file = item.name.split('/').pop();
-			const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURI(file ? file : '')}`).then((res) => res.text());
+			const path = item.name.split('/');
+
+			path.pop();
+			const folder = path.pop();
+
+			const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURIComponent(folder ? folder : '')}/data.mdx`, { next: { revalidate: 3600 } }).then((res) => res.text());
 
 			const { data } = matter(post);
 			return {

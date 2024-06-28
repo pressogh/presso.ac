@@ -7,6 +7,18 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "presso.ac"
+			},
+			{
+				protocol: "http",
+				hostname: "localhost",
+			}
+		]
+	},
 	pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 	webpack: config => {
 		config.module.rules.push({

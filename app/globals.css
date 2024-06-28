@@ -457,3 +457,98 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
     fill: transparent;
 }
 
+
+/* Style for MDXEditor */
+.mdxeditor-toolbar {
+    @apply inline gap-0 border-none rounded-none p-0 items-start bg-none sticky z-10 !important;
+}
+
+.mdxeditor-popup-container {
+    @apply border-none z-50 !important;
+}
+
+.mdxeditor > .mdxeditor-toolbar * button {
+    @apply dark:hover:bg-[#353535] dark:bg-[#282828] aria-checked:dark:bg-[#353535] !important;
+}
+
+/* Style for MDXEditor */
+.prose {
+    font-family: 'Pretendard Variable',
+                 'Pretendard',
+                 '-apple-system',
+                 'BlinkMacSystemFont',
+                 'system-ui',
+                 'Roboto',
+                 'Helvetica Neue',
+                 'Segoe UI',
+                 'Apple SD Gothic Neo',
+                 'Noto Sans KR',
+                 'Malgun Gothic',
+                 'Apple Color Emoji',
+                 'Segoe UI Emoji',
+                 'Segoe UI Symbol',
+                 'sans-serif';
+
+    @apply caret-black dark:caret-white;
+    /*@apply sm:h-[calc(100lvh-18.6rem)] h-[calc(100lvh-14.6rem)];*/
+}
+
+.prose span {
+    @apply text-[#202021] dark:text-white;
+}
+
+.prose a {
+    @apply text-blue-500 dark:text-blue-400 cursor-pointer;
+}
+
+.prose h1 {
+    @apply font-semibold text-5xl mt-12 mb-4;
+}
+
+.prose h2 {
+    @apply font-semibold text-4xl mt-10 mb-3;
+}
+
+.prose h3 {
+    @apply font-semibold text-3xl mt-8 mb-2.5;
+}
+
+.prose h4 {
+    @apply font-semibold text-2xl mt-6 mb-2;
+}
+
+.prose h5 {
+    @apply font-semibold text-xl mt-5 mb-1.5;
+}
+
+.prose h6 {
+    @apply font-semibold text-lg mb-1;
+}
+
+.prose p {
+    @apply font-light leading-8;
+}
+
+.prose img {
+    @apply w-[1000px] h-[1000px] my-3 max-h-[30rem] object-contain;
+}
+
+.prose hr {
+    @apply my-3;
+}
+
+.prose strong {
+    @apply transform duration-300 bg-[#B7CDED]/60 hover:bg-[#B7CDED]/40 dark:bg-[#344C6E]/80 dark:hover:bg-[#344C6E]/60 px-1.5 py-0.5 text-[#344C6E] dark:text-[#B7CDED] rounded-lg font-light leading-7;
+}
+
+.prose ul {
+    @apply list-disc ml-6 font-light mb-1;
+}
+
+.prose li {
+    @apply mt-1 leading-7;
+}
+
+.prose blockquote {
+    @apply my-4 px-4 py-4 text-[#7E868C] dark:text-[#787F85] bg-[#F1F3F5] dark:bg-[#16181A] rounded-2xl;
+}
