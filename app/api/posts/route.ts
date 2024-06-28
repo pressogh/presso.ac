@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
 	const data = await request.json();
@@ -11,7 +12,9 @@ export async function POST(request: Request) {
 		headers: {
 			'Content-Type': 'text/plain',
 		}
-	})
+	});
+
+	revalidatePath(`/blog`);
 
 	return NextResponse.json({
 		"url": response.url,

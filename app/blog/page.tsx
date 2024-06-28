@@ -16,7 +16,7 @@ export const metadata = {
 }
 
 const getData = async () => {
-	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`, { next: { revalidate: 3600 } }).then(async (res) => {
 		const data = await res.json();
 		const regex = /^resume\/posts\/.+\/.+\.mdx$/;
 
@@ -32,7 +32,7 @@ const getData = async () => {
 			path.pop();
 			const folder = path.pop();
 
-			const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURIComponent(folder ? folder : '')}/data.mdx`).then((res) => res.text());
+			const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURIComponent(folder ? folder : '')}/data.mdx`, { next: { revalidate: 3600 } }).then((res) => res.text());
 
 			const { data } = matter(post);
 			return {
