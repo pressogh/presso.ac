@@ -6,9 +6,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 	callbacks: {
 		signIn({ profile }) {
 			return profile?.email === "caff1nepill@gmail.com";
-		},
-		redirect({ url, baseUrl }) {
-			return url.startsWith(baseUrl) ? url : baseUrl;
 		}
 	}
 });
