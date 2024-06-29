@@ -1,7 +1,8 @@
 import { signIn } from "@/app/auth";
+
 import Container from "@/app/components/Container";
 
-const Page = async () => {
+const Page = () => {
 	return (
 		<Container>
 			<div className={`w-full h-[calc(100lvh-14rem)] min-h-96 flex justify-center items-center text-4xl font-light tracking-tighter`}>

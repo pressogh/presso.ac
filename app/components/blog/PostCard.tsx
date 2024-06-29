@@ -27,20 +27,20 @@ const PostCard = ({ post }: Props) => {
 				<div
 					className={`text-2xl font-medium text-neutral-800 dark:text-neutral-100`}
 				>
-					{post.title}
+					{ post.title }
 				</div>
 				<div className={`mt-2 text-sm font-extralight`}>
-					{post.description}
+					{ post.description }
 				</div>
 				<div
 					className={`
-						${post.description === null && 'mt-6'}
+						${ !post.description && 'mt-6' }
 						text-[0.75rem]
 						font-light
 						text-neutral-500
 					`}
 				>
-					{dayjs(post.date).format('YYYY년 MM월 DD일')}
+					{ post.date ? dayjs(post.date).format('YYYY년 MM월 DD일') : ' ' }
 				</div>
 			</div>
 		</Link>

@@ -7,7 +7,7 @@ import BlogEditor from "@/app/components/blog/BlogEditor";
 
 const Page = async () => {
 	const session = await auth();
-	if (!session || session.user?.email !== "caff1nepill@gmail.com") return redirect("/login");
+	if (!session || session.user?.email !== "caff1nepill@gmail.com") return redirect("/login?callbackUrl=/blog/editor");
 
 	return (
 		<Container>
