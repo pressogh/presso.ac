@@ -15,13 +15,10 @@ const PostCard = ({ post }: Props) => {
 				className={`
 					transform
 					duration-300
-					hover:border
-					hover:border-b-0
-					hover:border-l-4
-					hover:border-r-0
-					hover:border-t-0
-					hover:border-indigo-800
-					hover:pl-4
+					lg:hover:border-0
+					lg:hover:border-l-4
+					lg:hover:border-indigo-800
+					lg:hover:pl-4
 				`}
 			>
 				<div
