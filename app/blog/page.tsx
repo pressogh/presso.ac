@@ -62,7 +62,7 @@ const Page = async () => {
 	return (
 		<Container>
 			<div className={`sm:mt-20 mt-6`}>
-				<div className={`flex flex-row items-end`}>
+				<div className={`flex sm:flex-row flex-col sm:items-end`}>
 					<div className={`flex flex-col w-full justify-between`}>
 						<div className={`text-5xl font-bold`}>Blog</div>
 						<div className={`text-xl font-thin mt-4`}>공유하고 싶거나 다시 보고 싶은 기술들을 정리합니다.</div>
