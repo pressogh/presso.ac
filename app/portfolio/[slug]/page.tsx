@@ -23,7 +23,6 @@ const getData = async (slug: string) => {
 		content: await serialize(project, {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
-				// @ts-ignore
 				rehypePlugins: [rehypePrism, rehypeSlug],
 			},
 			parseFrontmatter: true
