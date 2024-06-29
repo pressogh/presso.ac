@@ -11,8 +11,6 @@ import Comment from "@/app/components/blog/Comment";
 import Header from "@/app/components/blog/Header";
 import Content from "@/app/components/blog/Content";
 import Container from "@/app/components/Container";
-import Conclusion from "@/app/components/markdown/Conclusion";
-import MDXComponents from "@/app/components/markdown/MDXComponents";
 import { notFound } from "next/navigation";
 import { ApiError } from "next/dist/server/api-utils";
 
@@ -41,14 +39,9 @@ const getData = async (slug: string) => {
 		content: await serialize(post, {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
-				// @ts-ignore
 				rehypePlugins: [rehypePrism, rehypeSlug],
 			},
-			parseFrontmatter: true,
-			components: {
-				...MDXComponents({}),
-				Conclusion
-			}
+			parseFrontmatter: true
 		})
 	};
 }
