@@ -1,3 +1,5 @@
+import { auth } from "@/app/auth";
+
 import matter from "gray-matter";
 import dayjs from "dayjs";
 
@@ -5,6 +7,7 @@ import { PostType } from "@/types/blog/PostType";
 
 import Container from "@/app/components/Container";
 import PostGrid from "@/app/components/blog/PostGrid";
+import AddPost from "@/app/components/blog/AddPost";
 
 export const metadata = {
 	title: 'BLOG | Kanghyoek Lee',
@@ -53,15 +56,21 @@ const getData = async () => {
 }
 
 const Page = async () => {
+	const session = await auth();
 	const posts: PostType[] = await getData();
 
 	return (
 		<Container>
 			<div className={`sm:mt-20 mt-6`}>
-				<div className={`text-5xl font-bold`}>Blog</div>
-				<div className={`text-xl font-thin my-4`}>공유하고 싶거나 다시 보고 싶은 기술들을 정리합니다.</div>
-				<div className={`mt-8`}>
-					<PostGrid posts={posts} />
+				<div className={`flex flex-row items-end`}>
+					<div className={`flex flex-col w-full justify-between`}>
+						<div className={`text-5xl font-bold`}>Blog</div>
+						<div className={`text-xl font-thin mt-4`}>공유하고 싶거나 다시 보고 싶은 기술들을 정리합니다.</div>
+					</div>
+					{ (session && session.user?.email === "caff1nepill@gmail.com") && <AddPost /> }
+				</div>
+				<div className={`mt-12`}>
+					<PostGrid posts={posts}/>
 				</div>
 			</div>
 		</Container>
