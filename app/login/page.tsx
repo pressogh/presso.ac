@@ -17,7 +17,7 @@ const Page = () => {
 					<form
 						action={async () => {
 							"use server"
-							await signIn("github");
+							await signIn("github", { redirectTo: "/blog/editor" });
 						}}
 						className={`mt-11 w-[90%] h-11 border py-2 rounded-md bg-[#303030] hover:bg-[#404040] transition-colors duration-300`}
 					>
