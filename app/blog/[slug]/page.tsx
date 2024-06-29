@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
-import {compileMDX} from "next-mdx-remote/rsc";
-import {serialize} from "next-mdx-remote/serialize";
+import { compileMDX } from "next-mdx-remote/rsc";
+import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
@@ -13,8 +13,8 @@ import Content from "@/app/components/blog/Content";
 import Container from "@/app/components/Container";
 import Conclusion from "@/app/components/markdown/Conclusion";
 import MDXComponents from "@/app/components/markdown/MDXComponents";
-import {notFound} from "next/navigation";
-import {ApiError} from "next/dist/server/api-utils";
+import { notFound } from "next/navigation";
+import { ApiError } from "next/dist/server/api-utils";
 
 dayjs.locale("ko");
 

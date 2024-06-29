@@ -9,7 +9,7 @@ import PostGrid from "@/app/components/blog/PostGrid";
 export const metadata = {
 	title: 'BLOG | Kanghyoek Lee',
 	description: '공유하고 싶거나 다시 보고 싶은 기술들을 정리했습니다.',
-	keywords: ['이강혁', 'PRESSO', "블로그", "BLOG", "개발자"],
+	keywords: ['이강혁', 'PRESSO', "블로그", "BLOG", "개발자", "Kanghyoek Lee"],
 	authors: [{ name: '이강혁', url: 'https://presso.ac' }],
 	creator: '이강혁',
 	publisher: '이강혁'
