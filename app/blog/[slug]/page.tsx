@@ -53,6 +53,21 @@ const getData = async (slug: string) => {
 	};
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	const { description, title }: any = await getData(params.slug);
+
+	return {
+		title,
+		authors: [{ name: '이강혁', url: 'https://presso.ac' }],
+		creator: '이강혁',
+		publisher: '이강혁',
+		openGraph: {
+			title,
+			description
+		}
+	}
+}
+
 export async function generateStaticParams() {
 	const posts = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
 		const data = await res.json();
