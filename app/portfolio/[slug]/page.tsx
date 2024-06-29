@@ -7,9 +7,6 @@ import rehypeSlug from "rehype-slug";
 import Container from "@/app/components/Container";
 import Content from "@/app/components/portfolio/Content";
 import Header from "@/app/components/portfolio/Header";
-import MDXComponents from "@/app/components/markdown/MDXComponents";
-import LinkIconGrid from "@/app/components/markdown/LinkIconGrid";
-import LinkIcon from "@/app/components/markdown/LinkIcon";
 
 const getData = async (slug: string) => {
 	const project = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/projects/${slug}.mdx`).then((res) => res.text());
@@ -29,12 +26,7 @@ const getData = async (slug: string) => {
 				// @ts-ignore
 				rehypePlugins: [rehypePrism, rehypeSlug],
 			},
-			parseFrontmatter: true,
-			components: {
-				...MDXComponents({}),
-				LinkIconGrid,
-				LinkIcon,
-			}
+			parseFrontmatter: true
 		})
 	};
 }
