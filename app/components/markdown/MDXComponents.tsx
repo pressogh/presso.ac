@@ -85,6 +85,21 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 				{ children }
 			</strong>
 		),
+		code: ({ children, className, ...props }) => {
+			if (className?.startsWith("language-")) {
+				return (
+					<code className={className} {...props}>
+						{ children }
+					</code>
+				)
+			}
+
+			return (
+				<code className={`transform duration-300 bg-gray-200 hover:bg-gray-300 px-1.5 py-0.5 rounded-lg font-light leading-7`} {...props}>
+					{ children }
+				</code>
+			)
+		},
 		ul: ({ children, ...props }) => (
 			<ul className={`list-disc ml-6 font-light mb-1`} {...props}>
 				{ children }

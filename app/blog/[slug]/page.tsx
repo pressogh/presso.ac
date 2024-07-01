@@ -39,9 +39,9 @@ const getData = async (slug: string) => {
 		content: await serialize(post, {
 			mdxOptions: {
 				remarkPlugins: [remarkGfm],
-				rehypePlugins: [rehypePrism, rehypeSlug],
+				rehypePlugins: [rehypePrism, rehypeSlug]
 			},
-			parseFrontmatter: true
+			parseFrontmatter: true,
 		})
 	};
 }

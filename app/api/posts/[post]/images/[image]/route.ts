@@ -15,7 +15,7 @@ export const PUT = auth(async function PUT(request: Request, { params }: { param
 	});
 
 	return NextResponse.json({
-		"url": process.env.NEXT_PUBLIC_API_URL + `/posts/${encodeURIComponent(params.post)}/images/${params.image}`,
+		"url": `/api/posts/${encodeURIComponent(params.post)}/images/${params.image}`,
 		"status": 1
 	})
 });

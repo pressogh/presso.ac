@@ -90,8 +90,8 @@ jobs:
             BUILDPLATFORM=${{ matrix.platform }}
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
             RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=${{ env.REGISTRY_IMAGE }}
+          cache-to: type=gha,mode=max,scope=${{ env.REGISTRY_IMAGE }}
 
       - name: Export digest
         run: |
