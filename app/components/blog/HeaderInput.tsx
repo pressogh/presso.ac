@@ -88,7 +88,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 
 			<div className={`mb-8`}>
 				<button
-					className={`text-blue-600 p-2 rounded-md border border-blue-600 hover:bg-blue-600 hover:text-white font-light`}
+					className={`text-blue-600 p-2 rounded-md border border-blue-600 hover:bg-blue-600 hover:text-white transform duration-300 font-light`}
 					onClick={handleSubmitButtonClick}>
 					<ArrowRightUp className={`size-4`} strokeWidth={2}/>
 				</button>

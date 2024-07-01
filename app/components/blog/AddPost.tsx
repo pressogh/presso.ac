@@ -9,7 +9,7 @@ const AddPost = () => {
 	return (
 		<div
 			className={`
-				flex justify-center items-center sm:size-10 text-blue-600 p-2 rounded-md border border-blue-600 hover:bg-blue-600 hover:text-white
+				flex justify-center items-center sm:size-10 text-blue-600 p-2 rounded-md border border-blue-600 hover:bg-blue-600 transform duration-300 hover:text-white
 				mt-8 sm:m-0 w-full h-12
 			`}
 			onClick={() => router.push('/blog/editor')}

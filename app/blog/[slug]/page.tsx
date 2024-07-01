@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 	return {
 		title,
 		authors: [{ name: '이강혁', url: 'https://presso.ac' }],
+		description,
 		creator: '이강혁',
 		publisher: '이강혁',
 		openGraph: {
