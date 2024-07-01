@@ -1,4 +1,6 @@
-const Figma = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const Figma = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="none" viewBox="0 0 38 57" aria-hidden="true" {...props}>
 			<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/>

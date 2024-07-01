@@ -1,4 +1,6 @@
-const Twitter = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const Twitter = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="currentColor" viewBox="0 0 310 310" {...props}>
 			<path

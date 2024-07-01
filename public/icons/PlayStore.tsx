@@ -1,4 +1,6 @@
-const PlayStore = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const PlayStore = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="none" viewBox="-10 0 512 512" {...props}>
 			<g>

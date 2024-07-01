@@ -1,4 +1,6 @@
-const Github = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const Github = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" {...props}>
 			<path

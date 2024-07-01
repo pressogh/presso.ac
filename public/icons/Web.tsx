@@ -1,4 +1,6 @@
-const Web = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const Web = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="none" aria-hidden="true" viewBox="0 0 512 512" {...props}>
 			<path fill="currentColor"

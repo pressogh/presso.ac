@@ -499,6 +499,9 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 
 .prose a {
     @apply text-blue-500 dark:text-blue-400 cursor-pointer;
+    span {
+        @apply text-blue-500 dark:text-blue-400;
+    }
 }
 
 .prose h1 {
