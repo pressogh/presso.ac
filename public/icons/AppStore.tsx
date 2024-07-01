@@ -1,4 +1,6 @@
-const AppStore = ({ ...props }) => {
+import { SVGProps } from "react";
+
+const AppStore = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg fill="currentColor" viewBox="0 0 24 24" {...props}>
 			<path

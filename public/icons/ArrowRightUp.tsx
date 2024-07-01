@@ -1,6 +1,6 @@
-import React from 'react';
+import { SVGProps } from 'react';
 
-const ArrowRightUp = ({ ...props }) => {
+const ArrowRightUp = ({ ...props }: SVGProps<any>) => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
 			 className="size-6" {...props}>
