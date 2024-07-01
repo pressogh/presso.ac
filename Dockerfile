@@ -52,6 +52,7 @@ RUN yarn global add pm2
 USER nextjs
 
 ENV PORT=3000
+ENV HOSTNAME=presso.ac
 EXPOSE 3000
 
 ENTRYPOINT ["pm2-runtime", "start", "server.js", "--node-args", "-r ./.pnp.cjs", "--env", "production", "--watch", "--name", "presso.ac"]
