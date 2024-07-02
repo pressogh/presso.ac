@@ -6,7 +6,7 @@ const Comment = () => {
 	return (
 		<div className={'giscus'}>
 			<Giscus
-				repo={"pressogh/presso.codes"}
+				repo={"pressogh/presso.ac"}
 				repoId={"R_kgDOI5m8jA"}
 				category={"Comments"}
 				categoryId={"DIC_kwDOI5m8jM4CXH7I"}
