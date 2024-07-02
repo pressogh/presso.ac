@@ -66,7 +66,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
 		} else {
 			await fetch('/api/posts', {
-				method: 'PUT',
+				method: 'POST',
 				body: JSON.stringify({ "title": title, "data": md }),
 			})
 				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
