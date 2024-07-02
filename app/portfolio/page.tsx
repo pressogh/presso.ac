@@ -31,7 +31,7 @@ const getData = async () => {
 	let projects: ProjectType[] = await Promise.all(
 		mdFiles.map(async (item: { name: string }) => {
 			const file = item.name.split('/').pop();
-			const project = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/projects/${encodeURI(file ? file : '')}`).then((res) => res.text());
+			const project = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/projects/${encodeURIComponent(file ? file : '')}`).then((res) => res.text());
 
 			const { data } = matter(project);
 			return {
