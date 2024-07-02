@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+
 import Trash from "@/public/icons/Trash";
 
 interface Props {
@@ -7,9 +9,13 @@ interface Props {
 }
 
 const DeleteButton = ({ title }: Props) => {
+	const router = useRouter();
+
 	const handleClick = async () => {
 		await fetch(`/api/posts/${encodeURIComponent(title)}`, {
 			method: 'DELETE',
+		}).then(() => {
+			router.refresh();
 		});
 	};
 

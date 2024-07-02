@@ -1,7 +1,7 @@
 import { HeaderType } from '@/types/about/HeaderType';
 
 const getData = async () => {
-	return await fetch(`${process.env.RESUME_BUCKET_URL}/resume/about/header/data.json`).then(res => res.json());
+	return await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/about/header/data.json`).then(res => res.json());
 }
 
 const Index = async () => {

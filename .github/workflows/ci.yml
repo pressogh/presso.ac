@@ -6,7 +6,7 @@ on:
 
 env:
   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-  RESUME_BUCKET_URL: ${{ secrets.RESUME_BUCKET_URL }}
+  BUCKET_PRE_SIGNED_URL: ${{ secrets.BUCKET_PRE_SIGNED_URL }}
   REGISTRY_IMAGE: pressodh/presso.ac
 
 jobs:
@@ -89,7 +89,7 @@ jobs:
           build-args: |
             BUILDPLATFORM=${{ matrix.platform }}
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
-            RESUME_BUCKET_URL=${{ secrets.RESUME_BUCKET_URL }}
+            BUCKET_PRE_SIGNED_URL=${{ secrets.BUCKET_PRE_SIGNED_URL }}
           cache-from: type=gha,scope=${{ env.REGISTRY_IMAGE }}
           cache-to: type=gha,mode=max,scope=${{ env.REGISTRY_IMAGE }}
 
