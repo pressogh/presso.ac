@@ -81,7 +81,7 @@ export async function generateStaticParams() {
 		if (!uri) return notFound();
 
 		return {
-			slug: encodeURI(uri)
+			slug: encodeURIComponent(uri)
 		}
 	});
 }

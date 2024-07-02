@@ -70,7 +70,7 @@ const Page = async () => {
 					{ (session && session.user?.email === "caff1nepill@gmail.com") && <AddPost /> }
 				</div>
 				<div className={`mt-12`}>
-					<PostGrid posts={posts}/>
+					<PostGrid posts={posts} />
 				</div>
 			</div>
 		</Container>
