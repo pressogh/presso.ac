@@ -19,7 +19,7 @@ export const metadata = {
 }
 
 const getData = async () => {
-	const mdFiles = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+	const mdFiles = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}`).then(async (res) => {
 		const data = await res.json();
 		const regex = /^resume\/projects\/.+\.mdx$/;
 
@@ -31,7 +31,7 @@ const getData = async () => {
 	let projects: ProjectType[] = await Promise.all(
 		mdFiles.map(async (item: { name: string }) => {
 			const file = item.name.split('/').pop();
-			const project = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/projects/${encodeURI(file ? file : '')}`).then((res) => res.text());
+			const project = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/projects/${encodeURI(file ? file : '')}`).then((res) => res.text());
 
 			const { data } = matter(project);
 			return {

@@ -6,7 +6,7 @@ import { auth } from "@/app/auth";
 export const PUT = auth(async function PUT(request: Request, { params }: { params: { post: string, image: string } }) {
 	const image = await request.blob();
 
-	await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURIComponent(params.post)}/images/${params.image}`, {
+	await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/posts/${encodeURIComponent(params.post)}/images/${params.image}`, {
 		method: 'PUT',
 		body: image,
 		headers: {
@@ -21,7 +21,7 @@ export const PUT = auth(async function PUT(request: Request, { params }: { param
 });
 
 export async function GET(request: Request, { params }: { params: { post: string, image: string } }) {
-	const response = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${encodeURIComponent(params.post)}/images/${params.image}`);
+	const response = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/posts/${encodeURIComponent(params.post)}/images/${params.image}`);
 	const image = await response.blob();
 
 	return new NextResponse(image, {

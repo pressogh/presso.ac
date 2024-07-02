@@ -18,9 +18,10 @@ interface HeaderProps {
 	description: string;
 	setDescription: (description: string) => void;
 	markdown: string;
+	lastTitle: string;
 }
 
-const HeaderInput = ({ title, setTitle, date, setDate, description, setDescription, markdown }: HeaderProps) => {
+const HeaderInput = ({ title, setTitle, date, setDate, description, setDescription, markdown, lastTitle }: HeaderProps) => {
 	const router = useRouter();
 
 	const handleSubmitButtonClick = async () => {
@@ -53,11 +54,23 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 
 		const md = await generateMDXWithFrontmatter(frontmatter, markdown);
 
-		await fetch('/api/posts', {
-			method: 'POST',
-			body: JSON.stringify({ "title": title, "data": md }),
-		})
-			.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
+		if (lastTitle !== title) {
+			await fetch(`/api/posts/${encodeURIComponent(lastTitle)}`, {
+				method: 'DELETE',
+			});
+
+			await fetch('/api/posts', {
+				method: 'POST',
+				body: JSON.stringify({ "title": title, "data": md }),
+			})
+				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
+		} else {
+			await fetch('/api/posts', {
+				method: 'PUT',
+				body: JSON.stringify({ "title": title, "data": md }),
+			})
+				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
+		}
 	};
 
 	return (

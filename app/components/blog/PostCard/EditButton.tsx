@@ -1,14 +1,17 @@
 'use client';
 
 import PencilSquare from "@/public/icons/PencilSquare";
+import {useRouter} from "next/navigation";
 
 interface Props {
 	title: string;
 }
 
 const EditButton = ({ title }: Props) => {
+	const router = useRouter();
+
 	const handleClick = () => {
-		console.log(title);
+		router.push(`/blog/editor?post=${encodeURIComponent(title)}`);
 	}
 
 	return (

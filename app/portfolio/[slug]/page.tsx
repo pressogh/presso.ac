@@ -9,7 +9,7 @@ import Content from "@/app/components/portfolio/Content";
 import Header from "@/app/components/portfolio/Header";
 
 const getData = async (slug: string) => {
-	const project = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/projects/${slug}.mdx`).then((res) => res.text());
+	const project = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/projects/${slug}.mdx`).then((res) => res.text());
 
 	const { frontmatter } = await compileMDX({
 		source: project,
@@ -31,7 +31,7 @@ const getData = async (slug: string) => {
 }
 
 export async function generateStaticParams() {
-	const projects = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+	const projects = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}`).then(async (res) => {
 		const data = await res.json();
 		const regex = /^resume\/projects\/.+\.mdx$/;
 

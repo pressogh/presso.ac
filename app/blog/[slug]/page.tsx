@@ -17,7 +17,7 @@ import { ApiError } from "next/dist/server/api-utils";
 dayjs.locale("ko");
 
 const getData = async (slug: string) => {
-	const post = await fetch(`${process.env.RESUME_BUCKET_URL}/resume/posts/${slug}/data.mdx`)
+	const post = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}/resume/posts/${slug}/data.mdx`)
 		.then((res) => {
 			if (!res.ok) throw new ApiError(404, 'Not Found');
 			return res.text();
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export async function generateStaticParams() {
-	const posts = await fetch(`${process.env.RESUME_BUCKET_URL}`).then(async (res) => {
+	const posts = await fetch(`${process.env.BUCKET_PRE_SIGNED_URL}`).then(async (res) => {
 		const data = await res.json();
 		const regex = /^resume\/posts\/.+\/.+\.mdx$/;
 

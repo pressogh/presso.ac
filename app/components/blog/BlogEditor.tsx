@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 
 import dayjs from "dayjs";
@@ -11,14 +12,34 @@ const Editor = dynamic(() => import('@/app/components/markdown/Editor'), { ssr: 
 dayjs.locale("ko");
 
 const BlogEditor = () => {
+	const searchParams = useSearchParams();
+
 	const [markdown, setMarkdown] = useState<string>("");
 	const [title, setTitle] = useState<string>("");
 	const [date, setDate] = useState<string>("");
 	const [description, setDescription] = useState<string>("");
+	const [lastTitle, setLastTitle] = useState<string>("");
 
 	useEffect(() => {
-		setDate(dayjs().format("YYYY-MM-DD"));
-	}, []);
+		if (searchParams.has("post")) {
+			const post = searchParams.get("post") as string;
+			fetch(`/api/posts/${encodeURIComponent(post)}`)
+				.then(res => res.json())
+				.then(data => {
+					setTitle(data.title);
+					setDate(data.date);
+					setDescription(data.description);
+					setMarkdown(data.markdown);
+					setLastTitle(data.title);
+				})
+				.catch(() => {
+					setTitle(post);
+				});
+		}
+		else {
+			setDate(dayjs().format("YYYY-MM-DD"));
+		}
+	}, [searchParams]);
 
 	return (
 		<div>
@@ -26,7 +47,7 @@ const BlogEditor = () => {
 				title={title} setTitle={setTitle}
 				date={date} setDate={setDate}
 				description={description} setDescription={setDescription}
-				markdown={markdown}
+				markdown={markdown} lastTitle={lastTitle}
 			/>
 
 			<Suspense fallback={null}>
