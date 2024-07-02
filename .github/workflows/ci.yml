@@ -86,6 +86,9 @@ jobs:
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+          tags: |
+            ${{ env.REGISTRY_IMAGE }}:${{ env.VERSION }}
+            ${{ env.REGISTRY_IMAGE }}:latest
           build-args: |
             BUILDPLATFORM=${{ matrix.platform }}
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}

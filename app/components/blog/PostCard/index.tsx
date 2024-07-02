@@ -53,7 +53,7 @@ const Index = async ({ post }: Props) => {
 			</Link>
 			{
 				session && session.user?.email === 'caff1nepill@gmail.com' && (
-					<div className={`flex flex-row gap-3 mt-2 md:mt-0 w-fit`}>
+					<div className={`flex flex-row gap-3 md:ml-14 mt-2 md:mt-0 w-fit border border-[#7AA3DE] dark:border-[#3D79CF] text-[#344C6E] dark:text-blue-600 px-2.5 py-1.5 rounded-lg`}>
 						<EditButton title={post.title} />
 						<DeleteButton title={post.title} />
 					</div>
