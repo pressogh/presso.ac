@@ -11,7 +11,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 					href ? (
 						(href.startsWith("/") || href.startsWith("#")) ? (
 							// @ts-ignore
-							<Link href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer`} {...props}>
+							<Link href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer break-all`} {...props}>
 								{ children }
 							</Link>
 						) : (href.startsWith("https://youtu.be") || href.startsWith("https://www.youtu.be") || href.startsWith("youtu.be")) ? (
@@ -30,7 +30,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 								allowFullScreen
 							/>
 						) : (
-							<a href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer`} rel="noopener noreferrer" target="_blank" {...props}>
+							<a href={href} className={`text-blue-500 dark:text-blue-400 cursor-pointer break-all`} rel="noopener noreferrer" target="_blank" {...props}>
 								{ children }
 							</a>
 						)
@@ -39,37 +39,37 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</>
 		),
 		h1: ({ children, ...props }) => (
-			<h1 className={`font-semibold text-5xl mt-12 mb-4`} {...props}>
+			<h1 className={`font-semibold text-5xl mt-12 mb-4 break-all`} {...props}>
 				{ children }
 			</h1>
 		),
 		h2: ({ children, ...props }) => (
-			<h2 className={`font-semibold text-4xl mt-10 mb-3`} {...props}>
+			<h2 className={`font-semibold text-4xl mt-10 mb-3 break-all`} {...props}>
 				{ children }
 			</h2>
 		),
 		h3: ({ children, ...props }) => (
-			<h3 className={`font-semibold text-3xl mt-8 mb-2.5`} {...props}>
+			<h3 className={`font-semibold text-3xl mt-8 mb-2.5 break-all`} {...props}>
 				{ children }
 			</h3>
 		),
 		h4: ({ children, ...props }) => (
-			<h4 className={`font-semibold text-2xl mt-6 mb-2`} {...props}>
+			<h4 className={`font-semibold text-2xl mt-6 mb-2 break-all`} {...props}>
 				{ children }
 			</h4>
 		),
 		h5: ({ children, ...props }) => (
-			<h5 className={`font-semibold text-xl mt-4 mb-1.5`} {...props}>
+			<h5 className={`font-semibold text-xl mt-4 mb-1.5 break-all`} {...props}>
 				{ children }
 			</h5>
 		),
 		h6: ({ children, ...props }) => (
-			<h6 className={`font-semibold text-lg mb-1`} {...props}>
+			<h6 className={`font-semibold text-lg mb-1 break-all`} {...props}>
 				{ children }
 			</h6>
 		),
 		p: ({ children, ...props }) => (
-			<p className={`font-light leading-8`} {...props}>
+			<p className={`font-light leading-8 break-all`} {...props}>
 				{ children }
 			</p>
 		),
@@ -95,7 +95,7 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			}
 
 			return (
-				<code className={`transform duration-300 bg-gray-200 hover:bg-gray-300 px-1.5 py-0.5 rounded-lg font-light leading-7`} {...props}>
+				<code className={`transform duration-300 bg-gray-200 hover:bg-gray-300 dark:bg-[#404040] dark:hover:bg-[#353535] px-1.5 py-0.5 rounded-lg font-light leading-7`} {...props}>
 					{ children }
 				</code>
 			)

@@ -1,10 +1,13 @@
 'use client';
 
-import Container from "@/app/components/Container";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Logo from "@/public/icons/Logo";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import Container from "@/app/components/Container";
+
+import Logo from "@/public/icons/Logo";
 
 const Navbar = () => {
 	const [scrollY, setScrollY] = useState(0);
@@ -35,8 +38,8 @@ const Navbar = () => {
 	}, [pathName]);
 
 	return (
-		<nav>
-			<div
+		<>
+			<nav
 				className={`
 					z-50
 					w-full
@@ -64,11 +67,11 @@ const Navbar = () => {
 						</div>
 					</Container>
 				</div>
-			</div>
+			</nav>
 			<div className={`sticky top-0 z-50`}>
-				<div className={`absolute z-50 top-0 h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }} />
+				<div className={`h-0.5 bg-indigo-500`} style={{ width: `${scrollY}%` }} />
 			</div>
-		</nav>
+		</>
 	);
 };
 
