@@ -17,7 +17,7 @@ const Header = ({ title, date, description }: HeaderProps) => {
 					<div className={`font-extralight text-base mt-4 text-neutral-400 flex flex-row`}>
 						<div>Posted at&nbsp;</div>
 						<div>
-							{ dayjs(date).format("YYYY.MM.DD hh:mm") }
+							{ dayjs(date).format("YYYY.MM.DD HH:mm") }
 						</div>
 					</div>
 
