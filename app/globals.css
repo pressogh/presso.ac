@@ -505,27 +505,27 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 .prose h1 {
-    @apply font-semibold text-5xl mt-12 mb-4;
+    @apply font-semibold text-5xl mt-12 mb-6 break-all;
 }
 
 .prose h2 {
-    @apply font-semibold text-4xl mt-10 mb-3;
+    @apply font-semibold text-4xl mt-10 mb-6 break-all;
 }
 
 .prose h3 {
-    @apply font-semibold text-3xl mt-8 mb-2.5;
+    @apply font-semibold text-3xl mt-10 mb-6 break-all;
 }
 
 .prose h4 {
-    @apply font-semibold text-2xl mt-6 mb-2;
+    @apply font-semibold text-2xl mt-10 mb-6 break-all;
 }
 
 .prose h5 {
-    @apply font-semibold text-xl mt-5 mb-1.5;
+    @apply font-semibold text-xl mt-8 mb-6 break-all;
 }
 
 .prose h6 {
-    @apply font-semibold text-lg mb-1;
+    @apply font-semibold text-lg mt-6 mb-4 break-all;
 }
 
 .prose p {
@@ -555,3 +555,4 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 .prose blockquote {
     @apply my-4 px-4 py-4 text-[#7E868C] dark:text-[#787F85] bg-[#F1F3F5] dark:bg-[#16181A] rounded-2xl;
 }
+
