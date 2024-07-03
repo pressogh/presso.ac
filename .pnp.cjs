@@ -68,6 +68,7 @@ const RAW_RUNTIME_STATE =
           ["remark", "npm:15.0.1"],\
           ["remark-gfm", "npm:4.0.0"],\
           ["sharp", "npm:0.33.4"],\
+          ["short-uuid", "npm:5.2.0"],\
           ["tailwindcss", "npm:3.4.3"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["unified", "npm:11.0.5"]\
@@ -6374,6 +6375,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["any-base", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "./.yarn/cache/any-base-npm-1.1.0-1f3e797fba-1255cccb2c.zip/node_modules/any-base/",\
+        "packageDependencies": [\
+          ["any-base", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["any-promise", [\
       ["npm:1.3.0", {\
         "packageLocation": "./.yarn/cache/any-promise-npm-1.3.0-f34eeaa7e7-60f0298ed3.zip/node_modules/any-promise/",\
@@ -12465,6 +12475,7 @@ const RAW_RUNTIME_STATE =
           ["remark", "npm:15.0.1"],\
           ["remark-gfm", "npm:4.0.0"],\
           ["sharp", "npm:0.33.4"],\
+          ["short-uuid", "npm:5.2.0"],\
           ["tailwindcss", "npm:3.4.3"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["unified", "npm:11.0.5"]\
@@ -13371,6 +13382,17 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/shebang-regex-npm-3.0.0-899a0cd65e-1dbed0726d.zip/node_modules/shebang-regex/",\
         "packageDependencies": [\
           ["shebang-regex", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["short-uuid", [\
+      ["npm:5.2.0", {\
+        "packageLocation": "./.yarn/cache/short-uuid-npm-5.2.0-633ff2c6e0-24f9c34b9c.zip/node_modules/short-uuid/",\
+        "packageDependencies": [\
+          ["short-uuid", "npm:5.2.0"],\
+          ["any-base", "npm:1.1.0"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14470,6 +14492,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/uuid-npm-3.3.3-db057f4601-6808339bfe.zip/node_modules/uuid/",\
         "packageDependencies": [\
           ["uuid", "npm:3.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.0.1", {\
+        "packageLocation": "./.yarn/cache/uuid-npm-9.0.1-39a8442bc6-1607dd32ac.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
