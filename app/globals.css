@@ -533,7 +533,7 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 .prose img {
-    @apply w-[1000px] h-[1000px] my-3 max-h-[30rem] object-contain;
+    @apply my-5 max-h-[30rem] object-contain;
 }
 
 .prose hr {

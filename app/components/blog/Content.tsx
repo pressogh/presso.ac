@@ -10,7 +10,11 @@ interface Props {
 }
 
 const Content = ({ data }: Props) => {
-	return <MDXRemote {...data} components={{ ...MDXComponents({}), Conclusion }} />
+	return (
+		<div className={`[&_img]:my-5`}>
+			<MDXRemote {...data} components={{ ...MDXComponents({ Conclusion }) }} />
+		</div>
+	);
 };
 
 export default Content;

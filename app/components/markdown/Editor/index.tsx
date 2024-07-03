@@ -28,11 +28,10 @@ import jsxComponentDescriptors from "@/app/components/markdown/Editor/JSXCompone
 interface EditorProps {
 	markdown: string;
 	setMarkdown: (markdown: string) => void;
+	editorRef: React.RefObject<MDXEditorMethods>;
 }
 
-const Editor: FC<EditorProps> = ({ markdown, setMarkdown }) => {
-	const editorRef = useRef<MDXEditorMethods | null>(null);
-
+const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
 	const imageUploadHandler = useCallback(async (image: File) => {
 		return URL.createObjectURL(image);
 	}, []);
