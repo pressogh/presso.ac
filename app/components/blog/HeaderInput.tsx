@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import dayjs from "dayjs";
+import * as short from "short-uuid";
 
 import { generateMDXWithFrontmatter } from "@/app/utils/mdx";
 
@@ -31,7 +32,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 			const image = await fetch(url).then((res) => res.blob());
 			const imageType = image.type.split('/')[1];
 
-			const response = await fetch(`/api/posts/${encodeURIComponent(title)}/images/${index + 1}.${imageType}`, {
+			const response = await fetch(`/api/posts/${encodeURIComponent(title)}/images/${short.generate()}.${imageType}`, {
 				method: 'PUT',
 				body: image,
 				headers: {
