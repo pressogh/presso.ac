@@ -36,8 +36,8 @@ const TOC = () => {
 
 	return (
 		<aside className={`sticky top-20 xl:block hidden`}>
-			<div className={`absolute pt-0 2xl:w-80 w-60 overflow-hidden top-0 left-[calc(100%+3rem)]`}>
-				<div className={`text-xl font-medium tracking-tighter`}>Contents</div>
+			<div className={`absolute pt-0 2xl:w-80 w-60 overflow-hidden top-0 2xl:left-[calc(100%+8vw)] left-[calc(100%+3rem)]`}>
+				<div className={`2xl:text-3xl text-xl font-medium tracking-tighter`}>Contents</div>
 				<ul className={`list-disc w-full m-0 pl-5 pt-4 max-h-[calc(100vh-10rem)] overflow-auto padding-0`}>
 					{
 						headings.map((heading) => (
@@ -52,6 +52,7 @@ const TOC = () => {
 									tracking-wide
 									${heading.id === activeId ? 'text-[rgb(75,110,160)]' : ''}
 									break-words
+									text-base
 								`}
 							>
 								<Link
