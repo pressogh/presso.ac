@@ -42,7 +42,7 @@ const BlogEditor = () => {
 				});
 		}
 		else {
-			setDate(dayjs().format("YYYY-MM-DD"));
+			setDate(dayjs().format("YYYY-MM-DD HH:mm:ss"));
 		}
 	}, [searchParams]);
 

@@ -87,7 +87,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 					<div>Posted at&nbsp;</div>
 					<input
 						className={`focus:outline-none border-none bg-transparent tracking-tighter font-extralight text-base text-neutral-400`}
-						type={'date'} value={date} onChange={(e) => setDate(e.target.value)}
+						type={'datetime-local'} value={date} onChange={(e) => setDate(e.target.value)}
 					/>
 				</div>
 
