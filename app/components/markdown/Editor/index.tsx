@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useCallback, useRef } from "react";
+import React, { FC, useCallback } from "react";
 import {
 	codeBlockPlugin,
 	codeMirrorPlugin,
@@ -52,7 +52,7 @@ const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
 				linkPlugin(),
 				tablePlugin(),
 				linkDialogPlugin(),
-				codeBlockPlugin({ defaultCodeBlockLanguage: 'js' }),
+				codeBlockPlugin({ defaultCodeBlockLanguage: 'javascript' }),
 				codeMirrorPlugin({ codeBlockLanguages: { javascript: 'JavaScript', html: 'HTML', css: 'CSS', python: "Python", cpp: 'C++', c: 'C', text: 'Text', bash: 'Bash' } }),
 				imagePlugin({ imageUploadHandler }),
 				diffSourcePlugin({ diffMarkdown: '', viewMode: 'rich-text' }),
