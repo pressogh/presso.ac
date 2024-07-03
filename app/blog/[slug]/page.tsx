@@ -1,5 +1,7 @@
-import dayjs from "dayjs";
+import { notFound } from "next/navigation";
+import { ApiError } from "next/dist/server/api-utils";
 
+import dayjs from "dayjs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
@@ -10,9 +12,7 @@ import TOC from "@/app/components/blog/TOC";
 import Comment from "@/app/components/blog/Comment";
 import Header from "@/app/components/blog/Header";
 import Content from "@/app/components/blog/Content";
-import Container from "@/app/components/Container";
-import { notFound } from "next/navigation";
-import { ApiError } from "next/dist/server/api-utils";
+
 
 dayjs.locale("ko");
 
@@ -96,19 +96,21 @@ const Page = async ({ params }: Params) => {
 	const { content, title, date, description }: any = await getData(params.slug);
 
 	return (
-		<Container>
-			<div className={"sm:mt-20 mt-6"}>
-				<TOC />
+		<div className={`flex justify-center items-center xl:mr-52`}>
+			<div className={`sm:max-w-[60rem] w-full px-[calc(min(16px,8vw))]`}>
+				<div className={"sm:mt-20 mt-6"}>
+					<TOC/>
 
-				<Header title={title} date={date} description={description} />
+					<Header title={title} date={date} description={description}/>
 
-				<div className={`my-10`}>
-					<Content data={content} />
+					<div className={`my-10`}>
+						<Content data={content} />
+					</div>
+
+					<Comment />
 				</div>
-
-				<Comment />
 			</div>
-		</Container>
+		</div>
 	);
 };
 
