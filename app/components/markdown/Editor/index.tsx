@@ -53,7 +53,7 @@ const Editor: FC<EditorProps> = ({ markdown, setMarkdown, editorRef }) => {
 				tablePlugin(),
 				linkDialogPlugin(),
 				codeBlockPlugin({ defaultCodeBlockLanguage: 'js' }),
-				codeMirrorPlugin({ codeBlockLanguages: { js: 'JavaScript', html: 'HTML', css: 'CSS', python: "Python", cpp: 'C++', c: 'C', text: 'Text', bash: 'Bash' } }),
+				codeMirrorPlugin({ codeBlockLanguages: { javascript: 'JavaScript', html: 'HTML', css: 'CSS', python: "Python", cpp: 'C++', c: 'C', text: 'Text', bash: 'Bash' } }),
 				imagePlugin({ imageUploadHandler }),
 				diffSourcePlugin({ diffMarkdown: '', viewMode: 'rich-text' }),
 				jsxPlugin({ jsxComponentDescriptors }),
