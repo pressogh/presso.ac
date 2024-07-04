@@ -162,4 +162,4 @@ jobs:
     steps:
       - name: Send webhook to watchtower
         run: |
-          curl -X GET -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" ${{ secrets.WATCHTOWER_URL }}
+          curl -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" ${{ secrets.WATCHTOWER_URL }}

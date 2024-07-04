@@ -6,7 +6,8 @@ import Link from "next/link";
 interface Heading {
 	id: string,
 	text: string,
-	tag: string
+	tag: string,
+	level: number,
 }
 
 const TOC = () => {
@@ -22,22 +23,47 @@ const TOC = () => {
 	useEffect(() => {
 		if (typeof document === "undefined") return;
 
-		const headings = Array.from(document.querySelectorAll<HTMLHeadingElement>("h3"));
-		const data = headings.map((heading) => {
-			return {
-				id: heading.id,
-				text: heading.innerText,
-				tag: heading.tagName
+		const headingStack: { id: string, text: string, tag: string, level: number }[] = [];
+		const headings = Array.from(document.querySelectorAll<HTMLHeadingElement>("h1, h2, h3, h4")).map((heading) => {
+			const id = heading.id;
+			const text = heading.innerText;
+			const tag = heading.tagName;
+			let level: number;
+
+			if (headingStack.length === 0) {
+				headingStack.push({ id, text, tag, level: 0 });
+				level = 0;
+			} else {
+				let last = headingStack[headingStack.length - 1];
+
+				while (headingStack.length > 0) {
+					last = headingStack[headingStack.length - 1];
+
+					if (parseInt(tag[1]) <= parseInt(last.tag[1])) headingStack.pop();
+					else break;
+				}
+
+				if (headingStack.length == 0) {
+					console.log(heading.id, heading.innerText, heading.tagName)
+					headingStack.push({ id, text, tag, level: 0 });
+					level = 0;
+				}
+				else {
+					headingStack.push({ id, text, tag, level: last.level + 1 });
+					level = last.level + 1;
+				}
 			}
+
+			return { id, text, tag, level };
 		});
 
-		setHeadings(data);
+		setHeadings(headings);
 	}, []);
 
 	return (
 		<aside className={`sticky top-20 xl:block hidden`}>
-			<div className={`absolute pt-0 2xl:w-80 w-60 overflow-hidden top-0 2xl:left-[calc(100%+8vw)] left-[calc(100%+3rem)]`}>
-				<div className={`2xl:text-3xl text-xl font-medium tracking-tighter`}>Contents</div>
+			<div className={`absolute pt-0 2xl:w-80 w-60 overflow-hidden top-0 left-[calc(100%+4vw)] 2xl:left-[calc(100%+8vw)]`}>
+				<div className={`2xl:text-3xl text-2xl font-medium tracking-tighter`}>Contents</div>
 				<ul className={`list-disc w-full m-0 pl-5 pt-4 max-h-[calc(100vh-10rem)] overflow-auto padding-0`}>
 					{
 						headings.map((heading) => (
@@ -54,6 +80,9 @@ const TOC = () => {
 									break-words
 									text-base
 								`}
+								style={{
+									marginLeft: `${heading.level * 1.25}rem`,
+								}}
 							>
 								<Link
 									href={`#${heading.id}`}
