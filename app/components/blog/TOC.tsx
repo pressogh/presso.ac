@@ -44,7 +44,6 @@ const TOC = () => {
 				}
 
 				if (headingStack.length == 0) {
-					console.log(heading.id, heading.innerText, heading.tagName)
 					headingStack.push({ id, text, tag, level: 0 });
 					level = 0;
 				}
