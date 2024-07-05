@@ -39,32 +39,32 @@ const MDXComponents = (components: MDXComponentsType): MDXComponentsType => {
 			</>
 		),
 		h1: ({ children, ...props }) => (
-			<h1 className={`font-semibold text-5xl mt-12 mb-6 break-all`} {...props}>
+			<h1 className={`font-semibold text-5xl mt-16 mb-10 break-all`} {...props}>
 				{ children }
 			</h1>
 		),
 		h2: ({ children, ...props }) => (
-			<h2 className={`font-semibold text-4xl mt-10 mb-6 break-all`} {...props}>
+			<h2 className={`font-semibold text-4xl mt-14 mb-8 break-all`} {...props}>
 				{ children }
 			</h2>
 		),
 		h3: ({ children, ...props }) => (
-			<h3 className={`font-semibold text-3xl mt-10 mb-6 break-all`} {...props}>
+			<h3 className={`font-semibold text-3xl mt-14 mb-8 break-all`} {...props}>
 				{ children }
 			</h3>
 		),
 		h4: ({ children, ...props }) => (
-			<h4 className={`font-semibold text-2xl mt-10 mb-6 break-all`} {...props}>
+			<h4 className={`font-semibold text-2xl mt-14 mb-8 break-all`} {...props}>
 				{ children }
 			</h4>
 		),
 		h5: ({ children, ...props }) => (
-			<h5 className={`font-semibold text-xl mt-8 mb-6 break-all`} {...props}>
+			<h5 className={`font-semibold text-xl mt-12 mb-6 break-all`} {...props}>
 				{ children }
 			</h5>
 		),
 		h6: ({ children, ...props }) => (
-			<h6 className={`font-semibold text-lg mt-6 mb-4 break-all`} {...props}>
+			<h6 className={`font-semibold text-lg mt-10 mb-4 break-all`} {...props}>
 				{ children }
 			</h6>
 		),
