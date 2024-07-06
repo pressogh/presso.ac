@@ -42,7 +42,14 @@ const BlogEditor = () => {
 				});
 		}
 		else {
-			setDate(dayjs().format("YYYY-MM-DD HH:mm:ss"));
+			if (localStorage.getItem('post')) {
+				const post = JSON.parse(localStorage.getItem('post') as string);
+				setTitle(post.title);
+				setDate(post.date);
+				setDescription(post.description);
+				setMarkdown(post.markdown);
+				if (editorRef.current) editorRef.current.setMarkdown(post.markdown);
+			} else setDate(dayjs().format("YYYY-MM-DD HH:mm:ss"));
 		}
 	}, [searchParams]);
 

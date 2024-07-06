@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import dayjs from "dayjs";
@@ -25,6 +26,21 @@ interface HeaderProps {
 const HeaderInput = ({ title, setTitle, date, setDate, description, setDescription, markdown, lastTitle }: HeaderProps) => {
 	const router = useRouter();
 
+	useEffect(() => {
+		// 30초마다 자동 저장
+		const interval = setInterval(() => {
+			const post = {
+				title,
+				date,
+				description,
+				markdown,
+			};
+			localStorage.setItem('post', JSON.stringify(post));
+		}, 5000);
+
+		return () => clearInterval(interval);
+	}, [title, date, description, markdown]);
+
 	const handleSubmitButtonClick = async () => {
 		const imageUrls = markdown.match(/blob:(http|https):\/\/.*\/[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}/g) || [];
 
@@ -41,7 +57,6 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 			});
 
 			const json = await response.json();
-
 			markdown = markdown.replace(url, json.url);
 
 			return json.url;
@@ -64,13 +79,19 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 				method: 'POST',
 				body: JSON.stringify({ "title": title, "data": md }),
 			})
-				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
+				.then(() => {
+					localStorage.removeItem('post');
+					router.push(`/blog/${encodeURIComponent(title)}`);
+				});
 		} else {
 			await fetch('/api/posts', {
 				method: 'POST',
 				body: JSON.stringify({ "title": title, "data": md }),
 			})
-				.then(() => router.push(`/blog/${encodeURIComponent(title)}`));
+				.then(() => {
+					localStorage.removeItem('post');
+					router.push(`/blog/${encodeURIComponent(title)}`)
+				});
 		}
 	};
 

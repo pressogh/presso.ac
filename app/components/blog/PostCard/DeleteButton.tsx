@@ -20,7 +20,7 @@ const DeleteButton = ({ title }: Props) => {
 	};
 
 	return (
-		<Trash className={`size-5 text-red-600 hover:cursor-pointer`} strokeWidth={1.25} onClick={handleClick}/>
+		<div className={`font-extralight text-sm text-red-500 hover:cursor-pointer`} onClick={handleClick}>삭제</div>
 	);
 };
 
