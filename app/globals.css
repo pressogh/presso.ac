@@ -541,7 +541,7 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 .prose strong {
-    @apply transform duration-300 bg-[#B7CDED]/60 hover:bg-[#B7CDED]/40 dark:bg-[#344C6E]/80 dark:hover:bg-[#344C6E]/60 px-1.5 py-0.5 text-[#344C6E] dark:text-[#B7CDED] rounded-lg font-light leading-7;
+    @apply transition-colors duration-300 bg-[#B7CDED]/60 hover:bg-[#B7CDED]/40 dark:bg-[#344C6E]/80 dark:hover:bg-[#344C6E]/60 px-1.5 py-0.5 text-[#344C6E] dark:text-[#B7CDED] rounded-lg font-light leading-7;
 }
 
 .prose ul {

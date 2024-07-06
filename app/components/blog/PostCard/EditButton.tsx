@@ -15,7 +15,7 @@ const EditButton = ({ title }: Props) => {
 	}
 
 	return (
-		<PencilSquare className={`size-5 hover:cursor-pointer`} strokeWidth={1.25} onClick={handleClick} />
+		<div className={`font-extralight text-sm hover:cursor-pointer`} onClick={handleClick}>수정</div>
 	);
 };
 

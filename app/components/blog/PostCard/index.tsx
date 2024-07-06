@@ -23,6 +23,7 @@ const Index = async ({ post }: Props) => {
 			<Link href={`/blog/${encodeURIComponent(post.title)}`}>
 				<div
 					className={`
+						max-w-2xl
 						transform
 						duration-300
 						lg:hover:border-0
@@ -53,7 +54,7 @@ const Index = async ({ post }: Props) => {
 			</Link>
 			{
 				session && session.user?.email === 'caff1nepill@gmail.com' && (
-					<div className={`flex flex-row gap-3 md:ml-14 mt-2 md:mt-0 w-fit border border-[#7AA3DE] dark:border-[#3D79CF] text-[#344C6E] dark:text-blue-600 px-2.5 py-1.5 rounded-lg`}>
+					<div className={`flex flex-row gap-3 mt-3 md:mt-0 w-fit`}>
 						<EditButton title={post.title} />
 						<DeleteButton title={post.title} />
 					</div>
