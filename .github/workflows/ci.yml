@@ -161,4 +161,4 @@ jobs:
         with:
           url: ${{ secrets.WATCHTOWER_URL }}
           accept: 200,201,204
-          bearer-token: ${{ secrets.WATCHTOWER_TOKEN }}
+          bearer-token: 'Bearer ${{ secrets.WATCHTOWER_TOKEN }}'
