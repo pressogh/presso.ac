@@ -54,13 +54,13 @@ const Navbar = () => {
 								<Logo className={`w-6 h-6`} strokeWidth={60} />
 							</Link>
 							<div className={`flex flex-row items-center justify-center lg:gap-6 md:gap-4 gap-2 font-extralight duration-500`}>
-								<Link href={"/"} className={`${pathName.split('/').at(-1) === "" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+								<Link href={"/"} className={`${pathName.split('/').at(-1) === "" ? "text-[#004ABF] dark:text-[#0063FF]" : ""}`} prefetch={true}>
 									ABOUT
 								</Link>
-								<Link href={"/portfolio"} className={`${pathName.split('/').at(-1) === "portfolio" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+								<Link href={"/portfolio"} className={`${pathName.split('/').at(-1) === "portfolio" ? "text-[#004ABF] dark:text-[#0063FF]" : ""}`} prefetch={true}>
 									PROJECT
 								</Link>
-								<Link href={"/blog"} className={`${pathName.split('/').at(-1) === "blog" && "text-[#004ABF] dark:text-[#0063FF]"}`}>
+								<Link href={"/blog"} className={`${pathName.split('/').at(-1) === "blog" ? "text-[#004ABF] dark:text-[#0063FF]" : ""}`} prefetch={true}>
 									BLOG
 								</Link>
 							</div>

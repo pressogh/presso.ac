@@ -44,11 +44,9 @@ export const DELETE = auth(async function DELETE(request: Request, { params }: {
 
 	await client.deleteObject(deleteObjectRequest);
 
-	revalidatePath(`/blog`);
+	revalidatePath(`/blog`, 'page');
 
 	return NextResponse.json({
 		"status": 1
 	})
 });
-
-

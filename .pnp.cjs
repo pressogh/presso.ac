@@ -51,6 +51,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:14.2.4"],\
           ["next-auth", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:5.0.0-beta.19"],\
           ["next-mdx-remote", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:5.0.0"],\
+          ["next-themes", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:0.3.0"],\
           ["node-fetch", "virtual:bce711adff68a6cdf1561a45305ccbe56f7b2ce2f0cfd47cb36415e40898f689ab7e0e0a0b738617f4473953ed49e01b15d52d64826ea6cf70b1b898ac7b2fb6#npm:2.7.0"],\
           ["oci-common", "npm:2.89.0"],\
           ["oci-objectstorage", "npm:2.89.0"],\
@@ -11674,6 +11675,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["next-themes", [\
+      ["npm:0.3.0", {\
+        "packageLocation": "./.yarn/cache/next-themes-npm-0.3.0-624efd7b90-72bd670ad6.zip/node_modules/next-themes/",\
+        "packageDependencies": [\
+          ["next-themes", "npm:0.3.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:0.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/next-themes-virtual-e958553de9/0/cache/next-themes-npm-0.3.0-624efd7b90-72bd670ad6.zip/node_modules/next-themes/",\
+        "packageDependencies": [\
+          ["next-themes", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:0.3.0"],\
+          ["@types/react", "npm:18.3.2"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["next-tick", [\
       ["npm:1.1.0", {\
         "packageLocation": "./.yarn/cache/next-tick-npm-1.1.0-e0eb60d6a4-3ba80dd805.zip/node_modules/next-tick/",\
@@ -12458,6 +12485,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:14.2.4"],\
           ["next-auth", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:5.0.0-beta.19"],\
           ["next-mdx-remote", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:5.0.0"],\
+          ["next-themes", "virtual:ebe6582875121e157910ce41fe6c1fddbe3de466fc36866245d1f2555082f83554e4d37afdcd5823eeaf1609d7626d592a9a0f841b5acffaaf2a0b19854d0847#npm:0.3.0"],\
           ["node-fetch", "virtual:bce711adff68a6cdf1561a45305ccbe56f7b2ce2f0cfd47cb36415e40898f689ab7e0e0a0b738617f4473953ed49e01b15d52d64826ea6cf70b1b898ac7b2fb6#npm:2.7.0"],\
           ["oci-common", "npm:2.89.0"],\
           ["oci-objectstorage", "npm:2.89.0"],\

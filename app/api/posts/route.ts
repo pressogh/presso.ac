@@ -16,8 +16,8 @@ export const POST = auth(async function POST(request: Request) {
 		}
 	});
 
-	revalidatePath(`/blog`);
-	revalidatePath(`/blog/${encodeURIComponent(title)}`);
+	revalidatePath(`/blog`, 'page');
+	revalidatePath(`/blog/${encodeURIComponent(title)}`, 'page');
 
 	return NextResponse.json({
 		"url": response.url,
