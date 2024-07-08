@@ -50,5 +50,3 @@ export const DELETE = auth(async function DELETE(request: Request, { params }: {
 		"status": 1
 	})
 });
-
-

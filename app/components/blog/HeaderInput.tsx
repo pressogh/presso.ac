@@ -9,6 +9,7 @@ import * as short from "short-uuid";
 import { generateMDXWithFrontmatter } from "@/app/utils/mdx";
 
 import ArrowRightUp from "@/public/icons/ArrowRightUp";
+import {PATCH} from "@/app/api/posts/[post]/images/[image]/route";
 
 dayjs.locale("ko");
 
@@ -42,9 +43,23 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 	}, [title, date, description, markdown]);
 
 	const handleSubmitButtonClick = async () => {
+		if (title !== lastTitle) {
+			const lastImageUrls = markdown.match(/\/api\/posts\/[^\/]+\/images\/[^\/]+\.[a-zA-Z0-9]+(?=\))/g) || [];
+
+			await Promise.all(lastImageUrls.map(async (url) => {
+				await fetch(url, {
+					method: 'PATCH',
+					body: JSON.stringify({ "newTitle": title })
+				})
+
+				const newImageUrl = url.replace(encodeURIComponent(lastTitle), encodeURIComponent(title));
+				markdown = markdown.replace(url, newImageUrl);
+			}));
+		}
+
 		const imageUrls = markdown.match(/blob:(http|https):\/\/.*\/[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}/g) || [];
 
-		await Promise.all(imageUrls.map(async (url, index) => {
+		await Promise.all(imageUrls.map(async (url) => {
 			const image = await fetch(url).then((res) => res.blob());
 			const imageType = image.type.split('/')[1];
 
