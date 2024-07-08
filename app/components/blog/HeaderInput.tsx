@@ -96,7 +96,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 			})
 				.then(() => {
 					localStorage.removeItem('post');
-					router.push(`/blog/${encodeURIComponent(title)}`);
+					router.replace(`/blog/${encodeURIComponent(title)}`);
 				});
 		} else {
 			await fetch('/api/posts', {
@@ -105,7 +105,7 @@ const HeaderInput = ({ title, setTitle, date, setDate, description, setDescripti
 			})
 				.then(() => {
 					localStorage.removeItem('post');
-					router.push(`/blog/${encodeURIComponent(title)}`)
+					router.replace(`/blog/${encodeURIComponent(title)}`)
 				});
 		}
 	};
