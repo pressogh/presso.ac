@@ -15,7 +15,7 @@ const EditButton = ({ title }: Props) => {
 	}
 
 	return (
-		<div className={`font-extralight text-sm hover:cursor-pointer`} onClick={handleClick}>수정</div>
+		<div className={`font-extralight text-sm hover:cursor-pointer select-none`} onClick={handleClick}>수정</div>
 	);
 };
 

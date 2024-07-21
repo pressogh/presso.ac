@@ -16,7 +16,7 @@ const AddPost = () => {
 			onClick={() => router.push('/blog/editor')}
 		>
 			<Plus className={`size-5`} strokeWidth={1} />
-			<div className={`sm:hidden ml-2 font-extralight`}>새 글 작성하기</div>
+			<div className={`sm:hidden ml-2 font-extralight select-none`}>새 글 작성하기</div>
 		</div>
 	);
 };
